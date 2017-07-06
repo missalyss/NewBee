@@ -2,6 +2,9 @@
   "name": "newbee",
   "app_id": "",
   "type": "ionic1",
+  "gulpStartupTasks": [
+    "css", "watch"
+  ],
   "watchPatterns": [
     "scss/**/*"
   ]

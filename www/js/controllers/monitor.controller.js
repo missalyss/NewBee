@@ -1,4 +1,4 @@
-angular.module('app')
+angular.module('app.monitor', [])
 
 .controller('monitorCtrl', function($scope, Chats) {
   // With the new view caching in Ionic, Controllers are only called

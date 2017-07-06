@@ -1,0 +1,66 @@
+<ion-view view-title="New Inspection">
+  <ion-content class="padding">
+    <form class="list">
+
+      <label class="item item-input">
+        <span class="input-label">Date</span>
+        <input type="date">
+      </label>
+
+      <label class="item item-input item-select">
+        <div class="input-label">
+          Weather
+        </div>
+        <select>
+          <option value="">Very Hot</option>
+          <option value="">Sunny and Warm</option>
+          <option value="">Cloudy</option>
+          <option value="">Rainy</option>
+          <option value="">Very Cold</option>
+        </select>
+      </label>
+
+      <div class="item range transparent">
+
+        <span class="input-label">Egg Laying</span>
+
+        Spotty<input type="range" min="0" max="5" step="1" name="eggPattern" ng-model="newLog.eggPattern">Solid
+      </div>
+
+      <div class="item range transparent">
+        <span class="input-label">Temperment  </span>
+
+        <i class="icon ion-sad-outline"></i>
+        <input type="range" min="0" max="5" step="1" name="temperment" ng-model="newLog.temperment">
+        <i class="icon ion-happy-outline"></i>
+      </div>
+
+      <ul>
+      <li class="item item-toggle transparent">Queen Spotted
+        <label class="toggle toggle-calm">
+          <input ng-model="newLog.queen" type="checkbox" name="nightmare">
+          <div class="track">
+            <div class="handle"></div>
+          </div>
+        </label>
+      </li>
+
+      <li class="item item-toggle transparent">Capped Honey
+        <label class="toggle toggle-calm">
+          <input ng-model="newLog.honey" type="checkbox" name="recurring">
+          <div class="track">
+            <div class="handle"></div>
+          </div>
+        </label>
+      </li>
+    </ul>
+
+    <label class="item item-floating-label item-input transparent" name="body">
+    <textarea rows="6" placeholder="Any notes?" ng-model="newLog.notes"></textarea></label>
+
+      <br>
+      <button class="button button-calm" type="submit" ng-click="createLog(newLog)" name="button">Save</button>
+
+    </form>
+  </ion-content>
+</ion-view>

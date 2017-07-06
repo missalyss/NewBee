@@ -5,7 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('app', ['ionic', 'app.controllers', 'app.services'])
+angular.module('app', ['ionic', 'app.controllers', 'app.services', 'app.monitor', 'app.inspect', 'app.resources'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -45,7 +45,7 @@ angular.module('app', ['ionic', 'app.controllers', 'app.services'])
     views: {
       'tab-resources': {
         templateUrl: 'templates/tab-resources.html',
-        controller: 'DashCtrl'
+        controller: 'resourceCtrl'
       }
     }
   })
@@ -55,31 +55,31 @@ angular.module('app', ['ionic', 'app.controllers', 'app.services'])
       views: {
         'tab-monitor': {
           templateUrl: 'templates/tab-monitor.html',
-          controller: 'controllers/monitorCtrl'
-        }
-      }
-    })
-    .state('tab.chat-detail', {
-      url: '/chats/:chatId',
-      views: {
-        'tab-monitor': {
-          templateUrl: 'templates/chat-detail.html',
-          controller: 'ChatDetailCtrl'
+          controller: 'monitorCtrl'
         }
       }
     })
 
   .state('tab.inspect', {
-    url: '/inspect',
+    url: '/inspections',
     views: {
       'tab-inspect': {
         templateUrl: 'templates/tab-inspect.html',
-        controller: 'AccountCtrl'
+        controller: 'inspectCtrl'
       }
     }
-  });
+  })
 
+  .state('tab.inspection-new', {
+    url: '/inspections/new',
+    views: {
+      'tab-inspect': {
+        templateUrl: 'templates/inspection-new.html',
+        controller: 'inspectCtrl'
+      }
+    }
+  })
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/tab/resources');
+  $urlRouterProvider.otherwise('/tab/inspections');
 
 });
