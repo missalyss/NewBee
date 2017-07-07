@@ -1,7 +1,7 @@
 angular.module('app.inspect', [])
 
 .controller('inspectCtrl',['$scope', '$stateParams', '$http', '$state', function($scope, $stateParams, $http, $state) {
-  const apiUrl = 'https://internet-of-stings.herokuapp.com'
+  const apiUrl = 'https://internet-of-stings.herokuapp.com/inspections'
 
   $scope.inspectionsAll = []
   $scope.newLog = {}
@@ -9,13 +9,20 @@ angular.module('app.inspect', [])
   $scope.newLog.queen = false
   $scope.newLog.honey = false
 
+  $scope.$on('$ionicView.enter', function() {
+    $http.get(apiUrl).then(result => {
+      result.data.forEach(log => {
+        $scope.inspectionsAll.push(log)
+      })
+    })
+
+  })
 
   $scope.createLog = function (newLog) {
-    $http.post(`${apiUrl}/inspections`, newLog).then(result => {
+    $http.post(apiUrl, newLog).then(result => {
       console.log(result.data);
       $state.go('tab.inspect')
     })
   }
 
-  console.log($scope.inspectionsAll);
 }])
