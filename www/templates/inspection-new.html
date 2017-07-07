@@ -4,19 +4,36 @@
 
       <label class="item item-input">
         <span class="input-label">Date</span>
-        <input type="date">
+        <input ng-model="newLog.inspection_date" type="date" required>
       </label>
 
       <label class="item item-input item-select">
         <div class="input-label">
           Weather
+          <!-- I think I want to make this just a normal text input...  -->
         </div>
-        <select>
-          <option value="">Very Hot</option>
-          <option value="">Sunny and Warm</option>
-          <option value="">Cloudy</option>
-          <option value="">Rainy</option>
-          <option value="">Very Cold</option>
+        <select ng-model="newLog.weather">
+          <option selected disabled value="">Select Weather</option>
+          <option value="hot">Very Hot</option>
+          <option value="warm">Sunny and Warm</option>
+          <option value="cloudy">Cloudy</option>
+          <option value="rainy">Rainy</option>
+          <option value="cold">Very Cold</option>
+        </select>
+      </label>
+
+      <label class="item item-input item-select">
+        <div class="input-label">
+          Brood Age
+        </div>
+        <select ng-model="newLog.brood_age">
+          <option disabled selected value="">Select Age</option>
+          <option value="egg">Egg (tiny grain)</option>
+          <option value="young_larva">Young Larva (tiny worm)</option>
+          <option value="med_larva">Med Larva (larger worm)</option>
+          <option value="large_larva">Large Larva (worm fills cell)</option>
+          <option value="capped">Capped (by darker wax)</option>
+          <option value="n/a">Not Applicable</option>
         </select>
       </label>
 
@@ -24,7 +41,7 @@
 
         <span class="input-label">Egg Laying</span>
 
-        Spotty<input type="range" min="0" max="5" step="1" name="eggPattern" ng-model="newLog.eggPattern">Solid
+        Spotty<input type="range" min="0" max="5" step="1" name="egg_pattern" ng-model="newLog.egg_pattern">Solid
       </div>
 
       <div class="item range transparent">
@@ -55,8 +72,9 @@
       </li>
     </ul>
 
+
     <label class="item item-floating-label item-input transparent" name="body">
-    <textarea rows="6" placeholder="Any notes?" ng-model="newLog.notes"></textarea></label>
+    <textarea rows="6" placeholder="Here you can write notes pertinent to your hive. Can you explain why they were grumpy? Any odd behavior?" ng-model="newLog.notes"></textarea></label>
 
       <br>
       <button class="button button-calm" type="submit" ng-click="createLog(newLog)" name="button">Save</button>
