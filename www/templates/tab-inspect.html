@@ -7,7 +7,7 @@
     <ion-list>
       <div class="row row-center">
 
-          <ion-item ng-repeat="log in inspectionsAll" class="col col-25 honey_comb">
+          <ion-item ng-click="showLog(log)" ng-repeat="log in inspectionsAll" class="col col-25 honey_comb">
             <img style="height: 60px;" src="../img/hex_vert_empty_black_bor.png" alt="">
             <p>{{log.inspection_date}}</p>
           </ion-item>

@@ -1,13 +1,9 @@
 angular.module('app.inspect', [])
 
-.controller('inspectCtrl',['$scope', '$stateParams', '$http', '$state', function($scope, $stateParams, $http, $state) {
+.controller('inspectAllCtrl',['$scope', '$stateParams', '$http', '$state', function($scope, $stateParams, $http, $state) {
   const apiUrl = 'https://internet-of-stings.herokuapp.com/inspections'
 
   $scope.inspectionsAll = []
-  $scope.newLog = {}
-  $scope.newLog.inspection_date = new Date()
-  $scope.newLog.queen = false
-  $scope.newLog.honey = false
 
   $scope.$on('$ionicView.enter', function() {
     $http.get(apiUrl).then(result => {
@@ -18,6 +14,16 @@ angular.module('app.inspect', [])
 
   })
 
+}])
+
+.controller('inspectPostCtrl',['$scope', '$stateParams', '$http', '$state', function($scope, $stateParams, $http, $state) {
+  const apiUrl = 'https://internet-of-stings.herokuapp.com/inspections'
+
+  $scope.newLog = {}
+  $scope.newLog.inspection_date = new Date()
+  $scope.newLog.queen = false
+  $scope.newLog.honey = false
+
   $scope.createLog = function (newLog) {
     $http.post(apiUrl, newLog).then(result => {
       console.log(result.data);
@@ -25,4 +31,14 @@ angular.module('app.inspect', [])
     })
   }
 
+}])
+
+.controller('inspectShowCtrl',['$scope', '$stateParams', '$http', '$state', function($scope, $stateParams, $http, $state) {
+  const apiUrl = `https://internet-of-stings.herokuapp.com/inspections/${id}`
+
+  $scope.showLog = function (log) {
+    $http.get(`${apiUrl}/${id}`).then(result => {
+      console.log(result.data);
+    })
+  }
 }])

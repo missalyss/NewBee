@@ -65,7 +65,7 @@ angular.module('app', ['ionic', 'app.controllers', 'app.services', 'app.monitor'
     views: {
       'tab-inspect': {
         templateUrl: 'templates/tab-inspect.html',
-        controller: 'inspectCtrl'
+        controller: 'inspectAllCtrl'
       }
     }
   })
@@ -75,7 +75,17 @@ angular.module('app', ['ionic', 'app.controllers', 'app.services', 'app.monitor'
     views: {
       'tab-inspect': {
         templateUrl: 'templates/inspection-new.html',
-        controller: 'inspectCtrl'
+        controller: 'inspectPostCtrl'
+      }
+    }
+  })
+
+  .state('tab.inspection-show', {
+    url: '/inspections/show',
+    views: {
+      'tab-inspect': {
+        templateUrl: 'templates/inspection-show.html',
+        controller: 'inspectShowCtrl'
       }
     }
   })
