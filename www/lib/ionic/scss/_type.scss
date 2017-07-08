@@ -10,6 +10,7 @@
 
 p {
   margin: 0 0 ($line-height-computed / 2);
+  font-family: $font-family-base;
 }
 
 
@@ -33,7 +34,7 @@ cite    { font-style: normal; }
 
 h1, h2, h3, h4, h5, h6,
 .h1, .h2, .h3, .h4, .h5, .h6 {
-  color: $base-color;
+  color: $positive;
   font-weight: $headings-font-weight;
   font-family: $headings-font-family;
   line-height: $headings-line-height;

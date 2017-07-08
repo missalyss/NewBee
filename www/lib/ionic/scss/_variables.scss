@@ -4,25 +4,26 @@
 
 $light:                           #fff !default;
 $stable:                          #f8f8f8 !default;
-$positive:                        #387ef5 !default;
-$calm:                            #11c1f3 !default;
-$balanced:                        #33cd5f !default;
-$energized:                       #ffc900 !default;
-$assertive:                       #ef473a !default;
-$royal:                           #886aea !default;
+$positive:                        #1c5c96 !default;
+$calm:                            #1d72dc !default;
+$energized:                       #bfa634 !default;
+$assertive:                       #711217 !default;
+$royal:                           #cf0c49 !default;
+$balanced:                        #1b5c29 !default;
 $dark:                            #444 !default;
 
-
+// font-family: 'Amatic SC', cursive;
+// font-family: 'Bellefair', serif;
 // Base
 // -------------------------------
 
-$font-family-sans-serif:           '-apple-system', "Helvetica Neue", "Roboto", "Segoe UI", sans-serif !default;
+$font-family-sans-serif:            '-apple-system', "Helvetica Neue", "Roboto", "Segoe UI", sans-serif !default;
 
 $font-family-light-sans-serif:    '-apple-system', "HelveticaNeue-Light", "Roboto-Light", "Segoe UI-Light", sans-serif-light !default;
-$font-family-serif:               serif !default;
+$font-family-serif:               'Bellefair', "Centaur", "Century Schoolbook", "Times New Roman", serif !default;
 $font-family-monospace:           monospace !default;
 
-$font-family-base:                $font-family-sans-serif !default;
+$font-family-base:                $font-family-serif !default;
 $font-size-base:                  14px !default;
 $font-size-large:                 18px !default;
 $font-size-small:                 11px !default;
@@ -32,11 +33,12 @@ $line-height-computed:            floor($font-size-base * $line-height-base) !de
 $line-height-large:               1.33 !default;
 $line-height-small:               1.5 !default;
 
-$headings-font-family:            $font-family-base !default;
+$headings-font-family:            'Amatica SC', '-apple-system', "Helvetica Neue", "Roboto", "Segoe UI", sans-serif !default;
+
 $headings-font-weight:            500 !default;
 $headings-line-height:            1.2 !default;
 
-$base-background-color:           #fff !default;
+$base-background-color:           #fffc8d !default;
 $base-color:                      #000 !default;
 
 $link-color:                      $positive !default;
