@@ -11,8 +11,11 @@ angular.module('app.inspect', [])
         $scope.inspectionsAll.push(log)
       })
     })
-
   })
+
+  $scope.showLog = function (log) {
+        $state.go('tab.inspection-show', {id: log.id})
+      }
 
 }])
 
@@ -26,7 +29,6 @@ angular.module('app.inspect', [])
 
   $scope.createLog = function (newLog) {
     $http.post(apiUrl, newLog).then(result => {
-      console.log(result.data);
       $state.go('tab.inspect')
     })
   }
@@ -34,11 +36,18 @@ angular.module('app.inspect', [])
 }])
 
 .controller('inspectShowCtrl',['$scope', '$stateParams', '$http', '$state', function($scope, $stateParams, $http, $state) {
-  const apiUrl = `https://internet-of-stings.herokuapp.com/inspections/${id}`
 
-  $scope.showLog = function (log) {
+  $scope.thisLog = []
+
+  $scope.$on('$ionicView.enter', function () {
+    const apiUrl = `https://internet-of-stings.herokuapp.com/inspections`
+    const id = $stateParams.id
+
     $http.get(`${apiUrl}/${id}`).then(result => {
-      console.log(result.data);
+      result.data.forEach(log => {
+        $scope.thisLog.push(log)
+      })
     })
-  }
+    
+  })
 }])

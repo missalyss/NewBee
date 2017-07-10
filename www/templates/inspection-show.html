@@ -1,4 +1,15 @@
-<ion-view view-title="">
+<ion-view view-title="this log">
   <ion-content class="padding">
+    <ion-item ng-repeat="log in thisLog">
+      <p>Date of inspection{{log.inspection_date | date:'shortDate'}}</p>
+      <p>Notes: {{log.notes}}</p>
+      <p>Capped Honey? {{log.honey}}</p>
+      <p>Egg-laying Pattern 0-5, Spotty-Solid: {{log.egg-pattern}}</p>
+      <p>Hive Temperment 0-5, Aggressive to Calm: {{log.temperment}}</p>
+      <p>Queen Spotted? {{log.queen}}</p>
+      <p>Brood Age: {{log.brood-age}}</p>
+      <p>Weather: {{log.weather}}</p>
+
+    </ion-item>
   </ion-content>
 </ion-view>

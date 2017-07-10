@@ -81,7 +81,7 @@ angular.module('app', ['ionic', 'app.controllers', 'app.services', 'app.monitor'
   })
 
   .state('tab.inspection-show', {
-    url: '/inspections/show',
+    url: '/inspections/show/{id}',
     views: {
       'tab-inspect': {
         templateUrl: 'templates/inspection-show.html',
