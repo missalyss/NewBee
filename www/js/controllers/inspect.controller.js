@@ -34,10 +34,16 @@ angular.module('app.inspect', [])
 
 .controller('inspectShowCtrl',['$scope', '$stateParams', '$http', '$state', 'inspectionService', function($scope, $stateParams, $http, $state, inspectionService) {
   const apiUrl = 'https://internet-of-stings.herokuapp.com/inspections'
+  const id = $stateParams.id
 
   $scope.$on('$ionicView.enter', function () {
-    inspectionService.thisLog().then(result => {
-      $scope.thisLog = result.data[0]
+
+    $scope.thisLog = []
+    inspectionService.all().then(result => {
+      $scope.thisLog = result.data.filter(log => {
+        return log.id == id
+      })
+      $scope.thisLog = $scope.thisLog[0]
     })
   })
 
@@ -56,19 +62,24 @@ angular.module('app.inspect', [])
 
   const apiUrl = `https://internet-of-stings.herokuapp.com/inspections`
   const id = $stateParams.id
-  $scope.updateLog = {}
 
   $scope.$on('$ionicView.enter', function () {
-    inspectionService.thisLog().then(result => {
-        $scope.updateLog = result.data[0]
-        $scope.updateLog.inspection_date = new Date($scope.updateLog.inspection_date)
+    $scope.updateLog = []
+    inspectionService.all().then(result => {
+      $scope.updateLog = result.data.filter(log => {
+        return log.id == id
+      })
+      $scope.updateLog = $scope.updateLog[0];
+      $scope.updateLog.inspection_date = new Date($scope.updateLog.inspection_date)
+      console.log($scope.updateLog);
     })
   })
 
   $scope.editLog = function (updatedLog) {
     $http.put(`${apiUrl}/${id}`, updatedLog).then(result => {
-      $state.go('tab.inspection-show')
+      $state.go('tab.inspection-show', {id})
     })
   }
+
 
 }])
