@@ -1,11 +1,12 @@
-<ion-view>
-  <ion-nav-buttons side="right">
-    <button class="button button-icon button-clear icon ion-ios-plus-empty" ui-sref="tab.inspection-new()">
-    </button>
-  </ion-nav-buttons>
+<ion-view title="">
   <ion-content class="padding">
     <ion-list>
-      <h1>Inspection Log</h1>
+      <div class="row">
+        <h1 class="col" >Inspection Log</h1>
+        <button style="height: 85%;" class="button button-positive ion-ios-plus-empty col col-10" ui-sref="tab.inspection-new()">
+        </button>
+      </div>
+
       <div class="row row-center honey_comb">
           <br>
           <ion-item ng-click="showLog(log)" ng-repeat="log in inspectionIndex | orderBy: '-inspection_date'" class="col col-33">
