@@ -1,15 +1,16 @@
-<ion-view view-title="Inspections">
+<ion-view>
   <ion-nav-buttons side="right">
     <button class="button button-icon button-clear icon ion-ios-plus-empty" ui-sref="tab.inspection-new()">
     </button>
   </ion-nav-buttons>
   <ion-content class="padding">
     <ion-list>
-      <div class="row row-center">
-
-          <ion-item ng-click="showLog(log)" ng-repeat="log in inspectionsAll" class="col col-25 honey_comb">
-            <img style="height: 60px;" src="../img/hex_vert_empty_black_bor.png" alt="">
-            <p>{{log.inspection_date}}</p>
+      <h1>Inspection Log</h1>
+      <div class="row row-center honey_comb">
+          <br>
+          <ion-item ng-click="showLog(log)" ng-repeat="log in inspectionsAll | orderBy: '-inspection_date'" class="col col-33">
+            <img class="cell" src="../img/hex-vert-empty.png" alt="">
+            <p class="cell-text">{{log.inspection_date | date:'MMM dd'}}</p>
           </ion-item>
       </div>
     </ion-list>

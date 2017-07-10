@@ -13,6 +13,18 @@ $energized:                       #ffc900 !default;
 $assertive:                       #ef473a !default;
 $royal:                           #886aea !default;
 $dark:                            #444 !default;
+
+$light:                           #fffffd !default;
+$stable:                          #fffffA !default;
+$positive:                        #1c5c96 !default;
+$calm:                            #1d72dc !default;
+$energized:                       #bfa634 !default;
+$assertive:                       #711217 !default;
+$royal:                           #4D0E52 !default;
+$balanced:                        #1b5c29 !default;
+$dark:                            #262626 !default;
+$bees:                            #fffc8d !default
+
 */
 
 // The path for our ionicons font files, relative to the built CSS in www/css
@@ -21,8 +33,24 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 // Include all of Ionic
 @import "www/lib/ionic/scss/ionic";
 
-// .honey_comb {
-//   img {
-//     height: 60px;
-//   }
-// }
+.honey_comb {
+  -webkit-flex-wrap: wrap;
+  flex-wrap: wrap;
+  .col {
+    background-color: $bees;
+    border: 0px;
+    // position:relative;
+  }
+  .cell {
+    height: 95px;
+    // color: $calm;
+
+  }
+  .cell-text {
+    left: 0;
+    position:absolute;
+    text-align:center;
+    top: 45px;
+    width: 90%
+  }
+}
