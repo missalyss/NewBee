@@ -38,10 +38,10 @@ angular.module('app.inspect', [])
 .controller('inspectShowCtrl',['$scope', '$stateParams', '$http', '$state', function($scope, $stateParams, $http, $state) {
 
   $scope.thisLog = []
+  const apiUrl = `https://internet-of-stings.herokuapp.com/inspections`
+  const id = $stateParams.id
 
   $scope.$on('$ionicView.enter', function () {
-    const apiUrl = `https://internet-of-stings.herokuapp.com/inspections`
-    const id = $stateParams.id
 
     $http.get(`${apiUrl}/${id}`).then(result => {
       result.data.forEach(log => {
@@ -53,6 +53,12 @@ angular.module('app.inspect', [])
 
   $scope.editLog = function (log) {
     $state.go('tab.inspection-edit', {id: log.id})
+  }
+
+  $scope.deleteLog = function (log) {
+    $http.delete(`${apiUrl}/${id}`).then(result => {
+      $state.go('tab.inspect')
+    })
   }
 }])
 

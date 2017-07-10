@@ -10,7 +10,9 @@
       <p>Brood Age: {{log.brood-age}}</p>
       <p>Weather: {{log.weather}}</p>
 
-      <button ng-click="editLog(log)" type="button" name="button">Edit</button>
+      <hr>
+      <button ng-click="editLog(log)" type="button" class="button button-calm" name="button">Edit</button>
+      <button class="button button-calm" type="submit" ng-click="deleteLog(log)" name="button">Delete</button>
     </ion-item>
   </ion-content>
 </ion-view>
