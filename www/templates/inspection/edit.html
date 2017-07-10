@@ -1,0 +1,80 @@
+<ion-view view-title="Edit This Inspection">
+  <ion-content ng-repeat="log in updateLog" class="padding">
+    <form class="list">
+
+      <label class="item item-input">
+        <span class="input-label">Date</span>
+        <input ng-model="updateLog.inspection_date" type="date" required>
+      </label>
+
+      <label class="item item-input item-select">
+        <div class="input-label">
+          Weather
+        </div>
+        <select ng-model="updateLog.weather">
+          <option disabled value="">Select Weather</option>
+          <option value="hot">Very Hot</option>
+          <option value="warm">Sunny and Warm</option>
+          <option value="cloudy">Cloudy</option>
+          <option value="rainy">Rainy</option>
+          <option value="cold">Very Cold</option>
+        </select>
+      </label>
+
+      <label class="item item-input item-select">
+        <div class="input-label">
+          Brood Age
+        </div>
+        <select ng-model="updateLog.brood_age">
+          <option disabled selected value="">Select Age</option>
+          <option value="egg">Egg (tiny grain)</option>
+          <option value="young_larva">Young Larva (tiny worm)</option>
+          <option value="med_larva">Med Larva (larger worm)</option>
+          <option value="large_larva">Large Larva (worm fills cell)</option>
+          <option value="capped">Capped (by darker wax)</option>
+          <option value="n/a">Not Applicable</option>
+        </select>
+      </label>
+
+      <div class="item range transparent">
+        <span class="input-label">Egg Laying</span>
+        Spotty<input type="range" min="0" max="5" step="1" name="egg_pattern" ng-model="updateLog.egg_pattern">Solid
+      </div>
+
+      <div class="item range transparent">
+        <span class="input-label">Temperment</span>
+        <i class="icon ion-sad-outline"></i>
+        <input type="range" min="0" max="5" step="1" name="temperment" ng-model="updateLog.temperment">
+        <i class="icon ion-happy-outline"></i>
+      </div>
+
+      <ul>
+      <li class="item item-toggle transparent">Queen Spotted
+        <label class="toggle toggle-calm">
+          <input ng-model="updateLog.queen" type="checkbox" name="nightmare">
+          <div class="track">
+            <div class="handle"></div>
+          </div>
+        </label>
+      </li>
+
+      <li class="item item-toggle transparent">Capped Honey
+        <label class="toggle toggle-calm">
+          <input ng-model="updateLog.honey" type="checkbox" name="recurring">
+          <div class="track">
+            <div class="handle"></div>
+          </div>
+        </label>
+      </li>
+    </ul>
+
+
+    <label class="item item-floating-label item-input transparent" name="body">
+    <textarea rows="6" ng-model="updateLog.notes"></textarea></label>
+
+      <br>
+      <button class="button button-calm" type="submit" ng-click="editLog(updateLog)" name="button">Save</button>
+
+    </form>
+  </ion-content>
+</ion-view>

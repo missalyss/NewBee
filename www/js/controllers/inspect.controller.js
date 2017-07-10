@@ -48,6 +48,33 @@ angular.module('app.inspect', [])
         $scope.thisLog.push(log)
       })
     })
-    
+
   })
+
+  $scope.editLog = function (log) {
+    $state.go('tab.inspection-edit', {id: log.id})
+  }
+}])
+
+.controller('inspectEditCtrl', ['$scope', '$stateParams', '$http', '$state', function($scope, $stateParams, $http, $state) {
+
+  const apiUrl = `https://internet-of-stings.herokuapp.com/inspections`
+  const id = $stateParams.id
+  $scope.updateLog = {}
+
+  $scope.$on('$ionicView.enter', function () {
+
+    $http.get(`${apiUrl}/${id}`).then(result => {
+        $scope.updateLog = result.data[0]
+        $scope.updateLog.inspection_date = new Date($scope.updateLog.inspection_date)
+    })
+  })
+
+  $scope.editLog = function (updatedLog) {
+    $http.put(`${apiUrl}/${id}`, updatedLog).then(result => {
+      console.log(updatedLog);
+      $state.go('tab.inspect')
+    })
+  }
+
 }])

@@ -64,7 +64,7 @@ angular.module('app', ['ionic', 'app.controllers', 'app.services', 'app.monitor'
     url: '/inspections',
     views: {
       'tab-inspect': {
-        templateUrl: 'templates/tab-inspect.html',
+        templateUrl: 'templates/inspection/tab-inspect.html',
         controller: 'inspectAllCtrl'
       }
     }
@@ -74,7 +74,7 @@ angular.module('app', ['ionic', 'app.controllers', 'app.services', 'app.monitor'
     url: '/inspections/new',
     views: {
       'tab-inspect': {
-        templateUrl: 'templates/inspection-new.html',
+        templateUrl: 'templates/inspection/new.html',
         controller: 'inspectPostCtrl'
       }
     }
@@ -84,8 +84,18 @@ angular.module('app', ['ionic', 'app.controllers', 'app.services', 'app.monitor'
     url: '/inspections/show/{id}',
     views: {
       'tab-inspect': {
-        templateUrl: 'templates/inspection-show.html',
+        templateUrl: 'templates/inspection/show.html',
         controller: 'inspectShowCtrl'
+      }
+    }
+  })
+
+  .state('tab.inspection-edit', {
+    url: '/inspections/edit/{id}',
+    views: {
+      'tab-inspect': {
+        templateUrl: 'templates/inspection/edit.html',
+        controller: 'inspectEditCtrl'
       }
     }
   })
