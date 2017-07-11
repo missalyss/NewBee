@@ -1,9 +1,20 @@
 angular.module('app.auth', [])
 
-.controller('loginCtrl', function($scope) {
+.controller('loginCtrl', function($scope, authService) {
 
+  $scope.login = function (user) {
+    authService.login(user).then(result => {
+      console.log(result)
+    })
+
+  }
 })
 
-.controller('signupCtrl', function($scope, $stateParams) {
-
+.controller('signupCtrl', function($scope, authService) {
+  $scope.signup = function (user) {
+    console.log('user ', user);
+    authService.signup(user).then(result => {
+      console.log(result)
+    })
+  }
 })
