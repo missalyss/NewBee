@@ -3,9 +3,7 @@
 // angular.module is a global place for creating, registering and retrieving Angular modules
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
-// 'starter.services' is found in services.js
-// 'starter.controllers' is found in controllers.js
-angular.module('app', ['ionic', 'app.controllers', 'app.services', 'app.monitor', 'app.inspect', 'app.resources', 'app.service-inspect'])
+angular.module('app', ['ionic', 'app.controllers', 'app.services', 'app.monitor', 'app.inspect', 'app.resources'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -36,6 +34,11 @@ angular.module('app', ['ionic', 'app.controllers', 'app.services', 'app.monitor'
     url: '/tab',
     abstract: true,
     templateUrl: 'templates/tabs.html'
+  })
+
+  .state('tab.home', {
+    url: '/tab/home',
+    templateUrl: 'templates/home.html'
   })
 
   // Each tab has its own nav history stack:
@@ -100,6 +103,6 @@ angular.module('app', ['ionic', 'app.controllers', 'app.services', 'app.monitor'
     }
   })
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/tab/inspections');
+  $urlRouterProvider.otherwise('/tab/home');
 
 });

@@ -21,9 +21,7 @@
 
     <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above -->
     <link href="css/ionic.app.css" rel="stylesheet">
-
     <link href="https://fonts.googleapis.com/css?family=Amatica+SC:700|Bellefair" rel="stylesheet">
-
 
     <!-- ionic/angularjs js -->
     <script src="lib/ionic/js/ionic.bundle.js"></script>
@@ -31,14 +29,14 @@
     <!-- cordova script (this will be a 404 during development) -->
     <script src="cordova.js"></script>
 
-    <!-- your app's js -->
     <script src="js/app.js"></script>
     <script src="js/controllers.js"></script>
-    <script src="js/services.js"></script>
+    <!-- <script src="js/services.js"></script> -->
     <script src="js/controllers/inspect.controller.js"></script>
     <script src="js/controllers/monitor.controller.js"></script>
     <script src="js/controllers/resources.controller.js"></script>
-    <script src="js/services/inspect.service.js"></script>
+    <script src="js/controllers/home.controller.js"></script>
+    <script src="js/services/services.js"></script>
 
 
   </head>
@@ -49,6 +47,10 @@
     <ion-nav-bar class="bar-stable">
       <ion-nav-back-button>
       </ion-nav-back-button>
+      <ion-nav-buttons side="right">
+        <button class="button button-icon button-clear icon ion-ios-home" ui-sref="/home">
+        </button>
+      </ion-nav-buttons>
     </ion-nav-bar>
     <!--
       The views will be rendered in the <ion-nav-view> directive below
