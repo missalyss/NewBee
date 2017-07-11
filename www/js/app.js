@@ -3,7 +3,7 @@
 // angular.module is a global place for creating, registering and retrieving Angular modules
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
-angular.module('app', ['ionic', 'app.controllers', 'app.services', 'app.monitor', 'app.inspect', 'app.resources'])
+angular.module('app', ['ionic', 'app.dash', 'app.services', 'app.monitor', 'app.inspect', 'app.resources'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -36,9 +36,14 @@ angular.module('app', ['ionic', 'app.controllers', 'app.services', 'app.monitor'
     templateUrl: 'templates/tabs.html'
   })
 
-  .state('tab.home', {
-    url: '/tab/home',
-    templateUrl: 'templates/home.html'
+  .state('tab.dash', {
+    url: '/dash',
+    views: {
+      'tab-dash': {
+        templateUrl: 'templates/tab-dash.html',
+        controller: 'dashCtrl'
+      }
+    }
   })
 
   // Each tab has its own nav history stack:
