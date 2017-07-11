@@ -1,8 +1,7 @@
 angular.module('app.auth-services', [])
 
 .factory('authService', function($http) {
-  // const apiUrl = 'https://internet-of-stings.herokuapp.com/users'
-  const apiUrl = 'http://localhost:3111/users'
+  const apiUrl = 'https://internet-of-stings.herokuapp.com/users'
   var LOCAL_TOKEN_KEY = 'yourTokenKey'
   var isAuthenticated = false
   var authToken

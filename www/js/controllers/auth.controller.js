@@ -3,6 +3,7 @@ angular.module('app.auth', [])
 .controller('loginCtrl', function($scope, authService) {
 
   $scope.login = function (user) {
+    console.log(user);
     authService.login(user).then(result => {
       console.log(result)
     })
