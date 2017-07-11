@@ -1,11 +1,9 @@
-<ion-view>
+<ion-view title="Dashboard">
   <ion-content class="padding">
 
     <ion-list>
       <div class="row">
-        <h1 class="col" >Dashboard</h1>
-        <!-- <button style="height: 85%;" class="button button-positive ion-ios-plus-empty col col-10" ui-sref="tab.inspection-new()"> -->
-        </button>
+        <h1 class="col" >User</h1>
       </div>
 
       <div class="row row-center honey_comb">
@@ -13,15 +11,41 @@
             <img class="cell" src="../img/hex-vert-empty.png" alt="">
             <p class="cell-text">User Settings</p>
           </ion-item>
-
-          <ion-item ng-click="showLog(log)" ng-repeat="log in recentInspections | orderBy: '-inspection_date' | limitTo: 2 as results" class="col col-33">
-            <img class="cell" src="../img/hex-vert-empty.png" alt="">
-            <!-- <p class="cell-text">Recent Log:</p> -->
-            <p class="cell-text">Log {{log.inspection_date | date:'MMM dd'}}</p>
-          </ion-item>
-
       </div>
     </ion-list>
+
+    <ion-list>
+      <div class="row">
+        <h1 class="col" >Inspections</h1>
+        <button style="height: 85%;" class="button button-positive ion-ios-plus-empty col col-10" ui-sref="tab.inspection-new()">
+        </button>
+      </div>
+      <div class="row row-center honey_comb">
+        <ion-item ng-click="showLog(log)" ng-repeat="log in recentInspections | orderBy: '-inspection_date' | limitTo: 2 as results" class="col col-33">
+          <img class="cell" src="../img/hex-vert-empty.png" alt="">
+          <!-- <p class="cell-text">Recent Log:</p> -->
+          <p class="cell-text">Log {{log.inspection_date | date:'MMM dd'}}</p>
+        </ion-item>
+      </div>
+    </ion-list>
+
+    <ion-list>
+      <div class="row">
+        <h1 class="col" >Monitor</h1>
+      </div>
+      <div class="row honey_comb">
+        <ion-item ng-click="#" class="col col-33">
+          <img class="cell" src="../img/hex-vert-empty.png" alt="">
+          <p class="cell-text">temp in F</p>
+        </ion-item>
+        <ion-item ng-click="#" class="col col-33">
+          <img class="cell" src="../img/hex-vert-empty.png" alt="">
+          <p class="cell-text">hum in %</p>
+        </ion-item>
+      </div>
+    </ion-list>
+
+
 
   </ion-content>
 </ion-view>
