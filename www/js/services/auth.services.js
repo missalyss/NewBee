@@ -2,19 +2,19 @@ angular.module('app.auth-services', [])
 
 .factory('authService', function($http) {
   const apiUrl = 'https://internet-of-stings.herokuapp.com/users'
-  var LOCAL_TOKEN_KEY = 'yourTokenKey'
+  const tokenKey = 'Bee-RR-Tolken'
   var isAuthenticated = false
   var authToken
 
   function loadUserCredentials() {
-    var token = window.localStorage.getItem(LOCAL_TOKEN_KEY)
+    let token = window.localStorage.getItem(tokenKey)
     if (token) {
       useCredentials(token)
     }
   }
 
   function storeUserCredentials(token) {
-    window.localStorage.setItem(LOCAL_TOKEN_KEY, token)
+    window.localStorage.setItem(tokenKey, token)
     useCredentials(token)
   }
 
@@ -28,30 +28,15 @@ angular.module('app.auth-services', [])
     authToken = undefined
     isAuthenticated = false
     $http.defaults.headers.common.Authorization = undefined
-    window.localStorage.removeItem(LOCAL_TOKEN_KEY)
+    window.localStorage.removeItem(tokenKey)
   }
 
   var signup = function(user) {
     return  $http.post(`${apiUrl}/signup`, user)
-      // .then(function(result) {
-      //   if (result.data.success) {
-      //     resolve(result.data.msg)
-      //   } else {
-      //     reject(result.data.msg)
-      //   }
-      // })
   }
 
   var login = function(user) {
       return $http.post(`${apiUrl}/login`, user)
-      // .then(function(result) {
-      //   if (result.data.success) {
-      //     storeUserCredentials(result.data.token)
-      //     resolve(result.data.msg)
-      //   } else {
-      //     reject(result.data.msg)
-      //   }
-      // })
   }
 
   loadUserCredentials()
@@ -60,6 +45,7 @@ angular.module('app.auth-services', [])
     login: login,
     signup: signup,
     logout: logout,
+    store: storeUserCredentials,
     isAuthenticated: function() {return isAuthenticated},
   }
 })

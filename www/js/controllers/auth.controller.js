@@ -1,13 +1,13 @@
 angular.module('app.auth', [])
 
-.controller('loginCtrl', function($scope, authService) {
+.controller('loginCtrl', function($scope, authService, $state) {
 
   $scope.login = function (user) {
-    console.log(user);
-    authService.login(user).then(result => {
-      console.log(result)
+    authService.login(user)
+    .then(result => {
+      authService.store(result.data.token)
+      $state.go('tab.dash')
     })
-
   }
 })
 
