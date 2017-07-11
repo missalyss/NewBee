@@ -1,6 +1,6 @@
 angular.module('app.inspect', [])
 
-.controller('inspectAllCtrl',['$scope', '$stateParams', '$http', '$state', 'inspectionService', function($scope, $stateParams, $http, $state, inspectionService) {
+.controller('inspectAllCtrl', function($scope, $stateParams, $http, $state, inspectionService) {
 
   $scope.$on('$ionicView.enter', function() {
     $scope.inspectionIndex = []
@@ -14,9 +14,9 @@ angular.module('app.inspect', [])
         $state.go('tab.inspection-show', {id: log.id})
       }
 
-}])
+})
 
-.controller('inspectPostCtrl',['$scope', '$stateParams', '$http', '$state', function($scope, $stateParams, $http, $state) {
+.controller('inspectPostCtrl', function($scope, $stateParams, $http, $state) {
   const apiUrl = 'https://internet-of-stings.herokuapp.com/inspections'
 
   $scope.newLog = {}
@@ -30,9 +30,9 @@ angular.module('app.inspect', [])
     })
   }
 
-}])
+})
 
-.controller('inspectShowCtrl',['$scope', '$stateParams', '$http', '$state', 'inspectionService', function($scope, $stateParams, $http, $state, inspectionService) {
+.controller('inspectShowCtrl', function($scope, $stateParams, $http, $state, inspectionService) {
   const apiUrl = 'https://internet-of-stings.herokuapp.com/inspections'
   const id = $stateParams.id
 
@@ -56,9 +56,9 @@ angular.module('app.inspect', [])
       $state.go('tab.inspect')
     })
   }
-}])
+})
 
-.controller('inspectEditCtrl', ['$scope', '$stateParams', '$http', '$state', 'inspectionService', function($scope, $stateParams, $http, $state, inspectionService) {
+.controller('inspectEditCtrl', function($scope, $stateParams, $http, $state, inspectionService) {
 
   const apiUrl = `https://internet-of-stings.herokuapp.com/inspections`
   const id = $stateParams.id
@@ -81,5 +81,4 @@ angular.module('app.inspect', [])
     })
   }
 
-
-}])
+})

@@ -17,14 +17,17 @@
     <ion-list>
       <div class="row">
         <h1 class="col" >Inspections</h1>
-        <button style="height: 85%;" class="button button-positive ion-ios-plus-empty col col-10" ui-sref="tab.inspection-new()">
-        </button>
       </div>
       <div class="row row-center honey_comb">
         <ion-item ng-click="showLog(log)" ng-repeat="log in recentInspections | orderBy: '-inspection_date' | limitTo: 2 as results" class="col col-33">
           <img class="cell" src="../img/hex-vert-empty.png" alt="">
-          <!-- <p class="cell-text">Recent Log:</p> -->
           <p class="cell-text">Log {{log.inspection_date | date:'MMM dd'}}</p>
+        </ion-item>
+        <ion-item class="col col-33">
+          <img class="cell" src="../img/hex-vert-empty.png" alt="">
+
+          <button class="button-positive ion-ios-plus-empty cell-text" ui-sref="tab.inspection-new()">
+          </button>
         </ion-item>
       </div>
     </ion-list>
