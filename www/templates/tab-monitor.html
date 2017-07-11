@@ -1,16 +1,45 @@
 <ion-view view-title="Monitor">
   <ion-content>
     <ion-list>
-      <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="chat in chats" type="item-text-wrap" href="#/tab/chats/{{chat.id}}">
-        <img ng-src="{{chat.face}}">
-        <h2>{{chat.name}}</h2>
-        <p>{{chat.lastText}}</p>
-        <i class="icon ion-chevron-right icon-accessory"></i>
+      <div class="row">
+        <h1 class="col">Sensor Data</h1>
+      </div>
+      <div class="row row-center honey_comb">
+          <ion-item class="col col-33">
+            <img class="cell" src="../img/hex-vert-empty.png" alt="">
+            <p class="cell-text">Temperature</p>
+          </ion-item>
 
-        <ion-option-button class="button-assertive" ng-click="remove(chat)">
-          Delete
-        </ion-option-button>
-      </ion-item>
-    </ion-list>
+          <ion-item class="col col-33">
+            <img class="cell" src="../img/hex-vert-empty.png" alt="">
+            <p class="cell-text">Humidity</p>
+          </ion-item>
+
+          <ion-item class="col col-33">
+            <img class="cell" src="../img/hex-vert-empty.png" alt="">
+            <p class="cell-text">Acoustics</p>
+          </ion-item>
+
+          <ion-item class="col col-33">
+            <img class="cell" src="../img/hex-vert-empty.png" alt="">
+            <p class="cell-text">Weight</p>
+          </ion-item>
+
+          <ion-item class="col col-33">
+            <img class="cell" src="../img/hex-vert-empty.png" alt="">
+            <p class="cell-text">Brood Temp</p>
+          </ion-item>
+
+          <ion-item class="col col-33">
+            <img class="cell" src="../img/hex-vert-empty.png" alt="">
+            <p class="cell-text">Infrared</p>
+          </ion-item>
+
+          <ion-item class="col col-33">
+            <img class="cell" src="../img/hex-vert-empty.png" alt="">
+            <p class="cell-text">Bee Counter</p>
+          </ion-item>
+
+      </div>
   </ion-content>
 </ion-view>
