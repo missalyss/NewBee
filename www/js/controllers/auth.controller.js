@@ -11,11 +11,12 @@ angular.module('app.auth', [])
   }
 })
 
-.controller('signupCtrl', function($scope, authService) {
+.controller('signupCtrl', function($scope, authService, $state) {
   $scope.signup = function (user) {
-    console.log('user ', user);
-    authService.signup(user).then(result => {
-      console.log(result)
+    authService.signup(user)
+    .then(result => {
+      authService.store(result.data.token)
+      $state.go('tab.dash')
     })
   }
 })

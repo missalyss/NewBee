@@ -52,6 +52,16 @@ angular.module('app', ['ionic', 'app.auth', 'app.dash', 'app.auth-services', 'ap
     }
   })
 
+  .state('tab.dash-user', {
+    url: '/user',
+    views: {
+      'tab-dash': {
+        templateUrl: 'templates/auth/user-home.html',
+        controller: 'userCtrl'
+      }
+    }
+  })
+
   .state('tab.resources', {
     url: '/resources',
     views: {
