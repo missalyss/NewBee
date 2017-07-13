@@ -1,19 +1,17 @@
 angular.module('app.services', [])
 
-.factory('inspectionService', function ($http) {
-  const apiUrl = 'https://internet-of-stings.herokuapp.com/inspections'
+.factory('inspectionService', function ($http, API_ENDPOINT) {
   return {
     all: function() {
-      return $http.get(apiUrl)
+      return $http.get(`${API_ENDPOINT.url}/inspections`)
     }
   }
 })
 
-.factory('monitorService', function ($http) {
-  const apiUrl = 'https://internet-of-stings.herokuapp.com/humiture'
+.factory('monitorService', function ($http, API_ENDPOINT) {
   return {
     all: function() {
-      return $http.get(apiUrl)
+      return $http.get(`${API_ENDPOINT.url}/humiture`)
     }
   }
 })

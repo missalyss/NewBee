@@ -126,10 +126,9 @@ angular.module('app', ['ionic', 'app.auth', 'app.dash', 'app.auth-services', 'ap
 
 })
 
-.run(function ($rootScope, $state, authService) {
-  $rootScope.$on('$stateChangeStart', function (event, next) {
+.run(function ($rootScope, $state, authService, AUTH_EVENTS) {
+  $rootScope.$on('$stateChangeStart', function (event, next, nextParams, fromState) {
     if (!authService.isAuthenticated()) {
-      // console.log(next);
       if (next.name !== 'login' && next.name !== 'signup') {
         event.preventDefault();
         $state.go('login');

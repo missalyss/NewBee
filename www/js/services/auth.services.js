@@ -4,11 +4,13 @@ angular.module('app.auth-services', [])
   notAuthenticated: 'auth-not-authenticated'
 })
 
-.factory('authService', function($http) {
-  // let apiUrl = 'http://localhost:3111/users'
-  const apiUrl = 'https://internet-of-stings.herokuapp.com/users'
-  const tokenKey = 'Bee-RR-Tolken'
+.constant('API_ENDPOINT', {
+  url: 'https://internet-of-stings.herokuapp.com'
+})
 
+.factory('authService', function($http, API_ENDPOINT) {
+  let apiUrl = 'http://localhost:3111/users'
+  const tokenKey = 'Bee-RR-Tolken'
   var isAuthenticated = false
   var authToken
 
@@ -42,11 +44,11 @@ angular.module('app.auth-services', [])
   }
 
   var signup = function(user) {
-    return $http.post(`${apiUrl}/signup`, user)
+    return $http.post(`${API_ENDPOINT.url}/users/signup`, user)
   }
 
   var login = function(user) {
-    return $http.post(`${apiUrl}/login`, user)
+    return $http.post(`${API_ENDPOINT.url}/users/login`, user)
   }
 
   loadUserCredentials()
@@ -60,7 +62,6 @@ angular.module('app.auth-services', [])
   }
 })
 
-// function() {return isAuthenticated},
 
 .factory('AuthInterceptor', function ($rootScope, $q, AUTH_EVENTS) {
   return {
