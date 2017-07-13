@@ -6,10 +6,10 @@ angular.module('app.auth-services', [])
 
 .constant('API_ENDPOINT', {
   url: 'https://internet-of-stings.herokuapp.com'
+  // url: 'http://localhost:3111'
 })
 
 .factory('authService', function($http, API_ENDPOINT) {
-  let apiUrl = 'http://localhost:3111/users'
   const tokenKey = 'Bee-RR-Tolken'
   var isAuthenticated = false
   var authToken

@@ -16,8 +16,7 @@ angular.module('app.inspect', [])
 
 })
 
-.controller('inspectPostCtrl', function($scope, $stateParams, $http, $state) {
-  const apiUrl = 'https://internet-of-stings.herokuapp.com/inspections'
+.controller('inspectPostCtrl', function($scope, $stateParams, $http, $state, API_ENDPOINT) {
 
   $scope.newLog = {}
   $scope.newLog.inspection_date = new Date()
@@ -25,15 +24,14 @@ angular.module('app.inspect', [])
   $scope.newLog.honey = false
 
   $scope.createLog = function (newLog) {
-    $http.post(apiUrl, newLog).then(result => {
+    $http.post(`${API_ENDPOINT.url}/inspections`, newLog).then(result => {
       $state.go('tab.inspect')
     })
   }
 
 })
 
-.controller('inspectShowCtrl', function($scope, $stateParams, $http, $state, inspectionService) {
-  const apiUrl = 'https://internet-of-stings.herokuapp.com/inspections'
+.controller('inspectShowCtrl', function($scope, $stateParams, $http, $state, inspectionService, API_ENDPOINT) {
   const id = $stateParams.id
 
   $scope.$on('$ionicView.enter', function () {
@@ -52,15 +50,14 @@ angular.module('app.inspect', [])
   }
 
   $scope.deleteLog = function (log) {
-    $http.delete(`${apiUrl}/${log.id}`).then(result => {
+    $http.delete(`${API_ENDPOINT.url}/inspections/${log.id}`).then(result => {
       $state.go('tab.inspect')
     })
   }
 })
 
-.controller('inspectEditCtrl', function($scope, $stateParams, $http, $state, inspectionService) {
+.controller('inspectEditCtrl', function($scope, $stateParams, $http, $state, inspectionService, API_ENDPOINT) {
 
-  const apiUrl = `https://internet-of-stings.herokuapp.com/inspections`
   const id = $stateParams.id
 
   $scope.$on('$ionicView.enter', function () {
@@ -76,7 +73,7 @@ angular.module('app.inspect', [])
   })
 
   $scope.editLog = function (updatedLog) {
-    $http.put(`${apiUrl}/${id}`, updatedLog).then(result => {
+    $http.put(`${API_ENDPOINT.url}/inspections/${id}`, updatedLog).then(result => {
       $state.go('tab.inspection-show', {id})
     })
   }

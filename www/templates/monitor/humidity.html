@@ -1,0 +1,8 @@
+<ion-view view-title="Humidity">
+  <ion-content>
+    <ion-item ng-repeat="stat in humidityChart">
+      <p>{{stat.date | date:'short'}}</p>
+      <p>{{stat.humidity}}</p>
+    </ion-item>
+  </ion-content>
+</ion-view>

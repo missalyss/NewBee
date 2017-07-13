@@ -1,8 +1,3 @@
-// Ionic Starter App
-
-// angular.module is a global place for creating, registering and retrieving Angular modules
-// 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
-// the 2nd parameter is an array of 'requires'
 angular.module('app', ['ionic', 'app.auth', 'app.dash', 'app.auth-services', 'app.services', 'app.monitor', 'app.inspect', 'app.resources'])
 
 .run(function($ionicPlatform) {
@@ -20,6 +15,18 @@ angular.module('app', ['ionic', 'app.auth', 'app.dash', 'app.auth-services', 'ap
     }
   })
 })
+
+.run(function ($rootScope, $state, authService, AUTH_EVENTS) {
+  $rootScope.$on('$stateChangeStart', function (event, next, nextParams, fromState) {
+    if (!authService.isAuthenticated()) {
+      if (next.name !== 'login' && next.name !== 'signup') {
+        event.preventDefault();
+        $state.go('login');
+      }
+    }
+  })
+})
+
 
 .config(function($stateProvider, $urlRouterProvider) {
   $stateProvider
@@ -73,14 +80,35 @@ angular.module('app', ['ionic', 'app.auth', 'app.dash', 'app.auth-services', 'ap
   })
 
   .state('tab.monitor', {
-      url: '/monitor',
-      views: {
-        'tab-monitor': {
-          templateUrl: 'templates/tab-monitor.html',
-          controller: 'monitorCtrl'
-        }
+    url: '/monitor',
+    views: {
+      'tab-monitor': {
+        templateUrl: 'templates/monitor/tab-monitor.html',
+        controller: 'monitorCtrl'
       }
-    })
+    }
+  })
+
+  .state('tab.monitor-temp', {
+    url: '/monitor/temp',
+    views: {
+      'tab-monitor': {
+        templateUrl: 'templates/monitor/temp.html',
+        controller: 'tempCtrl'
+      }
+    }
+  })
+
+  .state('tab.monitor-humidity', {
+    url: '/monitor/humidity',
+    views: {
+      'tab-monitor': {
+        templateUrl: 'templates/monitor/humidity.html',
+        controller: 'humidityCtrl'
+      }
+    }
+  })
+
 
   .state('tab.inspect', {
     url: '/inspections',
@@ -124,15 +152,4 @@ angular.module('app', ['ionic', 'app.auth', 'app.dash', 'app.auth-services', 'ap
 
   $urlRouterProvider.otherwise('/tab/dash')
 
-})
-
-.run(function ($rootScope, $state, authService, AUTH_EVENTS) {
-  $rootScope.$on('$stateChangeStart', function (event, next, nextParams, fromState) {
-    if (!authService.isAuthenticated()) {
-      if (next.name !== 'login' && next.name !== 'signup') {
-        event.preventDefault();
-        $state.go('login');
-      }
-    }
-  })
 })
