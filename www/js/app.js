@@ -122,6 +122,18 @@ angular.module('app', ['ionic', 'app.auth', 'app.dash', 'app.auth-services', 'ap
     }
   })
 
-  $urlRouterProvider.otherwise('/dash')
+  $urlRouterProvider.otherwise('/tab/dash')
 
+})
+
+.run(function ($rootScope, $state, authService) {
+  $rootScope.$on('$stateChangeStart', function (event, next) {
+    if (!authService.isAuthenticated()) {
+      // console.log(next);
+      if (next.name !== 'login' && next.name !== 'signup') {
+        event.preventDefault();
+        $state.go('login');
+      }
+    }
+  })
 })
