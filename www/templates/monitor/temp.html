@@ -1,7 +1,7 @@
 <ion-view view-title="Temperature">
   <ion-content>
     <ion-item class="item-text-wrap">
-      <canvas id="line" class="chart chart-line" chart-data="tempData" chart-labels="timeLabels"></canvas>
+      <canvas id="line" class="chart chart-line" chart-data="tempData" chart-labels="timeLabels | date:'short'" chart-options="tempOptions"></canvas>
     </ion-item>
     <!-- <ion-item ng-repeat="stat in tempChart">
       <p>{{stat.date | date:'short'}}</p>
