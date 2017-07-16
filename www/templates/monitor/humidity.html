@@ -1,8 +1,28 @@
 <ion-view view-title="Humidity">
-  <ion-content>
-    <ion-item ng-repeat="stat in humidityChart">
-      <p>{{stat.date | date:'short'}}</p>
-      <p>{{stat.humidity}}</p>
-    </ion-item>
+  <ion-content class="padding">
+    <label class="item item-input item-select">
+      <div class="input-label">
+        Chart view dates from:
+      </div>
+      <select ng-model="hChart">
+        <option value="today" selected="true" default>Today</option>
+        <option value="yesterday">Yesterday</option>
+      </select>
+    </label>
+
+    <div ng-show="hChart == 'today'">
+      <h1>today</h1>
+      <ion-item>
+        <canvas id="line" class="chart chart-line" chart-data="humData" chart-labels="humTimeLabels" chart-options="humOptions" chart-colors="myColors"></canvas>
+      </ion-item>
+    </div>
+
+    <div ng-show="hChart == 'yesterday'">
+      <h1>yesterday</h1>
+      <ion-item>
+        <canvas id="line" class="chart chart-line" chart-data="humData" chart-labels="humTimeLabels" chart-options="humOptions"></canvas>
+      </ion-item>
+    </div>
+
   </ion-content>
 </ion-view>

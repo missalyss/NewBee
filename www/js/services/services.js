@@ -13,5 +13,6 @@ angular.module('app.services', [])
     all: function() {
       return $http.get(`${API_ENDPOINT.url}/humiture`)
     }
+    
   }
 })
