@@ -1,4 +1,4 @@
-<ion-view title="register yo">
+<ion-view title="Sign Up">
   <ion-content class="padding">
 
     <label for="signup-email">Email</label>
@@ -9,8 +9,13 @@
 
     <label for="signup-pw">Password</label>
     <input ng-model="user.password" id="signup-pw" type="password" name="pw" value="">
+
+    <!-- <label for="signup-pw">Retype Password</label>
+    <input ng-model="user.password" id="signup-pw" type="password" name="pw" value=""> -->
+
     <br>
     <button ng-click="signup(user)" class="button button-calm" type="button" name="button">Sign Up</button>
-
+    <br>
+    <a ui-sref="login">Already have an account?</a>
   </ion-content>
 </ion-view>

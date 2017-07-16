@@ -5,6 +5,7 @@ angular.module('app.auth', [])
   $scope.login = function (user) {
     authService.login(user)
     .then(result => {
+      console.log(result.data);
       authService.store(result.data.token)
       $state.go('tab.dash')
     })

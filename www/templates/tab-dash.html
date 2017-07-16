@@ -8,8 +8,10 @@
 
       <div class="row row-center honey_comb">
           <ion-item class="col col-33">
-            <img class="cell" src="../img/hex-vert-empty.png" alt="" ui-sref="tab.dash-user">
-            <p class="cell-text">User Settings</p>
+            <div ui-sref="tab.dash-user">
+              <img class="cell" src="../img/hex-vert-empty.png">
+              <p class="cell-text">User Settings</p>
+            </div>
           </ion-item>
       </div>
     </ion-list>
@@ -20,15 +22,17 @@
       </div>
       <div class="row row-center honey_comb">
         <ion-item ng-click="showLog(log)" ng-repeat="log in recentInspections | orderBy: '-inspection_date' | limitTo: 2 as results" class="col col-33">
-          <img class="cell" src="../img/hex-vert-empty.png" alt="">
-          <p class="cell-text">Log {{log.inspection_date | date:'MMM dd'}}</p>
+            <img class="cell" src="../img/hex-vert-empty.png" alt="">
+            <p class="cell-text">Log {{log.inspection_date | date:'MMM dd'}}</p>
         </ion-item>
-        <ion-item class="col col-33">
-          <img class="cell" src="../img/hex-vert-empty.png" alt="" ui-sref="tab.inspection-new">
 
-          <button class="button-positive ion-ios-plus-empty cell-text">
-          </button>
-        </ion-item>
+          <ion-item class="col col-33">
+            <div ui-sref="tab.inspection-new">
+              <img class="cell" src="../img/hex-vert-empty.png" alt="">
+              <button class="button-positive ion-ios-plus-empty cell-text">
+              </button>
+            </div>
+          </ion-item>
       </div>
     </ion-list>
 
@@ -38,12 +42,16 @@
       </div>
       <div class="row honey_comb">
         <ion-item ng-click="#" class="col col-33">
-          <img class="cell" src="../img/hex-vert-empty.png" alt="">
-          <p class="cell-text">temp in F</p>
+          <div ui-sref="tab.monitor-temp">
+            <img class="cell" src="../img/hex-vert-empty.png" alt="">
+            <p class="cell-text">temp in F</p>
+          </div>
         </ion-item>
         <ion-item ng-click="#" class="col col-33">
-          <img class="cell" src="../img/hex-vert-empty.png" alt="">
-          <p class="cell-text">hum in %</p>
+          <div ui-sref="tab.monitor-humidity">
+            <img class="cell" src="../img/hex-vert-empty.png" alt="">
+            <p class="cell-text">hum in %</p>
+          </div>
         </ion-item>
       </div>
     </ion-list>
