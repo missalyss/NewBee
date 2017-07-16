@@ -13,6 +13,13 @@ angular.module('app.services', [])
     all: function() {
       return $http.get(`${API_ENDPOINT.url}/humiture`)
     }
-    
+  }
+})
+
+.factory('userService', function ($http, API_ENDPOINT) {
+  return {
+    thisUser: function() {
+      return $http.get(`${API_ENDPOINT.url}/users`)
+    }
   }
 })

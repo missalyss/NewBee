@@ -9,8 +9,14 @@ angular.module('app.dash', [])
   }
 })
 
-.controller('userCtrl', function ($scope, $state, authService) {
-  
+.controller('userCtrl', function ($scope, $state, authService, userService) {
+  $scope.userData = {}
+
+  $scope.$on('$ionicView.enter', function() {
+    userService.thisUser().then(result => {
+      $scope.userData = result.data
+    })
+  })
 
   $scope.logUserOut = function() {
     authService.logout()
