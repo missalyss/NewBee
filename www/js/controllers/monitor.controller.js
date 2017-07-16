@@ -42,7 +42,7 @@ angular.module('app.monitor', [])
     })
 
     function toFahrenheit(degC){
-      let result = degC * 1.8 + 32
+      let result = Math.round(degC * 1.8 + 32)
       return result
     }
 

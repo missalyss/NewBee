@@ -21,3 +21,35 @@ angular.module('app.auth', [])
     })
   }
 })
+
+.controller('userCtrl', function ($scope, $state, authService, userService) {
+  $scope.userData = {}
+
+  $scope.$on('$ionicView.enter', function() {
+    userService.thisUser().then(result => {
+      $scope.userData = result.data
+    })
+  })
+
+  $scope.logUserOut = function() {
+    authService.logout()
+    $state.go('login')
+  }
+})
+
+.controller('userEditCtrl', function($scope, userService, $http, API_ENDPOINT, $state) {
+  $scope.$on('$ionicView.enter', function() {
+    userService.thisUser()
+    .then(result => {
+      $scope.userData = result.data
+    })
+  })
+
+  $scope.editUser = function (userData) {
+    console.log('req.body ', userData);
+    $http.put(`${API_ENDPOINT.url}/users`, userData).then(result => {
+      console.log('result ', result.data);
+      $state.go('tab.dash-user')
+    })
+  }
+})

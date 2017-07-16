@@ -1,0 +1,14 @@
+<ion-view title="Edit User Info">
+  <ion-content class="padding">
+    <form>
+      <label>Username:
+        <input id="username" type="text" name="" ng-model="userData.username" value="{{userData.username}}">
+      </label>
+
+      <label for="email">Email:</label>
+      <input id="email" type="text" name="" ng-model="userData.email" value="{{userData.email}}">
+      <br>
+      <button type="submit" class="button button-calm" ng-click="editUser(userData)" name="button">Save</button>
+    </form>
+  </ion-content>
+</ion-view>

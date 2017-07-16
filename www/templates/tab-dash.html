@@ -44,13 +44,13 @@
         <ion-item ng-click="#" class="col col-33">
           <div ui-sref="tab.monitor-temp">
             <img class="cell" src="../img/hex-vert-empty.png" alt="">
-            <p class="cell-text">temp in F</p>
+            <p class="cell-text">{{lastStat.temperature}}F</p>
           </div>
         </ion-item>
         <ion-item ng-click="#" class="col col-33">
           <div ui-sref="tab.monitor-humidity">
             <img class="cell" src="../img/hex-vert-empty.png" alt="">
-            <p class="cell-text">hum in %</p>
+            <p class="cell-text">{{lastStat.humidity}}%</p>
           </div>
         </ion-item>
       </div>
