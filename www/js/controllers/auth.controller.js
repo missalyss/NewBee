@@ -22,7 +22,7 @@ angular.module('app.auth', [])
   }
 })
 
-.controller('userCtrl', function ($scope, $state, authService, userService) {
+.controller('userCtrl', function ($scope, $state, authService, userService, $http, API_ENDPOINT) {
   $scope.userData = {}
 
   $scope.$on('$ionicView.enter', function() {
@@ -35,10 +35,11 @@ angular.module('app.auth', [])
     authService.logout()
     $state.go('login')
   }
+
 })
 
 
-.controller('userEditCtrl', function($scope, userService, $http, API_ENDPOINT, $state) {
+.controller('userEditCtrl', function($scope, authService, userService, $http, API_ENDPOINT, $state, $ionicPopup) {
   $scope.$on('$ionicView.enter', function() {
     userService.thisUser()
     .then(result => {
@@ -51,5 +52,22 @@ angular.module('app.auth', [])
     $http.put(`${API_ENDPOINT.url}/users`, userData).then(result => {
       $state.go('tab.dash-user')
     })
+  }
+
+  $scope.deleteAccount = function () {
+    var deleteAccountPopup = $ionicPopup.confirm({
+      title: 'Are you sure you want to delete your account?',
+      template: 'This will delete all of your inspection and monitor data as well. You cannot undo this action.'
+    })
+
+    deleteAccountPopup.then((res) => {
+      if(res) {
+        $http.delete(`${API_ENDPOINT.url}/users`).then(() => {
+          authService.logout()
+          $state.go('signup')
+        })
+      }
+    })
+
   }
 })

@@ -5,8 +5,8 @@ angular.module('app.auth-services', [])
 })
 
 .constant('API_ENDPOINT', {
-  // url: 'https://internet-of-stings.herokuapp.com'
-  url: 'http://localhost:3111'
+  url: 'https://internet-of-stings.herokuapp.com'
+  // url: 'http://localhost:3111'
 })
 
 .factory('authService', function($http, API_ENDPOINT) {
