@@ -16,14 +16,14 @@ $bees:                            #fffc8d !default;
 // Base
 // -------------------------------
 
-$font-family-sans-serif:            '-apple-system', "Helvetica Neue", "Roboto", "Segoe UI", sans-serif !default;
+$font-family-sans-serif:           'Josefin Sans', "Centaur", "Century Schoolbook", '-apple-system', "Helvetica Neue", "Roboto", "Segoe UI", sans-serif !default;
 
 $font-family-light-sans-serif:    '-apple-system', "HelveticaNeue-Light", "Roboto-Light", "Segoe UI-Light", sans-serif-light !default;
-$font-family-serif:               'Bellefair', "Centaur", "Century Schoolbook", "Times New Roman", serif !default;
+$font-family-serif:               'Josefin Sans', '-apple-system', "Helvetica Neue", "Times New Roman", serif !default;
 $font-family-monospace:           monospace !default;
 
-$font-family-base:                $font-family-serif !default;
-$font-size-base:                  14px !default;
+$font-family-base:                $font-family-sans-serif !default;
+$font-size-base:                  16px !default;
 $font-size-large:                 18px !default;
 $font-size-small:                 11px !default;
 
