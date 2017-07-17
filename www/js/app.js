@@ -1,4 +1,4 @@
-angular.module('app', ['ionic', 'app.auth', 'app.dash', 'app.auth-services', 'app.services', 'app.bee-md-services', 'app.monitor', 'app.inspect', 'app.resources', 'chart.js'])
+angular.module('app', ['ionic', 'app.auth', 'app.dash', 'app.auth-services', 'app.services', 'app.bee-md-services', 'app.monitor', 'app.inspect', 'app.resources', 'app.glossary', 'app.symptoms', 'chart.js'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -95,6 +95,16 @@ angular.module('app', ['ionic', 'app.auth', 'app.dash', 'app.auth-services', 'ap
       'tab-resources': {
         templateUrl: 'templates/resources/glossary.html',
         controller: 'glossaryCtrl'
+      }
+    }
+  })
+
+  .state('tab.resources-glossary-show', {
+    url: '/resources/glossary/{id}',
+    views: {
+      'tab-resources': {
+        templateUrl: 'templates/resources/glossary-show.html',
+        controller: 'glossaryShowCtrl'
       }
     }
   })
