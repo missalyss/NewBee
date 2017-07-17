@@ -5,7 +5,6 @@ angular.module('app.treatments', [])
   $scope.$on('$ionicView.enter', function() {
     treatmentsService.all().then(result => {
       $scope.treatments = result.data
-      console.log($scope.treatments);
     })
   })
 

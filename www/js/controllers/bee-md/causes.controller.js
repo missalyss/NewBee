@@ -5,7 +5,6 @@ angular.module('app.causes', [])
   $scope.$on('$ionicView.enter', function() {
     causesService.all().then(result => {
       $scope.causes = result.data
-      console.log($scope.causes);
     })
   })
 
