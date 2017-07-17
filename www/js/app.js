@@ -1,4 +1,4 @@
-angular.module('app', ['ionic', 'app.auth', 'app.dash', 'app.auth-services', 'app.services', 'app.monitor', 'app.inspect', 'app.resources', 'chart.js'])
+angular.module('app', ['ionic', 'app.auth', 'app.dash', 'app.auth-services', 'app.services', 'app.bee-md-services', 'app.monitor', 'app.inspect', 'app.resources', 'chart.js'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -83,8 +83,48 @@ angular.module('app', ['ionic', 'app.auth', 'app.dash', 'app.auth-services', 'ap
     url: '/resources',
     views: {
       'tab-resources': {
-        templateUrl: 'templates/tab-resources.html',
+        templateUrl: 'templates/resources/tab-resources.html',
         controller: 'resourceCtrl'
+      }
+    }
+  })
+
+  .state('tab.resources-glossary', {
+    url: '/resources/glossary',
+    views: {
+      'tab-resources': {
+        templateUrl: 'templates/resources/glossary.html',
+        controller: 'glossaryCtrl'
+      }
+    }
+  })
+
+  .state('tab.resources-symptoms', {
+    url: '/resources/symptoms',
+    views: {
+      'tab-resources': {
+        templateUrl: 'templates/resources/symptoms.html',
+        controller: 'symptomsCtrl'
+      }
+    }
+  })
+
+  .state('tab.resources-causes', {
+    url: '/resources/causes',
+    views: {
+      'tab-resources': {
+        templateUrl: 'templates/resources/causes.html',
+        controller: 'causesCtrl'
+      }
+    }
+  })
+
+  .state('tab.resources-treatments', {
+    url: '/resources/treatments',
+    views: {
+      'tab-resources': {
+        templateUrl: 'templates/resources/treatments.html',
+        controller: 'treatmentsCtrl'
       }
     }
   })
