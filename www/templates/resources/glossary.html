@@ -13,7 +13,7 @@
 
     <div class="row row-center honey_comb">
       <ion-item class="col col-33" ng-repeat="term in glossary | filter:termSearch">
-        <div ng-click="seeTerm(term)">
+        <div ng-click="showTerm(term)">
           <img class="cell" src="../img/hex-vert-empty.png" alt="">
           <p class="cell-text">{{term.word}}</p>
         </div>

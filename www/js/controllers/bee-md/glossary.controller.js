@@ -8,7 +8,7 @@ angular.module('app.glossary', [])
     })
   })
 
-  $scope.seeTerm = function (term) {
+  $scope.showTerm = function (term) {
     $state.go('tab.resources-glossary-show', {id: term.id})
   }
 })
@@ -23,6 +23,7 @@ angular.module('app.glossary', [])
       $scope.thisTerm = result.data.filter(term => {
         return term.id == id
       })
+      console.log($scope.thisTerm[0]);
       $scope.thisTerm = $scope.thisTerm[0]
     })
   })

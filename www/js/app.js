@@ -1,4 +1,4 @@
-angular.module('app', ['ionic', 'app.auth', 'app.dash', 'app.auth-services', 'app.services', 'app.bee-md-services', 'app.monitor', 'app.inspect', 'app.resources', 'app.glossary', 'app.symptoms', 'chart.js'])
+angular.module('app', ['ionic', 'app.auth', 'app.dash', 'app.auth-services', 'app.services', 'app.bee-md-services', 'app.monitor', 'app.inspect', 'app.resources', 'app.glossary', 'app.symptoms', 'app.causes', 'app.treatments', 'chart.js'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -49,6 +49,7 @@ angular.module('app', ['ionic', 'app.auth', 'app.dash', 'app.auth-services', 'ap
     controller: 'signupCtrl'
   })
 
+// DASHBOARD
   .state('tab.dash', {
     url: '/dash',
     views: {
@@ -79,66 +80,7 @@ angular.module('app', ['ionic', 'app.auth', 'app.dash', 'app.auth-services', 'ap
     }
   })
 
-  .state('tab.resources', {
-    url: '/resources',
-    views: {
-      'tab-resources': {
-        templateUrl: 'templates/resources/tab-resources.html',
-        controller: 'resourceCtrl'
-      }
-    }
-  })
-
-  .state('tab.resources-glossary', {
-    url: '/resources/glossary',
-    views: {
-      'tab-resources': {
-        templateUrl: 'templates/resources/glossary.html',
-        controller: 'glossaryCtrl'
-      }
-    }
-  })
-
-  .state('tab.resources-glossary-show', {
-    url: '/resources/glossary/{id}',
-    views: {
-      'tab-resources': {
-        templateUrl: 'templates/resources/glossary-show.html',
-        controller: 'glossaryShowCtrl'
-      }
-    }
-  })
-
-  .state('tab.resources-symptoms', {
-    url: '/resources/symptoms',
-    views: {
-      'tab-resources': {
-        templateUrl: 'templates/resources/symptoms.html',
-        controller: 'symptomsCtrl'
-      }
-    }
-  })
-
-  .state('tab.resources-causes', {
-    url: '/resources/causes',
-    views: {
-      'tab-resources': {
-        templateUrl: 'templates/resources/causes.html',
-        controller: 'causesCtrl'
-      }
-    }
-  })
-
-  .state('tab.resources-treatments', {
-    url: '/resources/treatments',
-    views: {
-      'tab-resources': {
-        templateUrl: 'templates/resources/treatments.html',
-        controller: 'treatmentsCtrl'
-      }
-    }
-  })
-
+// MONITOR
   .state('tab.monitor', {
     url: '/monitor',
     views: {
@@ -169,7 +111,7 @@ angular.module('app', ['ionic', 'app.auth', 'app.dash', 'app.auth-services', 'ap
     }
   })
 
-
+// INSPECTIONS
   .state('tab.inspect', {
     url: '/inspections',
     views: {
@@ -209,6 +151,97 @@ angular.module('app', ['ionic', 'app.auth', 'app.dash', 'app.auth-services', 'ap
       }
     }
   })
+
+  // RESOURCES
+    .state('tab.resources', {
+      url: '/resources',
+      views: {
+        'tab-resources': {
+          templateUrl: 'templates/resources/tab-resources.html',
+          controller: 'resourceCtrl'
+        }
+      }
+    })
+
+    .state('tab.resources-glossary', {
+      url: '/resources/glossary',
+      views: {
+        'tab-resources': {
+          templateUrl: 'templates/resources/glossary.html',
+          controller: 'glossaryCtrl'
+        }
+      }
+    })
+
+    .state('tab.resources-glossary-show', {
+      url: '/resources/glossary/{id}',
+      views: {
+        'tab-resources': {
+          templateUrl: 'templates/resources/glossary-show.html',
+          controller: 'glossaryShowCtrl'
+        }
+      }
+    })
+
+    .state('tab.resources-symptoms', {
+      url: '/resources/symptoms',
+      views: {
+        'tab-resources': {
+          templateUrl: 'templates/resources/symptoms.html',
+          controller: 'symptomsCtrl'
+        }
+      }
+    })
+    .state('tab.resources-symptoms-show', {
+      url: '/resources/symptoms/{id}',
+      views: {
+        'tab-resources': {
+          templateUrl: 'templates/resources/symptoms-show.html',
+          controller: 'symptomsShowCtrl'
+        }
+      }
+    })
+
+    .state('tab.resources-causes', {
+      url: '/resources/causes',
+      views: {
+        'tab-resources': {
+          templateUrl: 'templates/resources/causes.html',
+          controller: 'causesCtrl'
+        }
+      }
+    })
+
+    .state('tab.resources-causes-show', {
+      url: '/resources/causes/{id}',
+      views: {
+        'tab-resources': {
+          templateUrl: 'templates/resources/causes-show.html',
+          controller: 'causesShowCtrl'
+        }
+      }
+    })
+
+    .state('tab.resources-treatments', {
+      url: '/resources/treatments',
+      views: {
+        'tab-resources': {
+          templateUrl: 'templates/resources/treatments.html',
+          controller: 'treatmentsCtrl'
+        }
+      }
+    })
+
+    .state('tab.resources-treatments-show', {
+      url: '/resources/treatments/{id}',
+      views: {
+        'tab-resources': {
+          templateUrl: 'templates/resources/treatments-show.html',
+          controller: 'treatmentsShowCtrl'
+        }
+      }
+    })
+
 
   $urlRouterProvider.otherwise('/tab/dash')
 
