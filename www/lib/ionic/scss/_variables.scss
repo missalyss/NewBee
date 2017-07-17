@@ -3,7 +3,7 @@
 // -------------------------------
 
 $light:                           #fffffd !default;
-$stable:                          #fffffA !default;
+$stable:                          #fffffd !default;
 $positive:                        #1c5c96 !default;
 $calm:                            #1d72dc !default;
 $energized:                       #bfa634 !default;
@@ -302,7 +302,7 @@ $item-button-line-height:         32px !default;
 $item-icon-font-size:             32px !default;
 $item-icon-fill-font-size:        28px !default;
 
-$item-icon-accessory-color:       #ccc !default;
+$item-icon-accessory-color:       $stable !default;
 $item-icon-accessory-font-size:   16px !default;
 
 $item-avatar-width:               40px !default;
@@ -413,7 +413,7 @@ $list-header-margin-top:          20px !default;
 // -------------------------------
 
 $card-header-bg:                  #F5F5F5 !default;
-$card-body-bg:                    #fff !default;
+$card-body-bg:                    $light !default;
 $card-footer-bg:                  #F5F5F5 !default;
 
 $card-padding:                    10px !default;
@@ -431,7 +431,7 @@ $input-height-base:               ($line-height-computed + ($padding-base-vertic
 $input-height-large:              (floor($font-size-large * $line-height-large) + ($padding-large-vertical * 2) + 2) !default;
 $input-height-small:              (floor($font-size-small * $line-height-small) + ($padding-small-vertical * 2) + 2) !default;
 
-$input-bg:                        $light !default;
+$input-bg:                        $stable !default;
 $input-bg-disabled:               $stable !default;
 
 $input-color:                     #111 !default;
@@ -626,7 +626,7 @@ $popup-enter-animation-duration:  0.2s !default;
 $popup-leave-animation-duration:  0.1s !default;
 
 $popup-border-radius:             0px !default;
-$popup-background-color:          rgba(255,255,255,0.9) !default;
+$popup-background-color:          $light !default;
 
 $popup-button-border-radius:      2px !default;
 $popup-button-line-height:        20px !default;
