@@ -1,12 +1,24 @@
 <ion-view view-title="Symptoms">
   <ion-content class="padding">
 
-  <ion-list>
-    <ion-item>
-      <!-- <ion-item class="item-remove-animate item-icon-right" ng-repeat="term in glossary" type="item-text-wrap">
-        <p>{{term.word}}</p>
-        <p>{{term.meaning}}</p>
-    </ion-item> -->
-  </ion-list>
+    <div class="row">
+      <h1 class="col">Symptoms</h1>
+    </div>
+    <div class="row">
+      <label class="item item-input">
+        <i class="icon ion-ios-search placeholder-icon"> </i>
+        <input ng-model="termSearch" type="text" name="" value="" placeholder="Search">
+      </label>
+    </div>
+
+    <div class="row row-center honey_comb">
+      <ion-item class="col col-33" ng-repeat="term in symptoms | filter:termSearch">
+        <div ng-click="seeTerm(term)">
+          <img class="cell" src="../img/hex-vert-empty.png" alt="">
+          <p class="cell-text">{{term.symptom}}</p>
+        </div>
+      </ion-item>
+    </div>
+
   </ion-content>
 </ion-view>

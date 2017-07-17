@@ -4,30 +4,30 @@ angular.module('app.resources', [])
 
 })
 
-.controller('symptomsCtrl', function ($scope, $stateParams, $http, BEE_MD_ENDPOINT) {
+.controller('symptomsCtrl', function ($scope, $stateParams, $http, BEE_MD_ENDPOINT, symptomsService) {
 
   $scope.$on('$ionicView.enter', function() {
-    $http.get(`${BEE_MD_ENDPOINT.url}/symptoms`).then(result => {
+    symptomsService.all().then(result => {
       $scope.symptoms = result.data
       console.log($scope.symptoms);
     })
   })
 })
 
-.controller('causesCtrl', function ($scope, $stateParams, $http, BEE_MD_ENDPOINT) {
+.controller('causesCtrl', function ($scope, $stateParams, $http, BEE_MD_ENDPOINT, causesService) {
 
   $scope.$on('$ionicView.enter', function() {
-    $http.get(`${BEE_MD_ENDPOINT.url}/causes`).then(result => {
+    causesService.all().then(result => {
       $scope.causes = result.data
       console.log($scope.causes);
     })
   })
 })
 
-.controller('treatmentsCtrl', function ($scope, $stateParams, $http, BEE_MD_ENDPOINT) {
+.controller('treatmentsCtrl', function ($scope, $stateParams, $http, BEE_MD_ENDPOINT, treatmentsService) {
 
   $scope.$on('$ionicView.enter', function() {
-    $http.get(`${BEE_MD_ENDPOINT.url}/treatments`).then(result => {
+    treatmentsService.all().then(result => {
       $scope.treatments = result.data
       console.log($scope.treatments);
     })

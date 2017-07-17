@@ -7,12 +7,12 @@
     <div class="row">
       <label class="item item-input">
         <i class="icon ion-ios-search placeholder-icon"> </i>
-        <input ng-model="glossarySearch" type="text" name="" value="" placeholder="Search">
+        <input ng-model="termSearch" type="text" name="" value="" placeholder="Search">
       </label>
     </div>
 
     <div class="row row-center honey_comb">
-      <ion-item class="col col-33" ng-repeat="term in glossary | filter:glossarySearch">
+      <ion-item class="col col-33" ng-repeat="term in glossary | filter:termSearch">
         <div ng-click="seeTerm(term)">
           <img class="cell" src="../img/hex-vert-empty.png" alt="">
           <p class="cell-text">{{term.word}}</p>
