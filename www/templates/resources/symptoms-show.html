@@ -1,4 +1,4 @@
-<ion-view view-title="{{thisSymptom.word}}">
+<ion-view view-title="Symptoms">
   <ion-content class="padding">
 
     <div class="row">
@@ -7,6 +7,7 @@
     <div class="row">
       <p class="col">{{thisSymptom.details}}</p>
     </div>
+    <a ng-click="glossaryLink(thisSymptom.glossary_pk_id)">Glossary link</a>
 
   </ion-content>
 </ion-view>

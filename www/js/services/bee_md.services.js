@@ -2,7 +2,7 @@ angular.module('app.bee-md-services', [])
 
 .constant('BEE_MD_ENDPOINT', {
   // url: 'https://bee-md.herokuapp.com'
-  url: 'http://localhost:7777'
+  url: 'http://localhost:4444'
 })
 
 .factory('glossaryService', function ($http, BEE_MD_ENDPOINT) {

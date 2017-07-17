@@ -1,4 +1,4 @@
-<ion-view view-title="{{thisCause.cause}}">
+<ion-view view-title="Causes">
   <ion-content class="padding">
 
     <div class="row">
@@ -7,6 +7,8 @@
     <div class="row">
       <p class="col">{{thisCause.why}}</p>
     </div>
+    <a ng-click="glossaryLink(thisCause.glossary_pk_id)">Glossary link</a>
+
 
   </ion-content>
 </ion-view>

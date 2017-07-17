@@ -7775,15 +7775,15 @@ input[type="color"] {
 .item-input textarea {
   width: 100%; }
 
-textarea::-moz-placeholder {
-  color: #8c8c8c; }
-
-textarea:-ms-input-placeholder {
-  color: #8c8c8c; }
-
-textarea::-webkit-input-placeholder {
-  color: #8c8c8c;
-  text-indent: -3px; }
+textarea {
+  padding-left: 0; }
+  textarea::-moz-placeholder {
+    color: #8c8c8c; }
+  textarea:-ms-input-placeholder {
+    color: #8c8c8c; }
+  textarea::-webkit-input-placeholder {
+    color: #8c8c8c;
+    text-indent: -3px; }
 
 textarea {
   height: auto; }
