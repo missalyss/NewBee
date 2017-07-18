@@ -7,7 +7,14 @@
     <div class="row">
       <p class="col">{{thisCause.why}}</p>
     </div>
-    <a ng-click="glossaryLink(thisCause.glossary_pk_id)">Glossary link</a>
+    <a ng-show="thisCause.cause_gloss_id" ng-click="glossaryLink(thisCause.cause_gloss_id)">Glossary link</a>
+
+    <h3>Symptoms:</h3>
+    <ul>
+      <li ng-repeat="symptom in theseSymptoms">
+        <a ng-click="symptomLink(symptom.symptom_id)">{{symptom.symptom}}</a>
+      </li>
+    </ul>
 
 
   </ion-content>

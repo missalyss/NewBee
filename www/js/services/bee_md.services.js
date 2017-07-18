@@ -25,6 +25,9 @@ angular.module('app.bee-md-services', [])
   return {
     all: function() {
       return $http.get(`${BEE_MD_ENDPOINT.url}/causes`)
+    },
+    one: function(id) {
+      return $http.get(`${BEE_MD_ENDPOINT.url}/causes/${id}`)
     }
   }
 })

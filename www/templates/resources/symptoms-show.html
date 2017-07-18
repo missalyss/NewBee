@@ -1,13 +1,12 @@
 <ion-view view-title="Symptoms">
   <ion-content class="padding">
 
-    <div class="row">
-      <h1 class="col">{{thisSymptom.symptom}}</h1>
-    </div>
-    <div class="row">
-      <p class="col">{{thisSymptom.details}}</p>
-    </div>
-    <a ng-click="glossaryLink(thisSymptom.glossary_pk_id)">Glossary link</a>
+    <h1 class="col">{{thisSymptom.symptom}}</h1>
+    <p class="col">{{thisSymptom.details}}</p>
+    <a ng-show="thisSymptom.glossary_pk_id" ng-click="glossaryLink(thisSymptom.glossary_pk_id)">Glossary link</a>
+
+    <h3>Possible Causes:</h3>
+    <a ng-repeat="" ng-click="">Cause list</a>
 
   </ion-content>
 </ion-view>
