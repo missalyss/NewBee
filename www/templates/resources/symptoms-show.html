@@ -7,8 +7,11 @@
 
     <h3>Possible Causes:</h3>
     <ul>
-      <li ng-repeat="cause in theseCauses">
-        <span>{{cause.votes}}</span> <a ng-click="causeLink(cause.cause_id)">{{cause.cause}}</a>
+      <li ng-repeat="cause in theseCauses | orderBy:'-votes'">
+        <button ng-click="csUpVote(cause)"><i class="icon ion-ios-arrow-up"></i></button>
+        <span>{{cause.votes}}</span>
+        <button ng-click="csDownVote(cause)"><i class="icon ion-ios-arrow-down"></i></button>
+        <a ng-click="causeLink(cause.cause_id)">  {{cause.cause}}</a>
       </li>
     </ul>
 

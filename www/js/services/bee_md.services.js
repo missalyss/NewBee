@@ -1,8 +1,8 @@
 angular.module('app.bee-md-services', [])
 
 .constant('BEE_MD_ENDPOINT', {
-  url: 'https://bee-md.herokuapp.com'
-  // url: 'http://localhost:4444'
+  // url: 'https://bee-md.herokuapp.com'
+  url: 'http://localhost:4444'
 })
 
 .factory('glossaryService', function ($http, BEE_MD_ENDPOINT) {
@@ -13,13 +13,13 @@ angular.module('app.bee-md-services', [])
   }
 })
 
-.factory('symptomsService', function ($http, BEE_MD_ENDPOINT) {
+.factory('beeMDService', function ($http, BEE_MD_ENDPOINT) {
   return {
-    all: function() {
-      return $http.get(`${BEE_MD_ENDPOINT.url}/symptoms`)
+    all: function(ext) {
+      return $http.get(`${BEE_MD_ENDPOINT.url}/${ext}`)
     },
-    one: function(id) {
-      return $http.get(`${BEE_MD_ENDPOINT.url}/symptoms/${id}`)
+    one: function(ext, id) {
+      return $http.get(`${BEE_MD_ENDPOINT.url}/${ext}/${id}`)
     }
   }
 })
@@ -42,6 +42,14 @@ angular.module('app.bee-md-services', [])
     },
     one: function(id) {
       return $http.get(`${BEE_MD_ENDPOINT.url}/treatments/${id}`)
+    }
+  }
+})
+
+.factory('voting', function ($http, BEE_MD_ENDPOINT) {
+  return {
+    vote: function (ext, id, body) {
+      return $http.put(`${BEE_MD_ENDPOINT.url}/joins/${ext}/${id}`, body)
     }
   }
 })
