@@ -1,9 +1,9 @@
 angular.module('app.treatments', [])
 
-.controller('treatmentsCtrl', function ($scope, $stateParams, $state, treatmentsService) {
+.controller('treatmentsCtrl', function ($scope, $stateParams, $state, beeMDService) {
 
   $scope.$on('$ionicView.enter', function() {
-    treatmentsService.all().then(result => {
+    beeMDService.all('treatments').then(result => {
       $scope.treatments = result.data
     })
   })
@@ -13,14 +13,14 @@ angular.module('app.treatments', [])
     }
 })
 
-.controller('treatmentsShowCtrl', function ($scope, $stateParams, $state, treatmentsService) {
+.controller('treatmentsShowCtrl', function ($scope, $stateParams, $state, beeMDService) {
   const id = $stateParams.id
 
   $scope.$on('$ionicView.enter', function() {
     $scope.thisTreatment = {}
     $scope.theseCauses = []
 
-    treatmentsService.one(id).then(result => {
+    beeMDService.one('treatments', id).then(result => {
       $scope.thisTreatment = result.data[0]
       $scope.theseCauses = result.data
     })

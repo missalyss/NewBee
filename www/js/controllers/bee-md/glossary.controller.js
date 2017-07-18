@@ -1,9 +1,9 @@
 angular.module('app.glossary', [])
 
-.controller('glossaryCtrl', function ($scope, $state, glossaryService) {
+.controller('glossaryCtrl', function ($scope, $state, beeMDService) {
 
   $scope.$on('$ionicView.enter', function() {
-    glossaryService.all().then(result => {
+    beeMDService.all('glossary').then(result => {
       $scope.glossary = result.data
     })
   })
@@ -13,13 +13,13 @@ angular.module('app.glossary', [])
   }
 })
 
-.controller('glossaryShowCtrl', function ($scope, $stateParams, glossaryService) {
+.controller('glossaryShowCtrl', function ($scope, $stateParams, beeMDService) {
   const id = $stateParams.id
 
   $scope.$on('$ionicView.enter', function() {
     $scope.thisTerm = []
 
-    glossaryService.all().then(result => {
+    beeMDService.all('glossary').then(result => {
       $scope.thisTerm = result.data.filter(term => {
         return term.id == id
       })
