@@ -17,6 +17,9 @@ angular.module('app.bee-md-services', [])
   return {
     all: function() {
       return $http.get(`${BEE_MD_ENDPOINT.url}/symptoms`)
+    },
+    one: function(id) {
+      return $http.get(`${BEE_MD_ENDPOINT.url}/symptoms/${id}`)
     }
   }
 })
@@ -36,6 +39,9 @@ angular.module('app.bee-md-services', [])
   return {
     all: function() {
       return $http.get(`${BEE_MD_ENDPOINT.url}/treatments`)
+    },
+    one: function(id) {
+      return $http.get(`${BEE_MD_ENDPOINT.url}/treatments/${id}`)
     }
   }
 })

@@ -18,19 +18,23 @@ angular.module('app.symptoms', [])
   const id = $stateParams.id
 
   $scope.$on('$ionicView.enter', function() {
-    $scope.thisSymptom = []
+    $scope.thisSymptom = {}
+    $scope.theseCauses = []
 
-    symptomsService.all().then(result => {
-      $scope.thisSymptom = result.data.filter(term => {
-        return term.symptoms_id == id
-      })
-      $scope.thisSymptom = $scope.thisSymptom[0]
-      console.log($scope.thisSymptom);
+    symptomsService.one(id).then(result => {
+      console.log(result.data);
+      $scope.thisSymptom = result.data[0]
+      $scope.theseCauses = result.data
+      console.log($scope.thisSymptom)
     })
   })
 
-  $scope.glossaryLink = function(glossary_pk_id) {
-    $state.go('tab.resources-glossary-show', {id: glossary_pk_id})
+  $scope.glossaryLink = function(glossary_id) {
+    $state.go('tab.resources-glossary-show', {id: glossary_id})
+  }
+
+  $scope.causeLink = function(cause_id) {
+    $state.go('tab.resources-causes-show', {id: cause_id})
   }
 
 })

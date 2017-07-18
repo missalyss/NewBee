@@ -3,10 +3,14 @@
 
     <h1 class="col">{{thisSymptom.symptom}}</h1>
     <p class="col">{{thisSymptom.details}}</p>
-    <a ng-show="thisSymptom.glossary_pk_id" ng-click="glossaryLink(thisSymptom.glossary_pk_id)">Glossary link</a>
+    <a ng-show="thisSymptom.symptom_gloss_id" ng-click="glossaryLink(thisSymptom.symptom_gloss_id)">Glossary link</a>
 
     <h3>Possible Causes:</h3>
-    <a ng-click="">Cause list</a>
+    <ul>
+      <li ng-repeat="cause in theseCauses">
+        <span>{{cause.votes}}</span> <a ng-click="causeLink(cause.cause_id)">{{cause.cause}}</a>
+      </li>
+    </ul>
 
   </ion-content>
 </ion-view>
