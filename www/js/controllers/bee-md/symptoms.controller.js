@@ -14,17 +14,16 @@ angular.module('app.symptoms', [])
 
 })
 
-.controller('symptomsShowCtrl', function ($scope, $stateParams, $state, beeMDService, voting, $http) {
+.controller('symptomsShowCtrl', function ($scope, $stateParams, $state, beeMDService, voting) {
   const id = $stateParams.id
 
   $scope.$on('$ionicView.enter', function() {
-    $scope.thisSymptom = {}
     $scope.theseCauses = []
 
     beeMDService.one('symptoms', id).then(result => {
 
-      let currentSymp = result.data[0]
-      $scope.thisSymptom = {symptom: currentSymp.symptom, symptom_id: currentSymp.symptom_id, symptom_gloss_id: currentSymp.symptom_gloss_id, details: currentSymp.details}
+      let symp = result.data[0]
+      $scope.thisSymptom = {symptom: symp.symptom, symptom_id: symp.symptom_id, symptom_gloss_id: symp.symptom_gloss_id, details: symp.details}
 
       result.data.forEach(el => {
         let scObj = {cause_id: el.cause_id, cause: el.cause, sc_id: el.sc_id, votes: el.votes}
@@ -41,7 +40,7 @@ angular.module('app.symptoms', [])
     $state.go('tab.resources-causes-show', {id: cause_id})
   }
 
-  $scope.csUpVote = function (sc) {
+  $scope.scUpVote = function (sc) {
     sc.votes += 1
     voting.vote('sc', sc.sc_id, {votes: sc.votes})
     .then(() => {
@@ -49,7 +48,7 @@ angular.module('app.symptoms', [])
     })
   }
 
-  $scope.csDownVote = function (sc) {
+  $scope.scDownVote = function (sc) {
     sc.votes -= 1
     voting.vote('sc', sc.sc_id, {votes: sc.votes})
     .then(() => {
