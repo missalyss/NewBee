@@ -13,7 +13,7 @@ angular.module('app.causes', [])
     }
 })
 
-.controller('causesShowCtrl', function ($scope, $stateParams, $http, BEE_MD_ENDPOINT, $state, causesService) {
+.controller('causesShowCtrl', function ($scope, $stateParams, $state, causesService) {
   const id = $stateParams.id
   $scope.thisCause = {}
   $scope.theseSymptoms = []
@@ -23,9 +23,7 @@ angular.module('app.causes', [])
 
     causesService.one(id).then(result => {
       $scope.thisCause = result.data.causeSympt[0]
-      console.log(result.data);
       $scope.theseSymptoms = result.data.causeSympt
-      console.log('these ', $scope.theseSymptoms)
       $scope.theseTreatments = result.data.causeTreat
     })
   })

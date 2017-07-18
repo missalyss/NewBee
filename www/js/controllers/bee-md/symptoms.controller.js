@@ -22,10 +22,8 @@ angular.module('app.symptoms', [])
     $scope.theseCauses = []
 
     symptomsService.one(id).then(result => {
-      console.log(result.data);
       $scope.thisSymptom = result.data[0]
       $scope.theseCauses = result.data
-      console.log($scope.thisSymptom)
     })
   })
 
