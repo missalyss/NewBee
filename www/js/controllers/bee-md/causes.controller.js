@@ -9,7 +9,7 @@ angular.module('app.causes', [])
   })
 
   $scope.showCause = function (cause) {
-      $state.go('tab.resources-causes-show', {id: cause.causes_id})
+      $state.go('tab.resources-causes-show', {id: cause.id})
     }
 })
 

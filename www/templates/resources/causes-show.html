@@ -12,7 +12,7 @@
     <h3>Symptoms:</h3>
     <ul>
       <li ng-repeat="symptom in theseSymptoms">
-        <a ng-click="symptomLink(symptom.symptom_id)">{{symptom.symptom}}</a>
+        <span>{{symptom.votes}}</span> <a ng-click="symptomLink(symptom.symptom_id)">{{symptom.symptom}}</a>
       </li>
     </ul>
 
