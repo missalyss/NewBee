@@ -1,12 +1,14 @@
 <ion-view view-title="{{thisTreatment.title}}">
   <ion-content class="padding">
 
-    <div class="row">
-      <h1 class="col">{{thisTreatment.title}}</h1>
-    </div>
-    <div class="row">
-      <p class="col">{{thisTreatment.instructions}}</p>
-    </div>
+    <h1 class="col">{{thisTreatment.title}}</h1>
+    <p class="col">{{thisTreatment.instructions}}</p>
+    <h3>Treats:</h3>
+    <ul>
+      <li ng-repeat="cause in theseCauses">
+        <span>{{cause.votes}}</span> <a ng-click="causeLink(cause.cause_id)">{{cause.cause}}</a>
+      </li>
+    </ul>
 
   </ion-content>
 </ion-view>

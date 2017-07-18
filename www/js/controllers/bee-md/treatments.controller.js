@@ -13,18 +13,21 @@ angular.module('app.treatments', [])
     }
 })
 
-.controller('treatmentsShowCtrl', function ($scope, $stateParams, treatmentsService) {
+.controller('treatmentsShowCtrl', function ($scope, $stateParams, $state, treatmentsService) {
   const id = $stateParams.id
 
   $scope.$on('$ionicView.enter', function() {
-    $scope.thisTreatment = []
+    $scope.thisTreatment = {}
+    $scope.theseCauses = []
 
-    treatmentsService.all().then(result => {
-      $scope.thisTreatment = result.data.filter(term => {
-        return term.id == id
-      })
-      $scope.thisTreatment = $scope.thisTreatment[0]
+    treatmentsService.one(id).then(result => {
+      $scope.thisTreatment = result.data[0]
+      $scope.theseCauses = result.data
     })
   })
+
+  $scope.causeLink = function(cause_id) {
+    $state.go('tab.resources-causes-show', {id: cause_id})
+  }
 
 })
