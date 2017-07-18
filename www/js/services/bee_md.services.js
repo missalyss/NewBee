@@ -1,8 +1,8 @@
 angular.module('app.bee-md-services', [])
 
 .constant('BEE_MD_ENDPOINT', {
-  // url: 'https://bee-md.herokuapp.com'
-  url: 'http://localhost:4444'
+  url: 'https://bee-md.herokuapp.com'
+  // url: 'http://localhost:4444'
 })
 
 .factory('beeMDService', function ($http, BEE_MD_ENDPOINT) {
