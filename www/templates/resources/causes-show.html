@@ -1,18 +1,21 @@
 <ion-view view-title="Causes">
   <ion-content class="padding">
 
-    <div class="row">
-      <h1 class="col">{{thisCause.cause}}</h1>
-    </div>
-    <div class="row">
-      <p class="col">{{thisCause.why}}</p>
-    </div>
+    <h1 class="col">{{thisCause.cause}}</h1>
     <a ng-show="thisCause.cause_gloss_id" ng-click="glossaryLink(thisCause.cause_gloss_id)">Glossary link</a>
+    <p class="col">{{thisCause.why}}</p>
 
     <h3>Symptoms:</h3>
     <ul>
       <li ng-repeat="symptom in theseSymptoms">
         <span>{{symptom.votes}}</span> <a ng-click="symptomLink(symptom.symptom_id)">{{symptom.symptom}}</a>
+      </li>
+    </ul>
+
+    <h3>Treatments:</h3>
+    <ul>
+      <li ng-repeat="treatment in theseTreatments">
+        <span>{{treatment.votes}}</span> <a ng-click="treatmentLink(treatment.treatment_id)">{{treatment.title}}</a>
       </li>
     </ul>
 

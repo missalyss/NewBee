@@ -17,14 +17,16 @@ angular.module('app.causes', [])
   const id = $stateParams.id
   $scope.thisCause = {}
   $scope.theseSymptoms = []
+  $scope.theseTreatments = []
 
   $scope.$on('$ionicView.enter', function() {
 
     causesService.one(id).then(result => {
-      $scope.thisCause = result.data[0]
+      $scope.thisCause = result.data.causeSympt[0]
       console.log(result.data);
-      $scope.theseSymptoms = result.data
-      console.log('these ', $scope.theseSymptoms);
+      $scope.theseSymptoms = result.data.causeSympt
+      console.log('these ', $scope.theseSymptoms)
+      $scope.theseTreatments = result.data.causeTreat
     })
   })
 
@@ -34,7 +36,10 @@ angular.module('app.causes', [])
 
   $scope.symptomLink = function (symptom_id) {
     $state.go('tab.resources-symptoms-show', {id: symptom_id})
+  }
 
+  $scope.treatmentLink = function (treatment_id) {
+    $state.go('tab.resources-treatments-show', {id: treatment_id})
   }
 
 })
