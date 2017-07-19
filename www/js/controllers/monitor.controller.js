@@ -37,7 +37,6 @@ angular.module('app.monitor', [])
     monitorService.all().then(result => {
 
       result.data.forEach((stat) => {
-
         let date = new Date(stat.date_recorded).getTime().toString()
         date = date.slice(0,8)
         date = parseInt(date)
@@ -66,7 +65,6 @@ angular.module('app.monitor', [])
 })
 
 .controller('humidityCtrl', function($scope, monitorService) {
-  $scope.hTimeLabels = []
   $scope.hData = []
   $scope.hOptions = {
         scales: {
@@ -88,11 +86,16 @@ angular.module('app.monitor', [])
         }
     }
     $scope.myColors = ['#1c5c96', '#bfa634', '#711217', '#4D0E52', '#1b5c29', '#262626']
-
+    $scope.hTimeLabels = []
+    $scope.hWeekLabels = []
+    $scope.allLabels = []
+    $scope.hChart = 'today'
   $scope.$on('$ionicView.enter', function() {
     monitorService.all().then(result => {
-      result.data.forEach((stat) => {
+      // let today = new Date()
+      // today = today.getMonth(), today.getDate(), today.getFullYear()
 
+      result.data.forEach((stat) => {
         let date = new Date(stat.date_recorded).getTime().toString()
         date = date.slice(0,8)
         date = parseInt(date)

@@ -1,26 +1,29 @@
 <ion-view view-title="Humidity">
   <ion-content class="padding">
-    <!-- <label class="item item-input item-select">
+    <label class="item item-input item-select">
 
         Chart view dates from:
 
       <select ng-model="hChart">
-        <option value="today" selected>Today</option>
-        <option value="yesterday">Yesterday</option>
+        <option label="today" value="today" ng-selected="true">Today</option>
+        <option label="yesterday" value="yesterday">Yesterday</option>
       </select>
-    </label> -->
+    </label>
 
-    <!-- <div ng-show="hChart == 'today'"> -->
-      <ion-item>
-        <canvas id="line" class="chart chart-line" chart-data="hData" chart-labels="hTimeLabels" chart-options="hOptions" chart-colors="myColors"></canvas>
-      </ion-item>
-    <!-- </div> -->
+    <div ng-switch on="hChart">
 
-    <!-- <div ng-show="hChart == 'yesterday'">
-      <ion-item>
-        <canvas id="line" class="chart chart-line" chart-data="hData" chart-labels="hTimeLabels" chart-options="hOptions"></canvas>
-      </ion-item>
-    </div> -->
+      <div ng-switch-when="today">
+        <ion-item>
+          <canvas id="line" class="chart chart-line" chart-data="hData" chart-labels="hTimeLabels" chart-options="hOptions" chart-colors="myColors"></canvas>
+        </ion-item>
+      </div>
+
+      <div ng-switch-when="yesterday">
+        <ion-item>
+          <canvas id="line" class="chart chart-line" chart-data="hData" chart-labels="hTimeLabels" chart-options="hOptions"></canvas>
+        </ion-item>
+      </div>
+    </div>
 
   </ion-content>
 </ion-view>
