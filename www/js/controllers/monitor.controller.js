@@ -36,7 +36,6 @@ angular.module('app.monitor', [])
       result.data.forEach(stat => {
         $scope.tempTimeLabels.push(stat.date_recorded)
         stat.temperature = toFahrenheit(stat.temperature)
-        console.log(stat.temperature);
         $scope.tempData.push(stat.temperature)
       })
     })
