@@ -9,9 +9,10 @@ angular.module('app.monitor', [])
 
 .controller('tempCtrl', function($scope, monitorService) {
   $scope.myColors = ['#1c5c96', '#bfa634', '#711217', '#4D0E52', '#1b5c29', '#262626']
-  $scope.tempTimeLabels = []
-  $scope.tempData = []
-  $scope.tempOptions = {
+  $scope.tData = []
+  $scope.tTimeLabels = []
+
+  $scope.tOptions = {
     scales: {
         xAxes: [{
             type:'time',
@@ -32,11 +33,28 @@ angular.module('app.monitor', [])
 
   }
 
+
     monitorService.all().then(result => {
-      result.data.forEach(stat => {
-        $scope.tempTimeLabels.push(stat.date_recorded)
-        stat.temperature = toFahrenheit(stat.temperature)
-        $scope.tempData.push(stat.temperature)
+
+      result.data.forEach((stat) => {
+
+        let date = new Date(stat.date_recorded).getTime().toString()
+        date = date.slice(0,8)
+        date = parseInt(date)
+
+        let lastEl = $scope.tTimeLabels[$scope.tTimeLabels.length - 1]
+        lastEl = new Date(lastEl).getTime().toString().slice(0,8)
+        lastEl = parseInt(lastEl)
+        if ($scope.tTimeLabels.length === 0) {
+          $scope.tTimeLabels.push(stat.date_recorded)
+          stat.temperature = toFahrenheit(stat.temperature)
+          $scope.tData.push(stat.temperature)
+        } else if (date != lastEl) {
+          $scope.tTimeLabels.push(stat.date_recorded)
+          stat.temperature = toFahrenheit(stat.temperature)
+          $scope.tData.push(stat.temperature)
+        }
+
       })
     })
 
@@ -48,9 +66,9 @@ angular.module('app.monitor', [])
 })
 
 .controller('humidityCtrl', function($scope, monitorService) {
-  $scope.humTimeLabels = []
-  $scope.humData = []
-  $scope.humOptions = {
+  $scope.hTimeLabels = []
+  $scope.hData = []
+  $scope.hOptions = {
         scales: {
             xAxes: [{
                 type:'time',
@@ -73,13 +91,23 @@ angular.module('app.monitor', [])
 
   $scope.$on('$ionicView.enter', function() {
     monitorService.all().then(result => {
-      result.data.forEach(stat => {
-        stat.date_recorded = new Date(stat.date_recorded)
+      result.data.forEach((stat) => {
 
-        $scope.humTimeLabels.push(stat.date_recorded)
-        $scope.humData.push(stat.humidity)
+        let date = new Date(stat.date_recorded).getTime().toString()
+        date = date.slice(0,8)
+        date = parseInt(date)
+
+        let lastEl = $scope.hTimeLabels[$scope.hTimeLabels.length - 1]
+        lastEl = new Date(lastEl).getTime().toString().slice(0,8)
+        lastEl = parseInt(lastEl)
+        if ($scope.hTimeLabels.length === 0) {
+          $scope.hTimeLabels.push(stat.date_recorded)
+          $scope.hData.push(stat.humidity)
+        } else if (date != lastEl) {
+          $scope.hTimeLabels.push(stat.date_recorded)
+          $scope.hData.push(stat.humidity)
+        }
       })
     })
   })
-
 })
