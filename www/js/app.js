@@ -1,4 +1,4 @@
-angular.module('app', ['ionic', 'app.auth', 'app.dash', 'app.auth-services', 'app.services', 'app.bee-md-services', 'app.monitor', 'app.inspect', 'app.resources', 'app.glossary', 'app.symptoms', 'app.causes', 'app.treatments', 'chart.js'])
+angular.module('app', ['ionic', 'app.auth', 'app.dash', 'app.auth-services', 'app.services', 'app.bee-md-services', 'app.monitor', 'app.inspect', 'app.resources', 'app.glossary', 'app.symptoms', 'app.causes', 'app.treatments', 'angularMoment', 'chart.js'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {

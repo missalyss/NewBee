@@ -6,7 +6,7 @@
 
       <select ng-model="hChart">
         <option label="today" value="today" ng-selected="true">Today</option>
-        <option label="yesterday" value="yesterday">Yesterday</option>
+        <option label="thisWeek" value="thisWeek">This Week</option>
       </select>
     </label>
 
@@ -18,9 +18,9 @@
         </ion-item>
       </div>
 
-      <div ng-switch-when="yesterday">
+      <div ng-switch-when="thisWeek">
         <ion-item>
-          <canvas id="line" class="chart chart-line" chart-data="hData" chart-labels="hTimeLabels" chart-options="hOptions"></canvas>
+          <canvas id="line" class="chart chart-line" chart-data="hWeekData" chart-labels="hWeekLabels" chart-options="hOptions"></canvas>
         </ion-item>
       </div>
     </div>

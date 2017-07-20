@@ -64,8 +64,7 @@ angular.module('app.monitor', [])
 
 })
 
-.controller('humidityCtrl', function($scope, monitorService) {
-  $scope.hData = []
+.controller('humidityCtrl', function($scope, monitorService, moment) {
   $scope.hOptions = {
         scales: {
             xAxes: [{
@@ -89,28 +88,51 @@ angular.module('app.monitor', [])
     $scope.hTimeLabels = []
     $scope.hWeekLabels = []
     $scope.allLabels = []
+    $scope.hData = []
+    $scope.hWeekData = []
+
     $scope.hChart = 'today'
   $scope.$on('$ionicView.enter', function() {
     monitorService.all().then(result => {
-      // let today = new Date()
-      // today = today.getMonth(), today.getDate(), today.getFullYear()
-
       result.data.forEach((stat) => {
-        let date = new Date(stat.date_recorded).getTime().toString()
-        date = date.slice(0,8)
-        date = parseInt(date)
-
+        let date = moment(stat.date_recorded)
         let lastEl = $scope.hTimeLabels[$scope.hTimeLabels.length - 1]
-        lastEl = new Date(lastEl).getTime().toString().slice(0,8)
-        lastEl = parseInt(lastEl)
-        if ($scope.hTimeLabels.length === 0) {
-          $scope.hTimeLabels.push(stat.date_recorded)
-          $scope.hData.push(stat.humidity)
-        } else if (date != lastEl) {
-          $scope.hTimeLabels.push(stat.date_recorded)
-          $scope.hData.push(stat.humidity)
+        let now = moment()
+        let week = now.subtract(1, 'weeks')
+        console.log('week ', week);
+        if(date.isSame(now, 'day')){
+          if ($scope.hTimeLabels.length === 0) {
+            $scope.hTimeLabels.push(date)
+            $scope.hData.push(stat.humidity)
+          } else if (!date.isSame(lastEl, 'minute')) {
+            $scope.hTimeLabels.push(date)
+            $scope.hData.push(stat.humidity)
+          }
+        } else if (date.isBetween(week)) {
+          if ($scope.hWeekLabels.length === 0) {
+            $scope.hWeekLabels.push(date)
+            $scope.hWeekData.push(stat.humidity)
+          } else if (!date.isSame(lastEl, 'minute')) {
+            $scope.hWeekLabels.push(date)
+            $scope.hWeekData.push(stat.humidity)
+          }
+
         }
+        // console.log('date ', date, 'lastel ', lastEl);
       })
+      // console.log('array ', $scope.hTimeLabels);
     })
   })
 })
+
+// let today = new Date()
+// .getTime().toString().slice(0,8)
+// today = parseInt(today)
+// console.log(today.toDateString());
+// today = `${today.getMonth()} ${today.getDate()}, ${today.getFullYear()}`
+
+// lastEl = new Date(lastEl).getTime().toString().slice(0,8)
+// lastEl = parseInt(lastEl)
+// let date = new Date(stat.date_recorded).getTime().toString()
+// date = date.slice(0,8)
+// date = parseInt(date)
