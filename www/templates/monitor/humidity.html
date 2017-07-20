@@ -5,8 +5,10 @@
         Chart view dates from:
 
       <select ng-model="hChart">
-        <option label="today" value="today" ng-selected="true">Today</option>
-        <option label="thisWeek" value="thisWeek">This Week</option>
+        <option label="today" value="today" ng-selected="true"></option>
+        <option label="thisWeek" value="thisWeek"></option>
+        <option label="thisMonth" value="thisMonth"></option>
+
       </select>
     </label>
 
@@ -14,13 +16,19 @@
 
       <div ng-switch-when="today">
         <ion-item>
-          <canvas id="line" class="chart chart-line" chart-data="hData" chart-labels="hTimeLabels" chart-options="hOptions" chart-colors="myColors"></canvas>
+          <canvas id="line" class="chart chart-line" chart-data="hTodayData" chart-labels="hTodayLabels" chart-options="hOptions" chart-colors="myColors"></canvas>
         </ion-item>
       </div>
 
       <div ng-switch-when="thisWeek">
         <ion-item>
           <canvas id="line" class="chart chart-line" chart-data="hWeekData" chart-labels="hWeekLabels" chart-options="hOptions"></canvas>
+        </ion-item>
+      </div>
+
+      <div ng-switch-when="thisMonth">
+        <ion-item>
+          <canvas id="line" class="chart chart-line" chart-data="hMonthData" chart-labels="hMonthLabels" chart-options="hOptions"></canvas>
         </ion-item>
       </div>
     </div>
