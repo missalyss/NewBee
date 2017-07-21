@@ -6,7 +6,7 @@
         <option label="Today" value="today" ng-selected="true"></option>
         <option label="This Week" value="thisWeek"></option>
         <option label="This Month" value="thisMonth"></option>
-
+        <option label="All Time" value="allTime"></option>
       </select>
     </label>
 
@@ -20,15 +20,22 @@
 
       <div ng-switch-when="thisWeek">
         <ion-item>
-          <canvas id="line" class="chart chart-line" chart-data="hWeekData" chart-labels="hWeekLabels" chart-options="hOptions" chart-colors="myColors">></canvas>
+          <canvas id="line" class="chart chart-line" chart-data="hWeekData" chart-labels="hWeekLabels" chart-options="hOptions" chart-colors="myColors"></canvas>
         </ion-item>
       </div>
 
       <div ng-switch-when="thisMonth">
         <ion-item>
-          <canvas id="line" class="chart chart-line" chart-data="hMonthData" chart-labels="hMonthLabels" chart-options="hOptions" chart-colors="myColors">></canvas>
+          <canvas id="line" class="chart chart-line" chart-data="hMonthData" chart-labels="hMonthLabels" chart-options="hOptions" chart-colors="myColors"></canvas>
         </ion-item>
       </div>
+
+      <div ng-switch-when="allTime">
+        <ion-item>
+          <canvas id="line" class="chart chart-line" chart-data="hAllData" chart-labels="hAllLabels" chart-options="hOptions" chart-colors="myColors"></canvas>
+        </ion-item>
+      </div>
+
     </div>
 
   </ion-content>

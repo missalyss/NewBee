@@ -43,6 +43,7 @@ angular.module('app.monitor', [])
         let tLastEl = $scope.tTodayLabels[$scope.tTodayLabels.length - 1]
         let tLastElWeek = $scope.tWeekLabels[$scope.tWeekLabels.length - 1]
         let tLastElMonth = $scope.tMonthLabels[$scope.tMonthLabels.length - 1]
+        let tLastElAll = $scope.tAllLabels[$scope.tAllLabels.length - 1]
         let tWeek = moment().subtract(1, 'weeks')
         let tMonth = moment().subtract(1, 'months')
         let tDay = moment().subtract(1, 'days')
@@ -75,6 +76,14 @@ angular.module('app.monitor', [])
             $scope.tMonthLabels.push(tDate)
             $scope.tMonthData.push(stat.temperature)
           }
+        }
+
+        if ($scope.tAllLabels.length === 0) {
+          $scope.tAllLabels.push(tDate)
+          $scope.tAllData.push(stat.temperature)
+        } else if (!tDate.isSame(tLastElAll, 'minute')) {
+          $scope.tAllLabels.push(tDate)
+          $scope.tAllData.push(stat.temperature)
         }
 
       })
@@ -127,6 +136,7 @@ angular.module('app.monitor', [])
         let lastEl = $scope.hTodayLabels[$scope.hTodayLabels.length - 1]
         let lastElWeek = $scope.hWeekLabels[$scope.hWeekLabels.length - 1]
         let lastElMonth = $scope.hMonthLabels[$scope.hMonthLabels.length - 1]
+        let lastElAll = $scope.hAllLabels[$scope.hAllLabels.length - 1]
         let week = moment().subtract(1, 'weeks')
         let month = moment().subtract(1, 'months')
         let day = moment().subtract(1, 'days')
@@ -158,6 +168,15 @@ angular.module('app.monitor', [])
             $scope.hMonthData.push(stat.humidity)
           }
         }
+
+        if ($scope.hAllLabels.length === 0) {
+          $scope.hAllLabels.push(date)
+          $scope.hAllData.push(stat.humidity)
+        } else if (!date.isSame(lastElAll, 'minute')) {
+          $scope.hAllLabels.push(date)
+          $scope.hAllData.push(stat.humidity)
+        }
+
       })
     })
   })
