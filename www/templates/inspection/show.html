@@ -1,13 +1,13 @@
-<ion-view view-title="{{thisLog.inspection_date | date:'longDate'}}">
+<ion-view view-title="{{thisLog.inspection_date}}">
   <ion-content class="padding">
     <ion-item >
-      <p>Date of inspection: {{thisLog.inspection_date | date:'shortDate'}}</p>
-      <p>Weather: {{thisLog.weather}}</p>
+      <p>Date of inspection: {{thisLog.inspection_date}}</p>
       <p>Brood Age: {{thisLog.brood_age}}</p>
       <p>Egg-laying Pattern 0-5, Spotty-Solid: {{thisLog.egg_pattern}}</p>
       <p>Hive Temperment 0-5, Aggressive to Calm: {{thisLog.temperment}}</p>
       <p>Queen Spotted? {{thisLog.queen}}</p>
-      <p>Capped Honey? {{thisLog.honey}}</p>
+      <p>Temperature: {{thisLog.temperature}} F</p>
+      <p>Humidity: {{thisLog.humidity}}%</p>
       <p>Notes: {{thisLog.notes}}</p>
 
       <hr>

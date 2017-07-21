@@ -1,11 +1,14 @@
 angular.module('app.inspect', [])
 
-.controller('inspectAllCtrl', function($scope, $stateParams, $http, $state, inspectionService) {
+.controller('inspectAllCtrl', function($scope, $stateParams, $http, $state, inspectionService, moment) {
 
   $scope.$on('$ionicView.enter', function() {
     $scope.inspectionIndex = []
     inspectionService.all().then(result => {
       $scope.inspectionIndex = result.data
+      $scope.inspectionIndex.forEach(element => {
+        element.inspection_date = moment(element.inspection_date).format('MMM Do')
+      })
     })
 
   })
@@ -16,12 +19,19 @@ angular.module('app.inspect', [])
 
 })
 
-.controller('inspectPostCtrl', function($scope, $stateParams, $http, $state, API_ENDPOINT) {
-
+.controller('inspectPostCtrl', function($scope, $stateParams, $http, $state, API_ENDPOINT, monitorService, moment) {
   $scope.newLog = {}
-  $scope.newLog.inspection_date = new Date()
+  $scope.newLog.inspection_date = moment().toDate()
   $scope.newLog.queen = false
-  $scope.newLog.honey = false
+  $scope.newLog.temperature
+  $scope.newLog.humidity
+
+  monitorService.all().then(result => {
+    let index = result.data.length - 1
+    $scope.newLog.humidity = result.data[index].humidity * 1
+    $scope.newLog.temperature = result.data[index].temperature
+    $scope.newLog.temperature = Math.round($scope.newLog.temperature * 1.8 + 32)
+  })
 
   $scope.createLog = function (newLog) {
     $http.post(`${API_ENDPOINT.url}/inspections`, newLog).then(result => {
@@ -42,6 +52,7 @@ angular.module('app.inspect', [])
         return log.id == id
       })
       $scope.thisLog = $scope.thisLog[0]
+      $scope.thisLog.inspection_date = moment($scope.thisLog.inspection_date).format('ddd MMM D, YYYY')
     })
   })
 
@@ -67,7 +78,7 @@ angular.module('app.inspect', [])
         return log.id == id
       })
       $scope.updateLog = $scope.updateLog[0];
-      $scope.updateLog.inspection_date = new Date($scope.updateLog.inspection_date)
+      $scope.updateLog.inspection_date = moment($scope.updateLog.inspection_date).toDate()
       console.log($scope.updateLog);
     })
   })

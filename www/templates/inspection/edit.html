@@ -9,20 +9,6 @@
 
       <label class="item item-input item-select">
         <div class="input-label">
-          Weather
-        </div>
-        <select ng-model="updateLog.weather">
-          <option disabled value="">Select Weather</option>
-          <option value="hot">Very Hot</option>
-          <option value="warm">Sunny and Warm</option>
-          <option value="cloudy">Cloudy</option>
-          <option value="rainy">Rainy</option>
-          <option value="cold">Very Cold</option>
-        </select>
-      </label>
-
-      <label class="item item-input item-select">
-        <div class="input-label">
           Brood Age
         </div>
         <select ng-model="updateLog.brood_age">
@@ -58,14 +44,18 @@
         </label>
       </li>
 
-      <li class="item item-toggle transparent">Capped Honey
-        <label class="toggle toggle-calm">
-          <input ng-model="updateLog.honey" type="checkbox" name="recurring">
-          <div class="track">
-            <div class="handle"></div>
-          </div>
+      <li class="item item-toggle transparent">Temperature
+        <label>
+          <span style="float: right;" ng-model"updateLog.temperature">{{updateLog.temperature}} F</span>
         </label>
       </li>
+
+      <li class="item item-toggle transparent">Humidity
+        <label>
+          <span style="float: right;" ng-model"updateLog.humidity">{{updateLog.humidity}}%</span>
+        </label>
+      </li>
+
     </ul>
 
 

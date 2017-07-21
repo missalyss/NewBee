@@ -9,21 +9,6 @@
 
       <label class="item item-input item-select">
         <div class="input-label">
-          Weather
-          <!-- I think I want to make this just a normal text input...  -->
-        </div>
-        <select ng-model="newLog.weather">
-          <option selected disabled value="">Select Weather</option>
-          <option value="hot">Very Hot</option>
-          <option value="warm">Sunny and Warm</option>
-          <option value="cloudy">Cloudy</option>
-          <option value="rainy">Rainy</option>
-          <option value="cold">Very Cold</option>
-        </select>
-      </label>
-
-      <label class="item item-input item-select">
-        <div class="input-label">
           Brood Age
         </div>
         <select ng-model="newLog.brood_age">
@@ -62,16 +47,18 @@
         </label>
       </li>
 
-      <li class="item item-toggle transparent">Capped Honey
-        <label class="toggle toggle-calm">
-          <input ng-model="newLog.honey" type="checkbox" name="recurring">
-          <div class="track">
-            <div class="handle"></div>
-          </div>
+      <li class="item item-toggle transparent">Temperature
+        <label>
+          <span style="float: right;" ng-model"newLog.temperature">{{newLog.temperature}} F</span>
+        </label>
+      </li>
+
+      <li class="item item-toggle transparent">Humidity
+        <label>
+          <span style="float: right;" ng-model"newLog.humidity">{{newLog.humidity}}%</span>
         </label>
       </li>
     </ul>
-
 
     <label class="item item-input" name="body">
       <textarea rows="6" placeholder="Here you can write notes pertinent to your hive. Can you explain why they were grumpy? Any odd behavior?" ng-model="newLog.notes"></textarea>
