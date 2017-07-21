@@ -4,7 +4,7 @@ angular.module('app.monitor', [])
 })
 
 .controller('tempCtrl', function($scope, monitorService) {
-  $scope.myColors = ['#1c5c96', '#bfa634', '#711217', '#4D0E52', '#1b5c29', '#262626']
+  $scope.myColors = ['#1c5c96']
   $scope.tOptions = {
     scales: {
         xAxes: [{
@@ -118,7 +118,7 @@ angular.module('app.monitor', [])
             }]
         }
     }
-    $scope.myColors = ['#1c5c96', '#bfa634', '#711217', '#4D0E52', '#1b5c29', '#262626']
+    $scope.myColors = ['#1c5c96']
     $scope.hAllLabels = []
     $scope.hAllData = []
     $scope.hTodayLabels = []
