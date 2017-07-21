@@ -8,9 +8,9 @@
     <h3>Symptoms:</h3>
     <ul>
       <li ng-repeat="symptom in theseSymptoms | orderBy:'-votes'">
-        <button ng-click="scUpVote(symptom)"><i class="icon ion-ios-arrow-up"></i></button>
+        <i ng-click="scUpVote(symptom)" class="icon ion-ios-arrow-up"></i>
         <span>{{symptom.votes}}</span>
-        <button ng-click="scDownVote(symptom)"><i class="icon ion-ios-arrow-down"></i></button>
+        <i ng-click="scDownVote(symptom)" class="icon ion-ios-arrow-down"></i>
         <a ng-click="symptomLink(symptom.symptom_id)">{{symptom.symptom}}</a>
       </li>
     </ul>
@@ -18,9 +18,9 @@
     <h3>Treatments:</h3>
     <ul>
       <li ng-repeat="treatment in theseTreatments | orderBy: '-votes'">
-        <button ng-click="ctUpVote(treatment)"><i class="icon ion-ios-arrow-up"></i></button>
+        <i ng-click="ctUpVote(treatment)" class="icon ion-ios-arrow-up"></i>
         <span>{{treatment.votes}}</span>
-        <button ng-click="ctDownVote(treatment)"><i class="icon ion-ios-arrow-down"></i></button>
+        <i ng-click="ctDownVote(treatment)" class="icon ion-ios-arrow-down"></i>
         <a ng-click="treatmentLink(treatment.treatment_id)">{{treatment.title}}</a>
       </li>
     </ul>
