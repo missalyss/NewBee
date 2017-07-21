@@ -16,6 +16,7 @@ angular.module('app.dash', [])
     monitorService.all().then(result => {
       let lastStatIndex = result.data.length - 1
       $scope.lastStat = result.data[lastStatIndex]
+      $scope.lastStat.humidity *= 1
       $scope.lastStat.temperature = Math.round($scope.lastStat.temperature * 1.8 + 32)
     })
   })
