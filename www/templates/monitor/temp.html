@@ -1,7 +1,36 @@
 <ion-view view-title="Temperature">
   <ion-content class="padding">
-    <ion-item class="item-text-wrap">
-      <canvas id="line" class="chart chart-line" chart-data="tData" chart-labels="tTimeLabels" chart-options="tOptions" chart-colors="myColors"></canvas>
-    </ion-item>
+
+    <label class="item item-input item-select">
+        Chart view dates from:
+      <select ng-model="tChart">
+        <option label="Today" value="today" ng-selected="true"></option>
+        <option label="This Week" value="thisWeek"></option>
+        <option label="This Month" value="thisMonth"></option>
+
+      </select>
+    </label>
+
+    <div ng-switch on="tChart">
+
+      <div ng-switch-when="today">
+        <ion-item>
+          <canvas id="line" class="chart chart-line" chart-data="tTodayData" chart-labels="tTodayLabels" chart-options="tOptions" chart-colors="myColors"></canvas>
+        </ion-item>
+      </div>
+
+      <div ng-switch-when="thisWeek">
+        <ion-item>
+          <canvas id="line" class="chart chart-line" chart-data="tWeekData" chart-labels="tWeekLabels" chart-options="tOptions" chart-colors="myColors">></canvas>
+        </ion-item>
+      </div>
+
+      <div ng-switch-when="thisMonth">
+        <ion-item>
+          <canvas id="line" class="chart chart-line" chart-data="tMonthData" chart-labels="tMonthLabels" chart-options="tOptions" chart-colors="myColors">></canvas>
+        </ion-item>
+      </div>
+    </div>
+
   </ion-content>
 </ion-view>

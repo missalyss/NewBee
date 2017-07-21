@@ -1,17 +1,10 @@
 angular.module('app.monitor', [])
 
 .controller('monitorCtrl', function($scope, monitorService) {
-  // $scope.$on('$ionicView.enter', function() {
-  //   monitorService.all().then(result => {
-  //   })
-  // })
 })
 
 .controller('tempCtrl', function($scope, monitorService) {
   $scope.myColors = ['#1c5c96', '#bfa634', '#711217', '#4D0E52', '#1b5c29', '#262626']
-  $scope.tData = []
-  $scope.tTimeLabels = []
-
   $scope.tOptions = {
     scales: {
         xAxes: [{
@@ -32,26 +25,56 @@ angular.module('app.monitor', [])
     }
 
   }
+  $scope.tChart = 'today'
 
+  $scope.tAllLabels = []
+  $scope.tAllData = []
+  $scope.tTodayLabels = []
+  $scope.tTodayData = []
+  $scope.tWeekLabels = []
+  $scope.tWeekData = []
+  $scope.tMonthLabels = []
+  $scope.tMonthData = []
 
     monitorService.all().then(result => {
 
       result.data.forEach((stat) => {
-        let date = new Date(stat.date_recorded).getTime().toString()
-        date = date.slice(0,8)
-        date = parseInt(date)
+        let tDate = moment(stat.date_recorded)
+        let tLastEl = $scope.tTodayLabels[$scope.tTodayLabels.length - 1]
+        let tLastElWeek = $scope.tWeekLabels[$scope.tWeekLabels.length - 1]
+        let tLastElMonth = $scope.tMonthLabels[$scope.tMonthLabels.length - 1]
+        let tWeek = moment().subtract(1, 'weeks')
+        let tMonth = moment().subtract(1, 'months')
+        let tDay = moment().subtract(1, 'days')
 
-        let lastEl = $scope.tTimeLabels[$scope.tTimeLabels.length - 1]
-        lastEl = new Date(lastEl).getTime().toString().slice(0,8)
-        lastEl = parseInt(lastEl)
-        if ($scope.tTimeLabels.length === 0) {
-          $scope.tTimeLabels.push(stat.date_recorded)
-          stat.temperature = toFahrenheit(stat.temperature)
-          $scope.tData.push(stat.temperature)
-        } else if (date != lastEl) {
-          $scope.tTimeLabels.push(stat.date_recorded)
-          stat.temperature = toFahrenheit(stat.temperature)
-          $scope.tData.push(stat.temperature)
+        stat.temperature = toFahrenheit(stat.temperature)
+
+        if(tDate.isBetween(tDay)){
+          if ($scope.tTodayLabels.length === 0) {
+            $scope.tTodayLabels.push(tDate)
+            $scope.tTodayData.push(stat.temperature)
+          } else if (!tDate.isSame(tLastEl, 'minute')) {
+            $scope.tTodayLabels.push(tDate)
+            $scope.tTodayData.push(stat.temperature)
+          }
+        }
+        if (tDate.isBetween(tWeek)) {
+          if ($scope.tWeekLabels.length === 0) {
+            $scope.tWeekLabels.push(tDate)
+            $scope.tWeekData.push(stat.temperature)
+          } else if (!tDate.isSame(tLastElWeek, 'minute')) {
+            $scope.tWeekLabels.push(tDate)
+            $scope.tWeekData.push(stat.temperature)
+          }
+        }
+        if (tDate.isBetween(tMonth)) {
+          if ($scope.tMonthLabels.length === 0) {
+            $scope.tMonthLabels.push(tDate)
+            $scope.tMonthData.push(stat.temperature)
+          } else if (!tDate.isSame(tLastElMonth, 'minute')) {
+            $scope.tMonthLabels.push(tDate)
+            $scope.tMonthData.push(stat.temperature)
+          }
         }
 
       })
@@ -71,7 +94,9 @@ angular.module('app.monitor', [])
                 type:'time',
                 time: {
                     displayFormats: {
-                      minute: 'h:mm a'
+                      minute: 'h:mm a',
+                      hour: 'h:mm a',
+                      day: 'MM-D hA'
                     }
                 }
             }],
@@ -102,11 +127,11 @@ angular.module('app.monitor', [])
         let lastEl = $scope.hTodayLabels[$scope.hTodayLabels.length - 1]
         let lastElWeek = $scope.hWeekLabels[$scope.hWeekLabels.length - 1]
         let lastElMonth = $scope.hMonthLabels[$scope.hMonthLabels.length - 1]
-
-        let now = moment()
         let week = moment().subtract(1, 'weeks')
         let month = moment().subtract(1, 'months')
-        if(date.isSame(now, 'day')){
+        let day = moment().subtract(1, 'days')
+
+        if(date.isBetween(day)){
           if ($scope.hTodayLabels.length === 0) {
             $scope.hTodayLabels.push(date)
             $scope.hTodayData.push(stat.humidity)

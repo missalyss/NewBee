@@ -1,13 +1,11 @@
 <ion-view view-title="Humidity">
   <ion-content class="padding">
     <label class="item item-input item-select">
-
         Chart view dates from:
-
       <select ng-model="hChart">
-        <option label="today" value="today" ng-selected="true"></option>
-        <option label="thisWeek" value="thisWeek"></option>
-        <option label="thisMonth" value="thisMonth"></option>
+        <option label="Today" value="today" ng-selected="true"></option>
+        <option label="This Week" value="thisWeek"></option>
+        <option label="This Month" value="thisMonth"></option>
 
       </select>
     </label>
@@ -22,13 +20,13 @@
 
       <div ng-switch-when="thisWeek">
         <ion-item>
-          <canvas id="line" class="chart chart-line" chart-data="hWeekData" chart-labels="hWeekLabels" chart-options="hOptions"></canvas>
+          <canvas id="line" class="chart chart-line" chart-data="hWeekData" chart-labels="hWeekLabels" chart-options="hOptions" chart-colors="myColors">></canvas>
         </ion-item>
       </div>
 
       <div ng-switch-when="thisMonth">
         <ion-item>
-          <canvas id="line" class="chart chart-line" chart-data="hMonthData" chart-labels="hMonthLabels" chart-options="hOptions"></canvas>
+          <canvas id="line" class="chart chart-line" chart-data="hMonthData" chart-labels="hMonthLabels" chart-options="hOptions" chart-colors="myColors">></canvas>
         </ion-item>
       </div>
     </div>
