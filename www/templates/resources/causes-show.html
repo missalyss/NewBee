@@ -2,7 +2,13 @@
   <ion-content class="padding">
 
     <h1 class="col">{{thisCause.cause}}</h1>
-    <a ng-show="thisCause.cause_gloss_id" ng-click="glossaryLink(thisCause.cause_gloss_id)">Glossary link</a>
+    <div ng-click="clicked = !clicked">
+      <a ng-show="thisCause.cause_gloss_id" >
+        <i ng-show="!clicked" class="icon ion-ios-plus-outline"></i> <i ng-show="clicked" class="icon ion-ios-plus"></i> Definition</a>
+    </div>
+      <div ng-show="clicked">
+        <p>{{thisCause.glossDef}}</p>
+      </div>
     <p class="col">{{thisCause.why}}</p>
 
     <h3>Symptoms:</h3>

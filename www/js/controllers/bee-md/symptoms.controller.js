@@ -28,6 +28,7 @@ angular.module('app.symptoms', [])
       $scope.thisSymptom = {symptom: symp.symptom, symptom_id: symp.symptom_id, symptom_gloss_id: symp.symptom_gloss_id, details: symp.details}
 
       beeMDService.one('glossary', symp.symptom_gloss_id).then(glossDef => {
+        
         $scope.thisSymptom.glossDef = glossDef.data[0].meaning
       })
 

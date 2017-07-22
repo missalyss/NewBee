@@ -24,6 +24,11 @@ angular.module('app.causes', [])
       let cs = result.data.causeSympt[0]
       $scope.thisCause = {cause: cs.cause, why: cs.why, cause_id: cs.cause_id, cause_gloss_id: cs.cause_gloss_id}
 
+      beeMDService.one('glossary', cs.cause_gloss_id).then(glossDef => {
+        $scope.thisCause.glossDef = glossDef.data[0].meaning
+        console.log($scope.thisCause.glossDef);
+      })
+
       result.data.causeSympt.forEach(el => {
         let csObject = {symptom_id: el.symptom_id, symptom: el.symptom, sc_id: el.sc_id, votes: el.votes}
         $scope.theseSymptoms.push(csObject)
