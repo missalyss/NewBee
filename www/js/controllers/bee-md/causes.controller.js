@@ -26,7 +26,6 @@ angular.module('app.causes', [])
 
       beeMDService.one('glossary', cs.cause_gloss_id).then(glossDef => {
         $scope.thisCause.glossDef = glossDef.data[0].meaning
-        console.log($scope.thisCause.glossDef);
       })
 
       result.data.causeSympt.forEach(el => {
