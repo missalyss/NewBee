@@ -3,7 +3,14 @@
 
     <h1 class="col">{{thisSymptom.symptom}}</h1>
     <p class="col">{{thisSymptom.details}}</p>
-    <a ng-show="thisSymptom.symptom_gloss_id" ng-click="glossaryLink(thisSymptom.symptom_gloss_id)">Glossary link</a>
+    <div ng-click="clicked = !clicked">
+
+    <a ng-show="thisSymptom.symptom_gloss_id" >
+      <i ng-show="!clicked" class="icon ion-ios-plus-outline"></i> <i ng-show="clicked" class="icon ion-ios-plus"></i> Definition</a>
+    </div>
+      <div ng-show="clicked">
+        <p>{{thisSymptom.glossDef}}</p>
+      </div>
 
     <h3>Possible Causes:</h3>
     <ul>

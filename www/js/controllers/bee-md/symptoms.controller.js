@@ -20,10 +20,16 @@ angular.module('app.symptoms', [])
   $scope.$on('$ionicView.enter', function() {
     $scope.theseCauses = []
 
+
     beeMDService.one('symptoms', id).then(result => {
+
 
       let symp = result.data[0]
       $scope.thisSymptom = {symptom: symp.symptom, symptom_id: symp.symptom_id, symptom_gloss_id: symp.symptom_gloss_id, details: symp.details}
+
+      beeMDService.one('glossary', symp.symptom_gloss_id).then(glossDef => {
+        $scope.thisSymptom.glossDef = glossDef.data[0].meaning
+      })
 
       result.data.forEach(el => {
         let scObj = {cause_id: el.cause_id, cause: el.cause, sc_id: el.sc_id, votes: el.votes}
