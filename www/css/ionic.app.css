@@ -9831,6 +9831,9 @@ a.button {
 .auth-center {
   text-align: center; }
 
+.avatar {
+  height: 110px; }
+
 .honey_comb {
   -webkit-flex-wrap: wrap;
   flex-wrap: wrap;
@@ -9849,6 +9852,3 @@ a.button {
     text-align: center;
     top: 45px;
     width: 90%; }
-
-.anime {
-  transition: all cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.5s; }

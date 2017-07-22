@@ -1,10 +1,19 @@
-<ion-view title="User">
+<ion-view title="">
   <ion-content class="padding">
-    <p>Username: {{userData.username}}</p>
-    <p>Email: {{userData.email}}</p>
+    <h1>User</h1>
+    <div class="row">
+      <div class="col auth-center">
+        <img class="avatar" src="../../img/hex-avatar.png" alt="">
+      </div>
+      <div class="col">
+        <h2>{{userData.username}}</h2>
+        <h2>{{userData.email}}</h2>
+
+      </div>
+
+    </div>
     <br>
-    <a ui-sref="tab.dash-user-edit">Edit User Info</a>
-    <br>
+    <button type="button" class="button button-positive button-block" ui-sref="tab.dash-user-edit">Edit User Info</button>
     <button type="button" class="button button-assertive button-block" ng-click="logUserOut()" name="button">Log Out</button>
   </ion-content>
 </ion-view>
