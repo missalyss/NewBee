@@ -1,16 +1,24 @@
-<ion-view title="Edit User Info">
+<ion-view>
   <ion-content class="padding">
+
+    <h1>Edit User Data</h1>
+
     <form>
-      <label>Username:
-        <input id="username" type="text" name="" ng-model="userData.username" value="{{userData.username}}">
+      <label class="item item-input">
+        <span class="input-label">Username:</span>
+        <input ng-model="userData.username" type="text" name="username" value="{{userData.username}}" autocapitalize="off" autocorrect="off">
       </label>
 
-      <label for="email">Email:</label>
-      <input id="email" type="text" name="" ng-model="userData.email" value="{{userData.email}}">
+      <label class="item item-input">
+        <span class="input-label">Email:</span>
+        <input ng-model="userData.email" type="email" name="email" value="{{userData.email}}" autocapitalize="off" autocorrect="off">
+      </label>
+
       <br>
-      <button type="submit" class="button button-calm" ng-click="editUser(userData)" name="button">Save</button>
+      <button type="submit" class="button button-positive button-block" ng-click="editUser(userData)" name="button">Save</button>
     </form>
-    <button type="button" class="button button-assertive" ng-click="deleteAccount()" name="button">Delete Account</button>
+
+    <button type="button" class="button button-assertive button-block" ng-click="deleteAccount()" name="button">Delete Account</button>
 
   </ion-content>
 </ion-view>
