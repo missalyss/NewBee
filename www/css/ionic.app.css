@@ -9830,14 +9830,18 @@ a.button {
 
 .honey_comb {
   -webkit-flex-wrap: wrap;
-  flex-wrap: wrap; }
+  flex-wrap: wrap;
+  justify-content: center; }
+  .honey_comb .comb {
+    padding: 0;
+    border: none; }
   .honey_comb .col {
     background-color: #fffc8d;
-    border: 0px; }
+    border: 0px;
+    position: relative; }
   .honey_comb .cell {
     height: 95px; }
   .honey_comb .cell-text {
-    left: 0;
     position: absolute;
     text-align: center;
     top: 45px;

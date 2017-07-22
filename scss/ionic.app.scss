@@ -36,10 +36,15 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 .honey_comb {
   -webkit-flex-wrap: wrap;
   flex-wrap: wrap;
+  justify-content: center;
+  .comb{
+    padding: 0;
+    border: none;
+  }
   .col {
     background-color: $bees;
     border: 0px;
-    // position:relative;
+    position:relative;
   }
   .cell {
     height: 95px;
@@ -47,7 +52,7 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 
   }
   .cell-text {
-    left: 0;
+    // left: 5px;
     position:absolute;
     text-align:center;
     top: 45px;
