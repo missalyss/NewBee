@@ -33,6 +33,10 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 // Include all of Ionic
 @import "www/lib/ionic/scss/ionic";
 
+.auth-center {
+  text-align: center;
+}
+
 .honey_comb {
   -webkit-flex-wrap: wrap;
   flex-wrap: wrap;

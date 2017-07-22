@@ -1,21 +1,35 @@
 <ion-view title="Sign Up">
   <ion-content class="padding">
+    <h1>Welcome to Newbee</h1>
+    <br>
 
-    <label for="signup-email">Email</label>
-    <input ng-model="user.email" id="signup-email" type="email" name="email" value="" autocapitalize="off" autocorrect="off">
+    <form novalidate name="signupForm">
+    <label class="item item-input">
+      <span class="input-label">Email</span>
+      <input ng-model="user.email" type="email" name="email" value="" autocapitalize="off" autocorrect="off">
+    </label>
 
-    <label for="signup-username">Username</label>
-    <input ng-model="user.username" id="signup-username" type="text" name="username" value="" autocapitalize="off" autocorrect="off">
+    <label class="item item-input">
+      <span class="input-label">Username</span>
+      <input ng-model="user.username" type="text" name="username" value="" autocapitalize="off" autocorrect="off">
+    </label>
 
-    <label for="signup-pw">Password</label>
-    <input ng-model="user.password" id="signup-pw" type="password" name="pw" value="" autocapitalize="off" autocorrect="off">
+    <label class="item item-input">
+      <span class="input-label">Password</span>
+      <input ng-model="user.password" type="password" name="pw" value="" autocapitalize="off" autocorrect="off">
+    </label>
 
-    <!-- <label for="signup-pw">Retype Password</label>
-    <input ng-model="user.password" id="signup-pw" type="password" name="pw" value=""> -->
+    <label class="item item-input">
+      <span class="input-label">Retype Password</span>
+      <input ng-model="retypePassword" type="password" name="retypePw" value="">
+    </label>
 
     <br>
-    <button ng-click="signup(user)" class="button button-calm" type="button" name="button">Sign Up</button>
+    <button ng-click="signup(user)" class="button button-calm button-block" type="button" name="button">Sign Up</button>
+  </form>
     <br>
-    <a ui-sref="login">Already have an account?</a>
+    <div class="auth-center">
+      <a ui-sref="login">Already have an account?</a>
+    </div>
   </ion-content>
 </ion-view>

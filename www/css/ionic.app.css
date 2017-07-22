@@ -9828,6 +9828,9 @@ a.button {
   -webkit-transition-duration: 0s;
   transition-duration: 0s; }
 
+.auth-center {
+  text-align: center; }
+
 .honey_comb {
   -webkit-flex-wrap: wrap;
   flex-wrap: wrap;
