@@ -3,24 +3,7 @@
 
     <ion-list>
       <div class="row">
-        <h1 class="col" >User</h1>
-      </div>
-
-      <div class="row row-center honey_comb">
-          <ion-item class="comb item-text-wrap">
-            <div ui-sref="tab.dash-user" class="col">
-              <!-- <img class="cell" src="/Users/missalyss/galvanize/projects/newbee/front_newbee/newbee/www/img/hex-vert-empty.png"> -->
-              <img class="cell" src="../img/hex-vert-empty.png" alt="">
-
-              <p class="cell-text">{{username}}</p>
-            </div>
-          </ion-item>
-      </div>
-    </ion-list>
-
-    <ion-list>
-      <div class="row">
-        <h1 class="col" >Inspections</h1>
+        <h1 class="col">Inspection Quick Links</h1>
       </div>
       <div class="row row-center honey_comb">
         <ion-item ng-click="showLog(log)" ng-repeat="log in recentInspections | orderBy: '-inspection_date' | limitTo: 2 as results" class="comb item-text-wrap">
@@ -38,7 +21,7 @@
               <!-- <img class="cell" src="/Users/missalyss/galvanize/projects/newbee/front_newbee/newbee/www/img/hex-vert-empty.png" alt=""> -->
               <img class="cell" src="../img/hex-vert-empty.png" alt="">
 
-              <p class="cell-text"><i class="ion-ios-plus-empty cell-text"></i></p>
+              <p class="cell-text">New</p>
             </div>
           </ion-item>
       </div>
@@ -46,22 +29,48 @@
 
     <ion-list>
       <div class="row">
-        <h1 class="col" >Monitor</h1>
+        <h1 class="col">Monitor Quick Links</h1>
       </div>
       <div class="row honey_comb">
         <ion-item class="comb item-text-wrap">
           <div ui-sref="tab.monitor-temp" class="col">
             <!-- <img class="cell" src="/Users/missalyss/galvanize/projects/newbee/front_newbee/newbee/www/img/hex-vert-empty.png" alt=""> -->
             <img class="cell" src="../img/hex-vert-empty.png" alt="">
-
-            <p class="cell-text">{{lastStat.temperature}}F</p>
+            <p ng-show="!lastStat.temperature" class="cell-text">Temperature</p>
+            <p ng-show="lastStat.temperature" class="cell-text">{{lastStat.temperature}}F</p>
           </div>
         </ion-item>
         <ion-item class="comb item-text-wrap">
           <div ui-sref="tab.monitor-humidity" class="col">
             <!-- <img class="cell" src="/Users/missalyss/galvanize/projects/newbee/front_newbee/newbee/www/img/hex-vert-empty.png" alt=""> -->
             <img class="cell" src="../img/hex-vert-empty.png" alt="">
-            <p class="cell-text">{{lastStat.humidity}}%</p>
+            <p ng-show="!lastStat.humidity" class="cell-text">Humidity</p>
+            <p ng-show="lastStat.humidity" class="cell-text">{{lastStat.humidity}}%</p>
+          </div>
+        </ion-item>
+      </div>
+    </ion-list>
+
+    <ion-list>
+      <div class="row">
+        <h1 class="col" >User</h1>
+      </div>
+
+      <div class="row row-center honey_comb">
+          <ion-item class="comb item-text-wrap">
+            <div ui-sref="tab.dash-user" class="col">
+              <!-- <img class="cell" src="/Users/missalyss/galvanize/projects/newbee/front_newbee/newbee/www/img/hex-vert-empty.png"> -->
+              <img class="cell" src="../img/hex-vert-empty.png" alt="">
+
+              <p class="cell-text">{{username}}</p>
+            </div>
+          </ion-item>
+          <ion-item class="comb item-text-wrap">
+            <div class="col">
+            <!-- <img class="cell" src="/Users/missalyss/galvanize/projects/newbee/front_newbee/newbee/www/img/hex-vert-empty.png"> -->
+            <img class="cell" src="../img/hex-vert-empty.png" alt="">
+            <p class="cell-text">Glossary</p>
+
           </div>
         </ion-item>
       </div>

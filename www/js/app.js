@@ -54,7 +54,7 @@ angular.module('app', ['ionic', 'app.auth', 'app.dash', 'app.auth-services', 'ap
     url: '/dash',
     views: {
       'tab-dash': {
-        templateUrl: 'templates/tab-dash.html',
+        templateUrl: 'templates/auth/tab-dash.html',
         controller: 'dashCtrl'
       }
     }
