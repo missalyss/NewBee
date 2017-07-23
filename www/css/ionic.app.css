@@ -9825,15 +9825,19 @@ a.button {
   justify-content: center; }
   .honey_comb .comb {
     padding: 0;
-    border: none; }
+    border: 0px; }
   .honey_comb .col {
     background-color: #fffc8d;
     border: 0px;
-    position: relative; }
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center; }
   .honey_comb .cell {
-    height: 95px; }
+    height: 100px;
+    margin: 0px 4px; }
   .honey_comb .cell-text {
+    padding: 6px;
     position: absolute;
     text-align: center;
-    top: 45px;
     width: 90%; }

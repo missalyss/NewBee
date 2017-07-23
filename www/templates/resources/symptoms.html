@@ -1,4 +1,4 @@
-<ion-view view-title="Symptoms">
+<ion-view view-title="">
   <ion-content class="padding">
 
     <div class="row">
@@ -12,9 +12,10 @@
     </div>
 
     <div class="row row-center honey_comb">
-      <ion-item class="col col-33" ng-repeat="term in symptoms | filter:termSearch">
-        <div ng-click="showSymptom(term)">
-          <img class="cell" src="/Users/missalyss/galvanize/projects/newbee/front_newbee/newbee/www/img/hex-vert-empty.png" alt="">
+      <ion-item class="comb" ng-repeat="term in symptoms | filter:termSearch">
+        <div ng-click="showSymptom(term)" class="col">
+          <!-- <img class="cell" src="/Users/missalyss/galvanize/projects/newbee/front_newbee/newbee/www/img/hex-vert-empty.png" alt=""> -->
+          <img class="cell" src="../img/hex-vert-empty.png" alt="">
           <p class="cell-text">{{term.symptom}}</p>
         </div>
       </ion-item>

@@ -33,21 +33,25 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
   justify-content: center;
   .comb{
     padding: 0;
-    border: none;
+    border: 0px;
   }
   .col {
     background-color: $bees;
     border: 0px;
     position:relative;
-  }
-  .cell {
-    height: 95px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
+  .cell {
+    height: 100px;
+    margin: 0px 4px;
+  }
   .cell-text {
+    padding: 6px;
     position:absolute;
     text-align:center;
-    top: 45px;
-    width: 90%
+    width: 90%;
   }
 }

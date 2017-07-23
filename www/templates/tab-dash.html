@@ -7,9 +7,11 @@
       </div>
 
       <div class="row row-center honey_comb">
-          <ion-item class="col col-33">
-            <div ui-sref="tab.dash-user">
-              <img class="cell" src="/Users/missalyss/galvanize/projects/newbee/front_newbee/newbee/www/img/hex-vert-empty.png">
+          <ion-item class="comb">
+            <div ui-sref="tab.dash-user" class="col">
+              <!-- <img class="cell" src="/Users/missalyss/galvanize/projects/newbee/front_newbee/newbee/www/img/hex-vert-empty.png"> -->
+              <img class="cell" src="../img/hex-vert-empty.png" alt="">
+
               <p class="cell-text">{{username}}</p>
             </div>
           </ion-item>
@@ -21,14 +23,21 @@
         <h1 class="col" >Inspections</h1>
       </div>
       <div class="row row-center honey_comb">
-        <ion-item ng-click="showLog(log)" ng-repeat="log in recentInspections | orderBy: '-inspection_date' | limitTo: 2 as results" class="col col-33">
-            <img class="cell" src="/Users/missalyss/galvanize/projects/newbee/front_newbee/newbee/www/img/hex-vert-empty.png" alt="">
+        <ion-item ng-click="showLog(log)" ng-repeat="log in recentInspections | orderBy: '-inspection_date' | limitTo: 2 as results" class="comb">
+          <div class="col">
+
+            <!-- <img class="cell" src="/Users/missalyss/galvanize/projects/newbee/front_newbee/newbee/www/img/hex-vert-empty.png" alt=""> -->
+            <img class="cell" src="../img/hex-vert-empty.png" alt="">
+
             <p class="cell-text">Log {{log.inspection_date | date:'MMM dd'}}</p>
+          </div>
         </ion-item>
 
-          <ion-item class="col col-33">
-            <div ui-sref="tab.inspection-new">
-              <img class="cell" src="/Users/missalyss/galvanize/projects/newbee/front_newbee/newbee/www/img/hex-vert-empty.png" alt="">
+          <ion-item class="comb">
+            <div ui-sref="tab.inspection-new" class="col">
+              <!-- <img class="cell" src="/Users/missalyss/galvanize/projects/newbee/front_newbee/newbee/www/img/hex-vert-empty.png" alt=""> -->
+              <img class="cell" src="../img/hex-vert-empty.png" alt="">
+
               <span><i class="ion-ios-plus-empty cell-text"></i></span>
             </div>
           </ion-item>
@@ -40,22 +49,23 @@
         <h1 class="col" >Monitor</h1>
       </div>
       <div class="row honey_comb">
-        <ion-item ng-click="#" class="col col-33">
-          <div ui-sref="tab.monitor-temp">
-            <img class="cell" src="/Users/missalyss/galvanize/projects/newbee/front_newbee/newbee/www/img/hex-vert-empty.png" alt="">
+        <ion-item class="comb">
+          <div ui-sref="tab.monitor-temp" class="col">
+            <!-- <img class="cell" src="/Users/missalyss/galvanize/projects/newbee/front_newbee/newbee/www/img/hex-vert-empty.png" alt=""> -->
+            <img class="cell" src="../img/hex-vert-empty.png" alt="">
+
             <p class="cell-text">{{lastStat.temperature}}F</p>
           </div>
         </ion-item>
-        <ion-item ng-click="#" class="col col-33">
-          <div ui-sref="tab.monitor-humidity">
-            <img class="cell" src="/Users/missalyss/galvanize/projects/newbee/front_newbee/newbee/www/img/hex-vert-empty.png" alt="">
+        <ion-item class="comb">
+          <div ui-sref="tab.monitor-humidity" class="col">
+            <!-- <img class="cell" src="/Users/missalyss/galvanize/projects/newbee/front_newbee/newbee/www/img/hex-vert-empty.png" alt=""> -->
+            <img class="cell" src="../img/hex-vert-empty.png" alt="">
             <p class="cell-text">{{lastStat.humidity}}%</p>
           </div>
         </ion-item>
       </div>
     </ion-list>
-
-
 
   </ion-content>
 </ion-view>
