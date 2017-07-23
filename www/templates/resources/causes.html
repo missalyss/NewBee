@@ -4,15 +4,15 @@
     <div class="row">
       <h1 class="col">Causes</h1>
     </div>
-    <div class="row">
-      <label class="item item-input">
-        <i class="icon ion-ios-search placeholder-icon"> </i>
-        <input ng-model="termSearch" type="text" name="" value="" placeholder="Search">
-      </label>
-    </div>
+
+    <label class="item item-input">
+      <i class="icon ion-ios-search placeholder-icon"></i>
+      <input ng-model="termSearch" type="text" name="" value="" placeholder="Search">
+    </label>
+    <br>
 
     <div class="row row-center honey_comb">
-      <ion-item class="comb" ng-repeat="term in causes | filter:termSearch">
+      <ion-item class="comb item-text-wrap" ng-repeat="term in causes | filter:termSearch">
         <div ng-click="showCause(term)" class="col">
           <!-- <img class="cell" src="/Users/missalyss/galvanize/projects/newbee/front_newbee/newbee/www/img/hex-vert-empty.png" alt=""> -->
           <img class="cell" src="../img/hex-vert-empty.png" alt="">

@@ -1,5 +1,6 @@
-<ion-view view-title="Humidity">
+<ion-view view-title="">
   <ion-content class="padding">
+    <h1>Humidity</h1>
     <label class="item item-input item-select">
         Chart view dates from:
       <select ng-model="hChart">
@@ -9,7 +10,7 @@
         <option value="allTime">All Time</option>
       </select>
     </label>
-
+    <br>
     <div ng-switch on="hChart">
 
       <div ng-switch-when="today">

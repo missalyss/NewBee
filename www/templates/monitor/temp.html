@@ -1,6 +1,6 @@
-<ion-view view-title="Temperature">
+<ion-view>
   <ion-content class="padding">
-
+    <h1>Temperature</h1>
     <label class="item item-input item-select">
         Chart view dates from:
       <select ng-model="tChart">
@@ -10,7 +10,7 @@
         <option value="allTime">All Time</option>
       </select>
     </label>
-
+<br>
     <div ng-switch on="tChart">
 
       <div ng-switch-when="today">
