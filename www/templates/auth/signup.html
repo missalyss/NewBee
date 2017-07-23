@@ -3,30 +3,41 @@
     <h1>Welcome to Newbee</h1>
     <br>
 
-    <form novalidate name="signupForm">
-    <label class="item item-input">
-      <span class="input-label">Email</span>
-      <input ng-model="user.email" type="email" name="email" value="" autocapitalize="off" autocorrect="off">
-    </label>
+      <div class="auth-center">
+        <h3 ng-show="signupForm.email.$error.required && signupForm.email.$touched">Email is required</h3>
+        <h3 ng-show="signupForm.email.$invalid && signupForm.email.$touched">Email is invalid</h3>
+        <h3 ng-show="signupForm.username.$error.required && signupForm.username.$touched">Username is required</h3>
+        <h3 ng-show="signupForm.username.$error.minlength && signupForm.username.$touched">Username must be longer than 5 characters</h3>
+        <h3 ng-show="signupForm.pw.$error.required && signupForm.pw.$touched">Password is required</h3>
+        <h3 ng-show="signupForm.pw.$error.minlength && signupForm.pw.$touched">Password must be longer than 6 characters</h3>
+        <h3 ng-show="signupForm.retypePw.$error.pattern && signupForm.retypePw.$touched">Passwords must match</h3>
+        <h3 ng-if="error">Username or email already taken. Try again.</h3>
+      </div>
 
-    <label class="item item-input">
-      <span class="input-label">Username</span>
-      <input ng-model="user.username" type="text" name="username" value="" autocapitalize="off" autocorrect="off">
-    </label>
+      <form novalidate class="padding" name="signupForm">
+        <label class="item item-input">
+          <span class="input-label">Email</span>
+          <input required ng-model="user.email" type="email" name="email" value="" autocapitalize="off" autocorrect="off">
+        </label>
 
-    <label class="item item-input">
-      <span class="input-label">Password</span>
-      <input ng-model="user.password" type="password" name="pw" value="" autocapitalize="off" autocorrect="off">
-    </label>
+        <label class="item item-input">
+          <span class="input-label">Username</span>
+          <input required ng-model="user.username" ng-minlength="5" type="text" name="username" value="" autocapitalize="off" autocorrect="off">
+        </label>
 
-    <label class="item item-input">
-      <span class="input-label">Retype Password</span>
-      <input ng-model="retypePassword" type="password" name="retypePw" value="">
-    </label>
+        <label class="item item-input">
+          <span class="input-label">Password</span>
+          <input required ng-model="user.password" ng-minlength="6" type="password" name="pw" value="" autocapitalize="off" autocorrect="off">
+        </label>
 
-    <br>
-    <button ng-click="signup(user)" class="button button-positive button-block" type="button" name="button">Sign Up</button>
-  </form>
+        <label class="item item-input">
+          <span class="input-label">Retype Password</span>
+          <input required ng-model="retypePassword" ng-pattern="user.password" ng-minlength="6" type="password" name="retypePw" value="">
+        </label>
+
+      <br>
+      <button ng-click="signup(user)" class="button button-positive button-block" ng-disabled="signupForm.$invalid" type="button" name="button">Sign Up</button>
+    </form>
     <br>
     <div class="auth-center">
       <a ui-sref="login">Already have an account?</a>

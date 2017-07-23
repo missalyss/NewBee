@@ -5,7 +5,6 @@ angular.module('app.auth', [])
   $scope.login = function (user) {
     authService.login(user)
     .then(result => {
-      console.log(result.data);
       authService.store(result.data.token)
       $state.go('tab.dash')
     })
@@ -13,11 +12,18 @@ angular.module('app.auth', [])
 })
 
 .controller('signupCtrl', function($scope, authService, $state) {
+  $scope.error = false
+
   $scope.signup = function (user) {
+
+
     authService.signup(user)
     .then(result => {
       authService.store(result.data.token)
       $state.go('tab.dash')
+    })
+    .catch(err => {
+      $scope.error = true
     })
   }
 })
@@ -48,7 +54,6 @@ angular.module('app.auth', [])
   })
 
   $scope.editUser = function (userData) {
-    console.log('req.body ', userData);
     $http.put(`${API_ENDPOINT.url}/users`, userData).then(result => {
       $state.go('tab.dash-user')
     })
