@@ -1,12 +1,16 @@
 angular.module('app.auth', [])
 
 .controller('loginCtrl', function($scope, authService, $state) {
+  $scope.error = false
 
   $scope.login = function (user) {
     authService.login(user)
     .then(result => {
       authService.store(result.data.token)
       $state.go('tab.dash')
+    })
+    .catch(err => {
+      $scope.error = true
     })
   }
 })
@@ -15,8 +19,6 @@ angular.module('app.auth', [])
   $scope.error = false
 
   $scope.signup = function (user) {
-
-
     authService.signup(user)
     .then(result => {
       authService.store(result.data.token)

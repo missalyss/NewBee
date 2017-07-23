@@ -2,7 +2,14 @@
   <ion-content class="padding">
     <h1>Welcome to newbee</h1>
     <br>
-    <form novalidate name="loginForm">
+
+    <div class="auth-center">
+      <h3 ng-show="loginForm.username.$error.required && loginForm.username.$touched">Username is required</h3>
+      <h3 ng-show="loginForm.pw.$error.required && loginForm.pw.$touched">Password is required</h3>
+      <h3 ng-if="error">Username or email invalid. Try again.</h3>
+    </div>
+
+    <form novalidate class="padding" name="loginForm">
 
       <label class="item item-input">
         <span class="input-label">Username</span>
@@ -21,7 +28,7 @@
       </label>
 
       <br>
-      <button ng-click="login(user)" class="button button-positive button-block" type="submit" name="button">Log in</button>
+      <button ng-click="login(user)" ng-disabled="loginForm.$invalid" class="button button-positive button-block" type="submit" name="button">Log in</button>
     </form>
       <br>
       <div class="auth-center">
