@@ -1,7 +1,13 @@
 <ion-view>
   <ion-content class="padding">
     <h1>Edit User Data</h1>
-    <form>
+    <br>
+    <div class="center">
+      <h3 ng-show="loginForm.username.$error.required && loginForm.username.$touched">Username is required</h3>
+      <h3 ng-show="loginForm.pw.$error.required && loginForm.pw.$touched">Password is required</h3>
+      <h3 ng-if="error">Username or email have already been taken. Try again.</h3>
+    </div>
+    <form novalidate class="padding" name="editUserForm">
       <label class="item item-input">
         <span class="input-label">Username:</span>
         <input ng-model="userData.username" type="text" name="username" value="{{userData.username}}" autocapitalize="off" autocorrect="off">
@@ -13,10 +19,12 @@
       </label>
 
       <br>
-      <button type="submit" class="button button-positive button-block" ng-click="editUser(userData)" name="button">Save</button>
+      <button type="submit" ng-disabled="editUserForm.$invalid" class="button button-positive button-block" ng-click="editUser(userData)" name="button">Save</button>
     </form>
-
-    <button type="button" class="button button-assertive button-block" ng-click="deleteAccount()" name="button">Delete Account</button>
+    
+    <div class="padding">
+      <button type="button" class="button button-assertive button-block" ng-click="deleteAccount()" name="button">Delete Account</button>
+    </div>
 
   </ion-content>
 </ion-view>

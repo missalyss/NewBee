@@ -48,6 +48,8 @@ angular.module('app.auth', [])
 
 
 .controller('userEditCtrl', function($scope, authService, userService, $http, API_ENDPOINT, $state, $ionicPopup) {
+  $scope.error= false
+
   $scope.$on('$ionicView.enter', function() {
     userService.thisUser()
     .then(result => {
@@ -58,6 +60,10 @@ angular.module('app.auth', [])
   $scope.editUser = function (userData) {
     $http.put(`${API_ENDPOINT.url}/users`, userData).then(result => {
       $state.go('tab.dash-user')
+    })
+    .catch(err => {
+      console.error(err);
+      $scope.error= true
     })
   }
 

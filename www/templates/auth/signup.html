@@ -3,7 +3,7 @@
     <h1>Welcome to Newbee</h1>
     <br>
 
-      <div class="auth-center">
+      <div class="center">
         <h3 ng-show="signupForm.email.$error.required && signupForm.email.$touched">Email is required</h3>
         <h3 ng-show="signupForm.email.$invalid && signupForm.email.$touched">Email is invalid</h3>
         <h3 ng-show="signupForm.username.$error.required && signupForm.username.$touched">Username is required</h3>
@@ -39,7 +39,7 @@
       <button ng-click="signup(user)" class="button button-positive button-block" ng-disabled="signupForm.$invalid" type="button" name="button">Sign Up</button>
     </form>
     <br>
-    <div class="auth-center">
+    <div class="center">
       <a ui-sref="login">Already have an account?</a>
     </div>
   </ion-content>
