@@ -55,15 +55,14 @@
           <span style="float: right;" ng-model"updateLog.humidity">{{updateLog.humidity}}%</span>
         </label>
       </li>
-
     </ul>
 
-
     <label class="item item-input">
-    <textarea rows="6" ng-model="updateLog.notes"></textarea></label>
+      <textarea rows="6" ng-model="updateLog.notes"></textarea>
+    </label>
 
-      <br>
-      <button class="button button-positive button-block" type="submit" ng-click="editLog(updateLog)" name="button">Save</button>
+    <!-- <div class="spacer"></div> -->
+    <button class="button button-positive button-block" type="submit" ng-click="editLog(updateLog)" name="button">Save</button>
 
     </form>
   </ion-content>
