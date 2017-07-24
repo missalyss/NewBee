@@ -1,73 +1,51 @@
 <ion-view title="Dashboard">
   <ion-content class="padding">
 
-    <!-- <ion-list> -->
+          <div class="row">
+            <h1 class="col">Monitor Quick Links</h1>
+          </div>
+          <div class="row honey_comb">
+              <div ui-sref="tab.monitor-temp" class="hex-img">
+                <div ng-show="!lastStat.temperature" class="hex-text">Temperature</div>
+                <div ng-show="lastStat.temperature" class="hex-text">Current Temperature
+                  <strong>{{lastStat.temperature}}F</strong>
+                </div>
+              </div>
+              <div ui-sref="tab.monitor-humidity" class="hex-img">
+                <div ng-show="!lastStat.humidity" class="hex-text">Humidity</div>
+                <div ng-show="lastStat.humidity" class="hex-text">Current Humidity
+                  <strong>{{lastStat.humidity}}%</strong>
+                </div>
+              </div>
+          </div>
+
       <div class="row">
         <h1 class="col">Inspection Quick Links</h1>
       </div>
       <div class="row honey_comb">
+        
+        <div class="hex-img" ui-sref="tab.inspection-new">
+          <div class="hex-text" style="">New</div>
+        </div>
 
-          <div class="hex-img" ui-sref="tab.inspection-new">
-            <div class="hex-text" style="">New</div>
-          </div>
-
-        <div class="hex-img" ng-click="showLog(log)" ng-repeat="log in recentInspections | orderBy: '-inspection_date' | limitTo: 2 as results" class="comb item-text-wrap">
-
-            <!-- <img class="cell" src="/Users/missalyss/galvanize/projects/newbee/front_newbee/newbee/www/img/hex-vert-empty.png" alt=""> -->
-
-            <div class="hex-text">{{log.inspection_date | date:'MMM dd'}}</div>
+        <div class="hex-img" ng-click="showLog(log)"
+        ng-repeat="log in recentInspections | orderBy: '-inspection_date' | limitTo: 2 as results" class="comb item-text-wrap">
+          <div class="hex-text">{{log.inspection_date | date:'MMM dd'}}</div>
         </div>
       </div>
-    <!-- </ion-list> -->
 
-    <ion-list>
-      <div class="row">
-        <h1 class="col">Monitor Quick Links</h1>
-      </div>
-      <div class="row honey_comb">
-        <ion-item class="comb item-text-wrap">
-          <div ui-sref="tab.monitor-temp" class="col">
-            <!-- <img class="cell" src="/Users/missalyss/galvanize/projects/newbee/front_newbee/newbee/www/img/hex-vert-empty.png" alt=""> -->
-            <img class="cell" src="../img/hex-vert-empty.png" alt="">
-            <p ng-show="!lastStat.temperature" class="cell-text">Temperature</p>
-            <p ng-show="lastStat.temperature" class="cell-text">{{lastStat.temperature}}F</p>
-          </div>
-        </ion-item>
-        <ion-item class="comb item-text-wrap">
-          <div ui-sref="tab.monitor-humidity" class="col">
-            <!-- <img class="cell" src="/Users/missalyss/galvanize/projects/newbee/front_newbee/newbee/www/img/hex-vert-empty.png" alt=""> -->
-            <img class="cell" src="../img/hex-vert-empty.png" alt="">
-            <p ng-show="!lastStat.humidity" class="cell-text">Humidity</p>
-            <p ng-show="lastStat.humidity" class="cell-text">{{lastStat.humidity}}%</p>
-          </div>
-        </ion-item>
-      </div>
-    </ion-list>
-
-    <ion-list>
       <div class="row">
         <h1 class="col" >User</h1>
       </div>
 
       <div class="row row-center honey_comb">
-          <ion-item class="comb item-text-wrap">
-            <div ui-sref="tab.dash-user" class="col">
-              <!-- <img class="cell" src="/Users/missalyss/galvanize/projects/newbee/front_newbee/newbee/www/img/hex-vert-empty.png"> -->
-              <img class="cell" src="../img/hex-vert-empty.png" alt="">
-
-              <p class="cell-text">{{username}}</p>
-            </div>
-          </ion-item>
-          <ion-item class="comb item-text-wrap">
-            <div ui-sref="tab.dash-start" class="col">
-            <!-- <img class="cell" src="/Users/missalyss/galvanize/projects/newbee/front_newbee/newbee/www/img/hex-vert-empty.png"> -->
-            <img class="cell" src="../img/hex-vert-empty.png" alt="">
-            <p class="cell-text">Getting Started</p>
-
-          </div>
-        </ion-item>
+        <div ui-sref="tab.dash-user" class="hex-img">
+          <div class="hex-text">{{username}}</div>
+        </div>
+        <!-- <div ui-sref="tab.dash-start" class="hex-img">
+          <div class="hex-text">Getting Started</div>
+        </div> -->
       </div>
-    </ion-list>
 
   </ion-content>
 </ion-view>

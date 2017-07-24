@@ -1,6 +1,5 @@
 <ion-view title="">
   <ion-content class="padding">
-    <ion-list>
       <div class="row">
         <h1 class="col">Inspection Log</h1>
         <button style="height: 85%;" class="button button-positive col col-20" ui-sref="tab.inspection-new()">New
@@ -8,16 +7,10 @@
       </div>
 
       <div class="row honey_comb">
-          <br>
-          <ion-item class="comb item-text-wrap"  ng-click="showLog(log)" ng-repeat="log in inspectionIndex | orderBy: '-inspection_date'">
-            <div class="col">
-            <!-- <img class="cell" src="/Users/missalyss/galvanize/projects/newbee/front_newbee/newbee/www/img/hex-vert-empty.png" alt=""> -->
-            <img class="cell" src="../img/hex-vert-empty.png" alt="">
-
-            <p class="cell-text">{{log.inspection_date}}</p>
+          <div class="hex-img"  ng-click="showLog(log)" 
+          ng-repeat="log in inspectionIndex | orderBy: '-inspection_date'">
+            <div class="hex-text">{{log.inspection_date}}</div>
           </div>
-          </ion-item>
       </div>
-    </ion-list>
   </ion-content>
 </ion-view>

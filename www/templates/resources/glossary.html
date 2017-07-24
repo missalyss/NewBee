@@ -12,13 +12,9 @@
     <br>
 
     <div class="row row-center honey_comb">
-      <ion-item class="comb item-text-wrap" ng-repeat="term in glossary | filter:termSearch">
-        <div class="col" ng-click="showTerm(term)">
-          <!-- <img class="cell" src="/Users/missalyss/galvanize/projects/newbee/front_newbee/newbee/www/img/hex-vert-empty.png" alt=""> -->
-          <img class="cell" src="../img/hex-vert-empty.png" alt="">
-          <p class="cell-text">{{term.word}}</p>
-        </div>
-      </ion-item>
+      <div ng-repeat="term in glossary | filter:termSearch" class="hex-img" ng-click="showTerm(term)">
+        <div class="hex-text">{{term.word}}</div>
+      </div>
     </div>
 
   </ion-content>
