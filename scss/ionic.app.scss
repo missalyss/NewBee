@@ -18,6 +18,30 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 // Include all of Ionic
 @import "www/lib/ionic/scss/ionic";
 
+.honey_comb {
+  -webkit-flex-wrap: wrap;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.hex-img {
+  position:relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: url(../img/hex-vert-empty.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size:contain;
+  height: 100px;
+  width: 100px;
+  margin: 5px;
+}
+
+.hex-text {
+  padding: 10px;
+  text-align: center;
+}
 
 .center {
   text-align: center;
@@ -27,34 +51,6 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
   height: 110px;
 }
 
-.honey_comb {
-  -webkit-flex-wrap: wrap;
-  flex-wrap: wrap;
-  justify-content: center;
-  .comb{
-    padding: 0;
-    border: 0px;
-  }
-  .col {
-    background-color: $bees;
-    border: 0px;
-    position:relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .cell {
-    height: 100px;
-    margin: 0px 4px;
-  }
-  .cell-text {
-    padding: 6px;
-    position:absolute;
-    text-align:center;
-    width: 90%;
-  }
-}
 
 .spacer {
   height: 10px;
