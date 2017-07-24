@@ -41,7 +41,7 @@ angular.module('app.inspect', [])
 
 })
 
-.controller('inspectShowCtrl', function($scope, $stateParams, $http, $state, inspectionService, API_ENDPOINT) {
+.controller('inspectShowCtrl', function($scope, $stateParams, $http, $state, inspectionService, API_ENDPOINT, $ionicPopup) {
   const id = $stateParams.id
 
   $scope.$on('$ionicView.enter', function () {
@@ -53,6 +53,14 @@ angular.module('app.inspect', [])
       })
       $scope.thisLog = $scope.thisLog[0]
       $scope.thisLog.inspection_date = moment($scope.thisLog.inspection_date).format('ddd MMM D, YYYY')
+
+      !$scope.thisLog.brood_age ? $scope.thisLog.brood_age = "Not recorded" : $scope.thisLog.brood_age
+      !$scope.thisLog.egg_pattern ? $scope.thisLog.egg_pattern = "Not recorded" : $scope.thisLog.egg_pattern
+      !$scope.thisLog.temperment ? $scope.thisLog.temperment = "Not recorded" : $scope.thisLog.temperment
+      !$scope.thisLog.notes ? $scope.thisLog.notes = "Not recorded" : $scope.thisLog.notes
+      !$scope.thisLog.queen ? $scope.thisLog.queen = "Nope" : $scope.thisLog.queen = "Yes!"
+
+
     })
   })
 
@@ -61,8 +69,17 @@ angular.module('app.inspect', [])
   }
 
   $scope.deleteLog = function (log) {
-    $http.delete(`${API_ENDPOINT.url}/inspections/${log.id}`).then(result => {
-      $state.go('tab.inspect')
+    var deleteAccountPopup = $ionicPopup.confirm({
+      title: 'Are you sure you want to delete this inspection?',
+      template: 'You cannot undo this action.'
+    })
+
+    deleteAccountPopup.then((res) => {
+      if(res) {
+        $http.delete(`${API_ENDPOINT.url}/inspections/${log.id}`).then(result => {
+          $state.go('tab.inspect')
+        })
+      }
     })
   }
 })

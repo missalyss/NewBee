@@ -27,3 +27,7 @@ angular.module('app.dash', [])
   }
 
 })
+
+.controller('gettingStartedCtrl', function($scope) {
+
+})

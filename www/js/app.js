@@ -60,6 +60,16 @@ angular.module('app', ['ionic', 'app.auth', 'app.dash', 'app.auth-services', 'ap
     }
   })
 
+  .state('tab.dash-start', {
+    url: '/dash/getting-started',
+    views: {
+      'tab-dash': {
+        templateUrl: 'templates/auth/getting-started.html',
+        controller: 'gettingStartedCtrl'
+      }
+    }
+  })
+
   .state('tab.dash-user', {
     url: '/user',
     views: {
