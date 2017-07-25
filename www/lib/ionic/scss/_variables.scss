@@ -23,9 +23,9 @@ $font-family-serif:               'Josefin Sans', '-apple-system', "Helvetica Ne
 $font-family-monospace:           monospace !default;
 
 $font-family-base:                $font-family-sans-serif !default;
-$font-size-base:                  16px !default;
-$font-size-large:                 18px !default;
-$font-size-small:                 11px !default;
+$font-size-base:                  17px !default;
+$font-size-large:                 19px !default;
+$font-size-small:                 14px !default;
 
 $line-height-base:                1.428571429 !default; // 20/14
 $line-height-computed:            floor($font-size-base * $line-height-base) !default; // ~20px
@@ -62,7 +62,7 @@ $border-radius-small:             3px !default;
 // Content
 // -------------------------------
 
-$scroll-refresh-icon-color:       #666666 !default;
+$scroll-refresh-icon-color:       $positive !default;
 
 
 // Buttons

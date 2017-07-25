@@ -9,7 +9,7 @@ $assertive:                       #711217 !default;
 $royal:                           #4D0E52 !default;
 $balanced:                        #1b5c29 !default;
 $dark:                            #262626 !default;
-$bees:                            #fffc8d !default
+$bees:                            #FFEE7A !default
 
 */
 /*!
@@ -3334,10 +3334,10 @@ body,
   padding: 0;
   color: #000;
   word-wrap: break-word;
-  font-size: 16px;
+  font-size: 17px;
   font-family: -apple-system;
   font-family: "Josefin Sans", "Centaur", "Century Schoolbook", "-apple-system", "Helvetica Neue", "Roboto", "Segoe UI", sans-serif;
-  line-height: 22px;
+  line-height: 24px;
   text-rendering: optimizeLegibility;
   -webkit-backface-visibility: hidden;
   -webkit-user-drag: none;
@@ -3479,7 +3479,7 @@ ion-infinite-scroll {
   ion-infinite-scroll .icon {
     color: #666666;
     font-size: 30px;
-    color: #666666; }
+    color: #1c5c96; }
   ion-infinite-scroll:not(.active) .spinner,
   ion-infinite-scroll:not(.active) .icon:before {
     display: none; }
@@ -3557,7 +3557,7 @@ ion-infinite-scroll {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: #fffc8d;
+  background-color: #FFEE7A;
   overflow: hidden; }
 
 .view-container {
@@ -3571,7 +3571,7 @@ ion-infinite-scroll {
  * --------------------------------------------------
  */
 p {
-  margin: 0 0 11px;
+  margin: 0 0 12px;
   font-family: "Josefin Sans", "Centaur", "Century Schoolbook", "-apple-system", "Helvetica Neue", "Roboto", "Segoe UI", sans-serif; }
 
 small {
@@ -3603,8 +3603,8 @@ h1, h2, h3, h4, h5, h6,
 h1, .h1,
 h2, .h2,
 h3, .h3 {
-  margin-top: 22px;
-  margin-bottom: 11px; }
+  margin-top: 24px;
+  margin-bottom: 12px; }
   h1:first-child, .h1:first-child,
   h2:first-child, .h2:first-child,
   h3:first-child, .h3:first-child {
@@ -3630,44 +3630,44 @@ h3, .h3 {
   h3 + .h3, .h3 + h1, .h3 + .h1,
   .h3 + h2, .h3 + .h2,
   .h3 + h3, .h3 + .h3 {
-    margin-top: 11px; }
+    margin-top: 12px; }
 
 h4, .h4,
 h5, .h5,
 h6, .h6 {
-  margin-top: 11px;
-  margin-bottom: 11px; }
+  margin-top: 12px;
+  margin-bottom: 12px; }
 
 h1, .h1 {
-  font-size: 41px; }
+  font-size: 44px; }
 
 h2, .h2 {
-  font-size: 34px; }
+  font-size: 36px; }
 
 h3, .h3 {
-  font-size: 28px; }
+  font-size: 29px; }
 
 h4, .h4 {
-  font-size: 20px; }
+  font-size: 22px; }
 
 h5, .h5 {
-  font-size: 16px; }
+  font-size: 17px; }
 
 h6, .h6 {
-  font-size: 14px; }
+  font-size: 15px; }
 
 h1 small, .h1 small {
-  font-size: 28px; }
+  font-size: 29px; }
 
 h2 small, .h2 small {
-  font-size: 20px; }
+  font-size: 22px; }
 
 h3 small, .h3 small,
 h4 small, .h4 small {
-  font-size: 16px; }
+  font-size: 17px; }
 
 dl {
-  margin-bottom: 22px; }
+  margin-bottom: 24px; }
 
 dt,
 dd {
@@ -3677,12 +3677,12 @@ dt {
   font-weight: bold; }
 
 blockquote {
-  margin: 0 0 22px;
-  padding: 11px 22px;
+  margin: 0 0 24px;
+  padding: 12px 24px;
   border-left: 5px solid gray; }
   blockquote p {
     font-weight: 300;
-    font-size: 20px;
+    font-size: 21.25px;
     line-height: 1.25; }
   blockquote p:last-child {
     margin-bottom: 0; }
@@ -3700,7 +3700,7 @@ blockquote:after {
 
 address {
   display: block;
-  margin-bottom: 22px;
+  margin-bottom: 24px;
   font-style: normal;
   line-height: 1.42857; }
 
@@ -7346,7 +7346,7 @@ ion-slides {
     bottom: 15px;
     left: 0;
     width: 100%;
-    color: #666666;
+    color: #1c5c96;
     text-align: center;
     font-size: 30px; }
     .scroll-refresher .ionic-refresher-content .text-refreshing,
@@ -7529,7 +7529,7 @@ legend {
   width: 100%;
   border: 1px solid #ddd;
   color: #262626;
-  font-size: 24px;
+  font-size: 25.5px;
   line-height: 2.85714; }
   legend small {
     color: #fffffd;
@@ -7541,7 +7541,7 @@ button,
 select,
 textarea {
   font-weight: normal;
-  font-size: 16px;
+  font-size: 17px;
   line-height: 1.42857; }
 
 input,
@@ -7693,7 +7693,7 @@ textarea {
 
 .item-stacked-label input {
   overflow: hidden;
-  height: 50px; }
+  height: 53px; }
 
 .item-select.item-stacked-label select {
   position: relative;
@@ -7738,11 +7738,11 @@ input[type="color"] {
   display: block;
   padding-top: 2px;
   padding-left: 0;
-  height: 38px;
+  height: 41px;
   color: #111;
   vertical-align: middle;
-  font-size: 16px;
-  line-height: 18px; }
+  font-size: 17px;
+  line-height: 19px; }
 
 .platform-ios input[type="datetime-local"],
 .platform-ios input[type="date"],
@@ -7805,7 +7805,7 @@ input[type="checkbox"] {
   width: auto; }
 
 input[type="file"] {
-  line-height: 36px; }
+  line-height: 38px; }
 
 .previous-input-focus,
 .cloned-text-input + input,
@@ -8491,7 +8491,7 @@ input:checked + .checkbox-icon:after {
     text-indent: .01px;
     text-overflow: '';
     white-space: nowrap;
-    font-size: 16px;
+    font-size: 17px;
     cursor: pointer;
     direction: rtl; }
   .item-select select::-ms-expand {
