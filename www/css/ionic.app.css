@@ -9839,7 +9839,12 @@ a.button {
   text-align: center; }
 
 .avatar {
-  height: 110px; }
+  background-image: url(../img/hex-avatar.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: 105px;
+  width: 105px; }
 
 .spacer {
   height: 10px; }

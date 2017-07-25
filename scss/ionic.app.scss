@@ -38,6 +38,8 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
   margin: 5px;
 }
 
+
+
 .hex-text {
   padding: 10px;
   text-align: center;
@@ -48,7 +50,13 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 }
 
 .avatar {
-  height: 110px;
+  background-image: url(../img/hex-avatar.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size:contain;
+  height: 105px;
+  width: 105px;
+
 }
 
 .spacer {
