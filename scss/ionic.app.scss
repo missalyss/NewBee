@@ -29,7 +29,7 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-image: url(../img/hex-vert-empty.png);
+  background-image: url(../img/hex-vert-solid.png);
   background-position: center;
   background-repeat: no-repeat;
   background-size:contain;
@@ -56,7 +56,7 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 }
 
 .shade {
-  background-image: url(../img/hex-vert-shade.png);
+  opacity: 0.5;
 }
 
 h1 {

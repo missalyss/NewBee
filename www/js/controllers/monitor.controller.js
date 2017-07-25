@@ -1,10 +1,20 @@
 angular.module('app.monitor', [])
 
 .controller('monitorCtrl', function($scope, monitorService) {
+  $scope.sensors = {}
+
+  monitorService.all().then(result => {
+    result.data[0].temperature ? $scope.sensors.temperature = true : $scope.sensors.temperature = false
+    result.data[0].humidity ? $scope.sensors.humidity = true : $scope.sensors.humidity = false
+    result.data[0].acoustics ? $scope.sensors.acoustics = true : $scope.sensors.acoustics = false
+    result.data[0].weight ? $scope.sensors.weight = true : $scope.sensors.weight = false
+    result.data[0].brood_temp ? $scope.sensors.brood_temp = true : $scope.sensors.brood_temp = false
+
+  })
 })
 
 .controller('tempCtrl', function($scope, monitorService) {
-  $scope.myColors = ['#1c5c96', '#1c5c96', '#1c5c96', '#1c5c96', '#1c5c96', '#1c5c96', '#1c5c96']
+  $scope.myColors = ['#1c5c96']
   $scope.tOptions = {
     scales: {
         xAxes: [{

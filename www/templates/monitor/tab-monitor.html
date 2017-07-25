@@ -6,24 +6,24 @@
       </div>
       <div class="row row-center honey_comb">
 
-        <div ui-sref="tab.monitor-temp()" class="hex-img">
-            <div class="hex-text">Temperature</div>
+        <div ui-sref="tab.monitor-temp()" class="hex-img" ng-class="{shade: !sensors.temperature}">
+            <div class="hex-text" ng-model="sensors.temperature">Temperature</div>
           </div>
 
-        <div ui-sref="tab.monitor-humidity()" class="hex-img">
-            <div class="hex-text">Humidity</div>
+        <div ui-sref="tab.monitor-humidity()" class="hex-img" ng-class="{shade: !sensors.humidity}">
+            <div class="hex-text" ng-model="sensors.humidity">Humidity</div>
           </div>
 
-        <div class="hex-img shade">
-          <div class="hex-text">Acoustics</div>
+        <div class="hex-img" ng-class="{shade: !sensors.acoustics}">
+          <div class="hex-text" ng-model="sensors.acoustics">Acoustics</div>
         </div>
 
-        <div class="hex-img shade">
-          <div class="hex-text">Weight</div>
+        <div class="hex-img" ng-class="{shade: !sensors.weight}">
+          <div class="hex-text" ng-model="sensors.weight">Weight</div>
         </div>
 
-        <div class="hex-img shade">
-          <div class="hex-text">Brood Temp</div>
+        <div class="hex-img" ng-class="{shade: !sensors.brood_temp}">
+          <div class="hex-text" ng-model="sensors.brood_temp">Brood Temp</div>
         </div>
 
           <!-- <div  class="hex-img">

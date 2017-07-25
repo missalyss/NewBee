@@ -9823,7 +9823,7 @@ a.button {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-image: url(../img/hex-vert-empty.png);
+  background-image: url(../img/hex-vert-solid.png);
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
@@ -9845,7 +9845,7 @@ a.button {
   height: 10px; }
 
 .shade {
-  background-image: url(../img/hex-vert-shade.png); }
+  opacity: 0.5; }
 
 h1 {
   font-size: 39px;

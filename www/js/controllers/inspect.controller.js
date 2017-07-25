@@ -54,22 +54,30 @@ angular.module('app.inspect', [])
       $scope.thisLog = $scope.thisLog[0]
       $scope.thisLog.inspection_date = moment($scope.thisLog.inspection_date).format('ddd MMM D, YYYY')
 
-      !$scope.thisLog.egg_pattern ? $scope.thisLog.egg_pattern = "Not recorded" : $scope.thisLog.egg_pattern
-      !$scope.thisLog.temperment ? $scope.thisLog.temperment = "Not recorded" : $scope.thisLog.temperment
       !$scope.thisLog.notes ? $scope.thisLog.notes = "Not recorded" : $scope.thisLog.notes
-      !$scope.thisLog.queen ? $scope.thisLog.queen = "Nope" : $scope.thisLog.queen = "Yes!"
+      $scope.thisLog.queen = !$scope.thisLog.queen ? "Nope" : "Yes!"
 
-      if (!$scope.thisLog.brood_age) {$scope.thisLog.brood_age = "Not recorded"
-    } else if ($scope.thisLog.brood_age === "egg")
-       {$scope.thisLog.brood_age = "Egg"
-     } else if ($scope.thisLog.brood_age === "young_larva") {$scope.thisLog.brood_age = "Young Larva"
-   } else if ($scope.thisLog.brood_age === "med_larva"){
-     $scope.thisLog.brood_age = "Medium Larva"
-   }
-      else if ($scope.thisLog.brood_age === "large_larva"){$scope.thisLog.brood_age = "Large Larva"}
-      else if ($scope.thisLog.brood_age === "capped"){$scope.thisLog.brood_age = "Capped"}
-      else {$scope.thisLog.brood_age = "Not Applicable"}
+      $scope.thisLog.brood_age =
+        !$scope.thisLog.brood_age ? "Not recorded" :
+        $scope.thisLog.brood_age === "egg" ? "Egg" :
+        $scope.thisLog.brood_age === "young_larva" ? "Young Larva" :
+        $scope.thisLog.brood_age === "med_larva" ? "Medium Larva" :
+        $scope.thisLog.brood_age === "large_larva" ? "Large Larva" :
+        $scope.thisLog.brood_age === "capped" ? "Capped" : "Not Applicable"
 
+      $scope.thisLog.egg_pattern =
+        !$scope.thisLog.egg_pattern ? 3 :
+        $scope.thisLog.egg_pattern == 1 ? "Very spotty 👎" :
+        $scope.thisLog.egg_pattern == 2 ? "Pretty spotty" :
+        $scope.thisLog.egg_pattern == 3 ? "Adequate" :
+        $scope.thisLog.egg_pattern == 4 ? "Pretty solid" : "Solid 👍"
+
+        $scope.thisLog.temperment =
+          !$scope.thisLog.temperment ? 3 :
+          $scope.thisLog.temperment == 1 ? "😖" :
+          $scope.thisLog.temperment == 2 ? "😕" :
+          $scope.thisLog.temperment == 3 ? "😶" :
+          $scope.thisLog.temperment == 4 ? "🙂" : "😊"
 
     })
   })
