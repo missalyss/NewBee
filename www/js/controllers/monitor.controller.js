@@ -21,7 +21,9 @@ angular.module('app.monitor', [])
             type:'time',
             time: {
                 displayFormats: {
-                  minute: 'h:mm a'
+                  minute: 'h:mm a',
+                  hour: 'ha',
+                  day: 'M/DD'
                 }
             }
         }],
@@ -114,8 +116,8 @@ angular.module('app.monitor', [])
                 time: {
                     displayFormats: {
                       minute: 'h:mm a',
-                      hour: 'h:mm a',
-                      day: 'MM-D hA'
+                      hour: 'ha',
+                      day: 'M/DD'
                     }
                 }
             }],

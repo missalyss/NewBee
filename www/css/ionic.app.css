@@ -9855,3 +9855,9 @@ a.button {
 h1 {
   font-size: 39px;
   text-align: center; }
+
+.larger {
+  font-size: 20px; }
+
+.marginal {
+  margin-left: 8px; }

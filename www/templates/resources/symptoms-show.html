@@ -2,23 +2,23 @@
   <ion-content class="padding">
 
     <h1 class="col">{{thisSymptom.symptom}}</h1>
-    <p class="col">{{thisSymptom.details}}</p>
-    <div ng-click="clicked = !clicked">
-
-    <a ng-show="thisSymptom.symptom_gloss_id" >
-      <i ng-show="!clicked" class="icon ion-ios-plus-outline"></i> <i ng-show="clicked" class="icon ion-ios-plus"></i> Definition</a>
+    <div class="larger" ng-click="clicked = !clicked">
+      <a ng-show="thisSymptom.symptom_gloss_id" >
+        <i ng-show="!clicked" class="icon ion-ios-plus-outline"></i>
+        <i ng-show="clicked" class="icon ion-ios-plus"></i> Definition</a>
     </div>
-      <div ng-show="clicked">
-        <p>{{thisSymptom.glossDef}}</p>
-      </div>
+    <div ng-show="clicked">
+      <p>{{thisSymptom.glossDef}}</p>
+    </div>
+    <p class="col">{{thisSymptom.details}}</p>
 
     <h3>Possible Causes:</h3>
     <ul>
-      <li ng-repeat="cause in theseCauses | orderBy:'-votes'">
-        <i ng-click="scUpVote(cause)" class="icon ion-ios-arrow-up"></i>
-        <span> {{cause.votes}} </span>
-        <i ng-click="scDownVote(cause)" class="icon ion-ios-arrow-down"></i>
-        <a ng-click="causeLink(cause.cause_id)">  {{cause.cause}}</a>
+      <li class="row row-center larger" ng-repeat="cause in theseCauses | orderBy:'-votes'">
+        <button class="col-10 button button-positive button-small" ng-click="scUpVote(cause)"><i class="icon ion-ios-arrow-up"></i></button>
+        <span class="col-10 center"> {{cause.votes}} </span>
+        <button class="col-10 button button-positive button-small" ng-click="scDownVote(cause)"><i class="icon ion-ios-arrow-up"></i></button>
+        <a class="col marginal" ng-click="causeLink(cause.cause_id)">  {{cause.cause}}</a>
       </li>
     </ul>
 
