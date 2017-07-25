@@ -64,7 +64,7 @@ angular.module('app', ['ionic', 'app.auth', 'app.dash', 'app.auth-services', 'ap
     url: '/dash/getting-started',
     views: {
       'tab-dash': {
-        templateUrl: 'templates/auth/getting-started.html',
+        templateUrl: 'templates/auth/about.html',
         controller: 'gettingStartedCtrl'
       }
     }
