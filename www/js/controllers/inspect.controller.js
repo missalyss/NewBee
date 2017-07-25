@@ -7,7 +7,8 @@ angular.module('app.inspect', [])
     inspectionService.all().then(result => {
       $scope.inspectionIndex = result.data
       $scope.inspectionIndex.forEach(element => {
-        element.inspection_date = moment(element.inspection_date).format('MMM Do')
+        element.inspection_date = moment(element.inspection_date)
+        .format('MMM DD')
       })
     })
 
@@ -66,14 +67,14 @@ angular.module('app.inspect', [])
         $scope.thisLog.brood_age === "capped" ? "Capped" : "Not Applicable"
 
       $scope.thisLog.egg_pattern =
-        !$scope.thisLog.egg_pattern ? 3 :
+        !$scope.thisLog.egg_pattern ? "Adequate" :
         $scope.thisLog.egg_pattern == 1 ? "Very spotty 👎" :
         $scope.thisLog.egg_pattern == 2 ? "Pretty spotty" :
         $scope.thisLog.egg_pattern == 3 ? "Adequate" :
         $scope.thisLog.egg_pattern == 4 ? "Pretty solid" : "Solid 👍"
 
         $scope.thisLog.temperment =
-          !$scope.thisLog.temperment ? 3 :
+          !$scope.thisLog.temperment ? "😶" :
           $scope.thisLog.temperment == 1 ? "😖" :
           $scope.thisLog.temperment == 2 ? "😕" :
           $scope.thisLog.temperment == 3 ? "😶" :
