@@ -7,7 +7,7 @@
         <h3 ng-show="signupForm.email.$error.required && signupForm.email.$touched">Email is required</h3>
         <h3 ng-show="signupForm.email.$invalid && signupForm.email.$touched">Email is invalid</h3>
         <h3 ng-show="signupForm.username.$error.required && signupForm.username.$touched">Username is required</h3>
-        <h3 ng-show="signupForm.username.$error.minlength && signupForm.username.$touched">Username must be longer than 5 characters</h3>
+        <h3 ng-show="signupForm.username.$error.minlength && signupForm.username.$touched">Username must be longer than 4 characters</h3>
         <h3 ng-show="signupForm.pw.$error.required && signupForm.pw.$touched">Password is required</h3>
         <h3 ng-show="signupForm.pw.$error.minlength && signupForm.pw.$touched">Password must be longer than 6 characters</h3>
         <h3 ng-show="signupForm.retypePw.$error.pattern && signupForm.retypePw.$touched">Passwords must match</h3>
@@ -22,7 +22,7 @@
 
         <label class="item item-input">
           <span class="input-label">Username</span>
-          <input required ng-model="user.username" ng-minlength="5" type="text" name="username" value="" autocapitalize="off" autocorrect="off">
+          <input required ng-model="user.username" ng-minlength="4" type="text" name="username" value="" autocapitalize="off" autocorrect="off">
         </label>
 
         <label class="item item-input">
