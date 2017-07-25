@@ -9827,8 +9827,8 @@ a.button {
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
-  height: 100px;
-  width: 100px;
+  height: 105px;
+  width: 105px;
   margin: 5px; }
 
 .hex-text {
@@ -9843,6 +9843,9 @@ a.button {
 
 .spacer {
   height: 10px; }
+
+.shade {
+  background-image: url(../img/hex-vert-shade.png); }
 
 h1 {
   font-size: 39px;

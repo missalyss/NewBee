@@ -4,7 +4,7 @@ angular.module('app.monitor', [])
 })
 
 .controller('tempCtrl', function($scope, monitorService) {
-  $scope.myColors = ['#1c5c96']
+  $scope.myColors = ['#1c5c96', '#1c5c96', '#1c5c96', '#1c5c96', '#1c5c96', '#1c5c96', '#1c5c96']
   $scope.tOptions = {
     scales: {
         xAxes: [{
