@@ -7,8 +7,7 @@ angular.module('app.inspect', [])
     inspectionService.all().then(result => {
       $scope.inspectionIndex = result.data
       $scope.inspectionIndex.forEach(element => {
-        element.inspection_date = moment(element.inspection_date)
-        .format('MMM DD')
+        element.inspection_date = moment(element.inspection_date).toDate()
       })
     })
 

@@ -30,7 +30,7 @@
 
         <div class="hex-img" ng-click="showLog(log)"
         ng-repeat="log in recentInspections | orderBy: '-inspection_date' | limitTo: 2 as results" class="comb item-text-wrap">
-          <div class="hex-text">{{log.inspection_date | date:'MMM dd'}}</div>
+          <div class="hex-text">{{log.inspection_date | date:'MMM d'}}</div>
         </div>
       </div>
 
