@@ -1,25 +1,60 @@
-Ionic App Base
-=====================
+# NewBee
+========================
 
-A starting project for Ionic that optionally supports using custom SCSS.
+NewBee is a mobile app that utilizes Internet of Things (among other things) to aide "newbee" beekeepers understand how to care for their hive.
 
-## Using this project
 
-We recommend using the [Ionic CLI](https://github.com/driftyco/ionic-cli) to create new Ionic projects that are based on this project but use a ready-made starter template.
+## Features
+<img src="www/img/readme/splash.PNG"> | <img src="www/img/readme/dash.PNG">
 
-For example, to start a new Ionic project with the default tabs interface, make sure the `ionic` utility is installed:
+### Inspections
 
-```bash
-$ npm install -g ionic
+<img src="www/img/readme/inspect_all.PNG">  <img src="www/img/readme/inspect_new.PNG">
+
+### Monitor
+
+<img src="www/img/readme/chart.PNG">
+
+<img src="www/img/readme/chart_dates.PNG">
+
+### Bee MD
+
+<img src="www/img/readme/causes_all.PNG">  <img src="www/img/readme/causes_show.PNG">
+
+## Installation
+The repository can be downloaded and run as a web application for development/testing:
+
+1. Run npm install to download necessary dependencies.
+2. Make sure Ionic v1 is installed: http://ionicframework.com/getting-started
+3. In the terminal, use Ionic to run the application:
+```
+$ ionic serve
 ```
 
-Then run: 
+Native mobile downloads of the app are currently only available with TestFlight via invite of developer.
 
-```bash
-$ ionic start myProject tabs
-```
+## Technology
+AngularJS, Ionic v1, JavaScript, Node.js, PostgreSQL, ExpressJS, Knex.js, SASS, Bootstrap
 
-More info on this can be found on the Ionic [Getting Started](http://ionicframework.com/getting-started) page and the [Ionic CLI](https://github.com/driftyco/ionic-cli) repo.
+## Backend Repositories
 
-## Issues
-Issues have been disabled on this repo, if you do find an issue or have a question consider posting it on the [Ionic Forum](http://forum.ionicframework.com/).  Or else if there is truly an error, follow our guidelines for [submitting an issue](http://ionicframework.com/submit-issue/) to the main Ionic repository.
+#### BeeMD:
+- Public API that acts as a "Web MD" for bees
+- [GitHub](https://github.com/missalyss/Bee_MD)
+- [Deployed site](https://bee-md.herokuapp.com/)
+
+#### Internet of Stings:
+- Mostly private API that collects user information including inspection logs and beehive monitor data
+- [GitHub](https://github.com/missalyss/internet_of_stings_api)
+- [Deployed site](https://internet-of-stings.herokuapp.com/)
+
+#### Honey Pi:
+- Beehive monitor used in Raspberry Pi. Written in Python, and uses the [Adafruit DHT Library](https://github.com/adafruit/Adafruit_Python_DHT)
+- [GitHub](https://github.com/missalyss/honey_pi)
+
+## Developed July 2017:
+
+#### Alyssa Evans:
+- [GitHub](https://github.com/missalyss)
+- [LinkedIn](https://www.linkedin.com/in/alyssa-m-evans/)
+- Contact developer at alyssa.m.evans@gmail.com for information on how to download the app through iOS' TestFlight.
