@@ -96,4 +96,3 @@ Native mobile downloads of the app are currently only available with TestFlight 
 #### Alyssa Evans:
 - [GitHub](https://github.com/missalyss)
 - [LinkedIn](https://www.linkedin.com/in/alyssa-m-evans/)
-- Contact developer at alyssa.m.evans@gmail.com for information on how to download the app through iOS' TestFlight.
